@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let Scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: Scene)
         
-        let mainVC = HomeViewController()
+        let mainVC = FirstViewController()
         let nav1 = UINavigationController(rootViewController: mainVC)
         let searchVC = SearchViewController()
         let nav2 = UINavigationController(rootViewController: searchVC)

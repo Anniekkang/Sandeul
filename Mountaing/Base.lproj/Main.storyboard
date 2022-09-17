@@ -58,10 +58,10 @@
             </objects>
             <point key="canvasLocation" x="-78.260869565217391" y="-887.27678571428567"/>
         </scene>
-        <!--Home View Controller-->
+        <!--First View Controller-->
         <scene sceneID="Wk4-ET-IZa">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="WyB-Gi-EI1" customClass="HomeViewController" customModule="Mountaing" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstViewController" id="WyB-Gi-EI1" customClass="FirstViewController" customModule="Mountaing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UTk-Tg-SGU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
