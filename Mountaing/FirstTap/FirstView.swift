@@ -45,7 +45,7 @@ class FirstView: BaseView {
         heightDimension: .fractionalHeight(1.0)
       )
       let item = NSCollectionLayoutItem(layoutSize: itemSize)
-      item.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 8, bottom: 12, trailing: 8)
+      item.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 10, bottom: 12, trailing: 10)
       
       // group
       let groupSize = NSCollectionLayoutSize(
@@ -58,8 +58,9 @@ class FirstView: BaseView {
       )
       
       let headerSize = NSCollectionLayoutSize(
-        widthDimension: .fractionalWidth(1.0),
+        widthDimension: .fractionalWidth(0.9),
         heightDimension: .absolute(40)
+    
       )
       let header = NSCollectionLayoutBoundarySupplementaryItem(
         layoutSize: headerSize,

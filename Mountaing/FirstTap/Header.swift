@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import SwiftUI
 
 class Header: UICollectionReusableView {
 
@@ -17,7 +18,8 @@ class Header: UICollectionReusableView {
         super.init(frame: frame)
         label.text = "Categories"
         label.textColor = .black
-        label.font = .monospacedDigitSystemFont(ofSize: 15, weight: .medium)
+        label.backgroundColor = .clear
+        label.font = Font.happiness.largeFont
         addSubview(stackView)
         stackView.addArrangedSubview(label)
         

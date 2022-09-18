@@ -9,10 +9,8 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class APIManager {
-    static let shared = APIManager()
-    
-    private init(){}
+
+
     
 
     
@@ -21,5 +19,4 @@ class APIManager {
     
     
     
-}
 

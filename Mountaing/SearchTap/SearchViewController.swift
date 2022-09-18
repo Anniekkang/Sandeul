@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchViewController: BaseViewController {
+class SearchViewController: BaseViewController,UISearchBarDelegate, UISearchControllerDelegate {
 
     
     var mainView = SearchView()
@@ -20,6 +20,8 @@ class SearchViewController: BaseViewController {
         mainView.backgroundColor = .white
         setupSearchController()
         mainView.tableView.reloadData()
+        
+        
     }
     
     func setupSearchController() {
@@ -31,6 +33,18 @@ class SearchViewController: BaseViewController {
             return searchController.searchBar.text?.isEmpty ?? true
             
         }
+        
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.obscuresBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.tintColor = UIColor.systemGreen
+        searchController.searchBar.delegate = self
+        searchController.delegate = self
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.tintColor = UIColor.clear
 
    
 

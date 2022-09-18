@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import SwiftUI
 
 class FirstViewController: BaseViewController {
 
+    let font = FontManager.getFont()
     var mainView = FirstView()
     override func loadView() {
         self.view = mainView
@@ -46,8 +48,13 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
+    
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header", for: indexPath) as! Header
+        header.label.text = "가까운 산"
         
         return header
     }
