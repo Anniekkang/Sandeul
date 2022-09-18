@@ -13,5 +13,6 @@ enum APIKey {
 } 
 
 enum URL {
-    static let Endpoint = "http://openapi.forest.go.kr/openapi/service/trailInfoService/getforeststoryservice?serviceKey="
+    static let Endpoint = "http://openapi.forest.go.kr/openapi/service/trailInfoService/getforeststoryservice?ServiceKey="
+    
 }

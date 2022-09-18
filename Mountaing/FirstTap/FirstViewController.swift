@@ -35,16 +35,20 @@ class FirstViewController: BaseViewController {
 extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return 3
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       
-        return 5
+        if section == 0 {
+            return 5
+        } else {
+            return 1
+        }
+     
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FirstCollectionViewCell.reuseIdentifier, for: indexPath) as! FirstCollectionViewCell
-        cell.backgroundColor = .systemGray
+        
         return cell
     }
     
@@ -53,8 +57,16 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header", for: indexPath) as! Header
-        header.label.text = "가까운 산"
+        if indexPath.section == 0 {
+            header.label.text = "가까운 산"
+        } else if indexPath.section == 1 {
+            header.label.text = "쉬운 산 TOP5"
+        } else {
+            header.label.text = "어려운 산 TOP5"
+        }
+       
         
         return header
     }

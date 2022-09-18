@@ -53,24 +53,6 @@
         "revision" : "b3dcd7dbd0d488e1a7077cb33b00f2083e382f07",
         "version" : "5.0.1"
       }
-    },
-    {
-      "identity" : "swxmlhash",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/drmohundro/SWXMLHash.git",
-      "state" : {
-        "revision" : "4d0f62f561458cbe1f732171e625f03195151b60",
-        "version" : "7.0.1"
-      }
-    },
-    {
-      "identity" : "xmlparsing",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/ShawnMoore/XMLParsing.git",
-      "state" : {
-        "revision" : "2b77a8078d9695aac1a0e5806768e819025174c3",
-        "version" : "0.0.3"
-      }
     }
   ],
   "version" : 2
