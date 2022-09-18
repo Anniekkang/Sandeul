@@ -52,6 +52,7 @@ class FirstCollectionViewCell: UICollectionViewCell {
         self.stackView.addArrangedSubview(titleLabel)
         
         
+        
     }
     
     func constraints(){

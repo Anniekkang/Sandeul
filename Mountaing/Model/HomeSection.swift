@@ -9,9 +9,10 @@ import UIKit
 
 enum HomeSection {
     case First
-    case SecondThird
+    case Second
+    case Third
 }
 
 enum viewModel {
-    static let section = [HomeSection.First, HomeSection.SecondThird]
+    static let section = [HomeSection.First, HomeSection.Second, HomeSection.Third ]
 }

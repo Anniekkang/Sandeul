@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 
-func labelUI(label : UILabel){
-    label.textColor = .white
+func labelUI(label : UILabel, color : UIColor){
+    label.textColor = color
     label.backgroundColor = .clear
     
 }
