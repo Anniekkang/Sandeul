@@ -120,6 +120,7 @@
 		9ED7695728D06099002D2574 /* Mountaing */ = {
 			isa = PBXGroup;
 			children = (
+				9EF6ACA428D5FE34000551E1 /* InfoView */,
 				9EF6AC9F28D5EFE6000551E1 /* HomeTap */,
 				9EF6AC7D28D31DED000551E1 /* Data */,
 				9ED7698E28D184F7002D2574 /* Protocol */,
@@ -232,6 +233,13 @@
 				9EF6ACA228D5F00B000551E1 /* HomeView.swift */,
 			);
 			path = HomeTap;
+			sourceTree = "<group>";
+		};
+		9EF6ACA428D5FE34000551E1 /* InfoView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = InfoView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

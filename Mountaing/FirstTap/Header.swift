@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import SnapKit
 
-final class Header: UICollectionReusableView {
+class Header: UICollectionReusableView {
 
     let label = UILabel()
     private let stackView = UIStackView()
@@ -15,6 +16,8 @@ final class Header: UICollectionReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         label.text = "Categories"
+        label.textColor = .black
+        label.font = .monospacedDigitSystemFont(ofSize: 15, weight: .medium)
         addSubview(stackView)
         stackView.addArrangedSubview(label)
         
