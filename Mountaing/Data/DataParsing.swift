@@ -11,6 +11,7 @@ import SwiftyJSON
 
 
 
+
 enum XMLKey : String {
     case mntninfopoflc = "mntninfopoflc" //location
     case mntnNm = "mntnNm" //mountainTitle
@@ -20,19 +21,24 @@ enum XMLKey : String {
 }
 
 class DataParsing : XMLParser {
+    static let shared = DataParsing()
     var items: [item] = []
     var xmlDictionary: [String: String]?
     var elementType: XMLKey?
    
-    func setParser(from url: URL, delegate: XMLParserDelegate) {
+    func setParser(from url: URL) {
         let parser = XMLParser(contentsOf: url)
         parser!.delegate = self
         parser!.parse()
     }
 
 }
- 
+
+
 extension DataParsing : XMLParserDelegate {
+    
+   
+    
     // XML 파싱을 시작하는 태그에서 이벤트 핸들링
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         switch elementName {
@@ -95,7 +101,7 @@ extension DataParsing : XMLParserDelegate {
            
             
             items.append(item)
-            
+            print(items)
         }
         
         elementType = nil

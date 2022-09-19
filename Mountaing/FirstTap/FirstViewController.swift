@@ -15,11 +15,13 @@ class FirstViewController: BaseViewController {
     override func loadView() {
         self.view = mainView
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mainView.backgroundColor = .white
-        
-        
+        let url = URL(string: endPoint.Endpoint + APIKey.Encoding)
+        DataParsing.shared.setParser(from: url!)
+       
     }
     
     override func configuration() {
@@ -83,3 +85,4 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
 
     
 }
+
