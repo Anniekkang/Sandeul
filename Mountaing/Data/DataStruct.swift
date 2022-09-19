@@ -7,7 +7,7 @@
 
 import UIKit
 
-//XML로 부터 data를 받을 swift 구조체
+//XML로 부터 data를 받을 swift 구조체 -> APIManager 실행시 items에 저장됨
 struct items {
     let item : [item]
 }

@@ -12,7 +12,7 @@ enum APIKey {
     static let Decoding = "UozP+ZQ4xoM8y+lgzHPeybgkNHyl7M2R4hDsfabLGBzWNduklkOrYuNUH0Qp/b/1AJyoiCfwCJcDYeiGLM4OJQ=="
 } 
 
-enum URL {
+enum endPoint {
     static let Endpoint = "http://openapi.forest.go.kr/openapi/service/trailInfoService/getforeststoryservice?ServiceKey="
     
 }
