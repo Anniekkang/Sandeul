@@ -20,8 +20,9 @@ class FirstViewController: BaseViewController {
         super.viewDidLoad()
         mainView.backgroundColor = .white
         let url = URL(string: endPoint.Endpoint + APIKey.Encoding)
-        DataParsing.shared.setParser(from: url!)
-       
+        DataParsing().setParser(from: url!)
+
+
     }
     
     override func configuration() {
@@ -54,6 +55,7 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
         if indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FirstCollectionViewCell.reuseIdentifier, for: indexPath) as! FirstCollectionViewCell
             cell.backgroundColor = .systemGray6
+            
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ElseCollectionViewCell.reuseIdentifier, for: indexPath) as! ElseCollectionViewCell

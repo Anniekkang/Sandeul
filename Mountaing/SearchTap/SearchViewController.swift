@@ -20,6 +20,7 @@ class SearchViewController: BaseViewController,UISearchBarDelegate, UISearchCont
         mainView.backgroundColor = .white
         setupSearchController()
         mainView.tableView.reloadData()
+    
         
         
     }

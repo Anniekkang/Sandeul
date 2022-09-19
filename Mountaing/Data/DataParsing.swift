@@ -29,7 +29,14 @@ class DataParsing : XMLParser {
     func setParser(from url: URL) {
         let parser = XMLParser(contentsOf: url)
         parser!.delegate = self
-        parser!.parse()
+        if parser!.parse() {
+           
+            print("parsing succeed")
+        
+        } else {
+            print("parsing error")
+        }
+       
     }
 
 }
@@ -56,7 +63,7 @@ extension DataParsing : XMLParserDelegate {
             elementType = .mntnattchimageseq
             
         default :
-            print("error")
+            return
         }
  
     }
@@ -101,7 +108,7 @@ extension DataParsing : XMLParserDelegate {
            
             
             items.append(item)
-            print(items)
+            
         }
         
         elementType = nil
