@@ -21,7 +21,7 @@ class FirstViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mainView.backgroundColor = .white
-        let url = URL(string: endPoint.Endpoint + APIKey.Encoding)
+        
     }
     
     override func configuration() {

@@ -36,7 +36,7 @@ enum Font : Int {
     var largeFont : UIFont {
         switch self {
         case .customfirst :
-            return UIFont(name: "ROKAF Sans Bold", size: FontSize.medium.rawValue)!
+            return UIFont(name: "ROKAF Sans Bold", size: FontSize.large.rawValue)!
         }
     }
 }

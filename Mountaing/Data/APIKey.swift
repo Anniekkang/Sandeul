@@ -13,6 +13,6 @@ enum APIKey {
 } 
 
 enum endPoint {
-    static let Endpoint = "http://api.forest.go.kr/openapi/service/trailInfoService/getforeststoryservice?serviceKey="
-    
+    static let first = "http://api.forest.go.kr/openapi/service/trailInfoService/getforeststoryservice?serviceKey="
+    static let second = "http://openapi.forest.go.kr/openapi/service/cultureInfoService/gdTrailInfoOpenAPI?serviceKey=\(APIKey.Encoding)&searchMtNm=%EA%B0%80&searchArNm=%EA%B0%95%EC%9B%90&pageNo=1&startPage=1&numOfRows=10&pageSize=10"
 }

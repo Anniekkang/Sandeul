@@ -14,7 +14,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UISearchContro
     var currentElement = ""
     var elements : [[String:String]] = []
     
-    let url = URL(string:endPoint.Endpoint + APIKey.Encoding)!
+    let url = URL(string:endPoint.second)!
     
     var mainView = SearchView()
     override func loadView() {
