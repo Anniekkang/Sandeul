@@ -21,8 +21,8 @@ class SearchView: BaseView {
     
     
     let tableView : UITableView = {
-        let view = UITableView(frame: .zero, style: .grouped)
-        view.backgroundColor = .systemGray6
+        let view = UITableView(frame: .zero, style: .insetGrouped)
+        view.backgroundColor = .white
         return view
     }()
     

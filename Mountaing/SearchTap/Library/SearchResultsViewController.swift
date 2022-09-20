@@ -10,7 +10,7 @@ import InstantSearch
 
 class SearchResultsViewController: UITableViewController, HitsController {
 
-    var hitsSource: HitsInteractor<Item>?
+    var hitsSource: HitsInteractor<item>?
        
      override func viewDidLoad() {
        super.viewDidLoad()
@@ -23,7 +23,7 @@ class SearchResultsViewController: UITableViewController, HitsController {
      
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-       cell.textLabel?.text = hitsSource?.hit(atIndex: indexPath.row)?.name
+         cell.textLabel?.text = hitsSource?.hit(atIndex: indexPath.row)?.mntnNm
        return cell
      }
      

@@ -8,19 +8,15 @@
 import UIKit
 import InstantSearch
 
-struct Item: Codable {
-    let name: String
-}
-
 class ViewController: UIViewController {
     
     lazy var searchController = UISearchController(searchResultsController: hitsViewController)
-    let hitsViewController = SearchResultsViewController()
     
+    let hitsViewController = SearchResultsViewController()
     let searcher = HitsSearcher(appID: "latency",
-                                apiKey: "1f6fd3a6fb973cb08419fe7d288fa4db",
-                                indexName: "bestbuy")
-    lazy var searchConnector = SearchConnector<Item>(searcher: searcher,
+                                apiKey: "UozP%2BZQ4xoM8y%2BlgzHPeybgkNHyl7M2R4hDsfabLGBzWNduklkOrYuNUH0Qp%2Fb%2F1AJyoiCfwCJcDYeiGLM4OJQ%3D%3D",
+                                indexName: "items")
+    lazy var searchConnector = SearchConnector<item>(searcher: searcher,
                                                      searchController: searchController,
                                                      hitsInteractor: .init(),
                                                      hitsController: hitsViewController)
@@ -42,6 +38,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         searchConnector.connect()
+        categoryConnector.connect()
+        statsInteractor.connectSearcher(searcher)
+        statsInteractor.connectController(self)
         searcher.search()
         setupUI()
         
@@ -54,12 +53,14 @@ class ViewController: UIViewController {
     
     func setupUI() {
         view.backgroundColor = .white
+        navigationItem.rightBarButtonItem = .init(title: "Category", style: .plain, target: self, action: #selector(showFilters))
         navigationItem.searchController = searchController
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.showsSearchResultsController = true
         searchController.automaticallyShowsCancelButton = false
         categoryTableViewController.title = "Category"
     }
+    
     @objc func showFilters() {
         let navigationController = UINavigationController(rootViewController: categoryTableViewController)
         categoryTableViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissFilters))

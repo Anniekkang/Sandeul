@@ -20,7 +20,7 @@ class FirstViewController: BaseViewController {
         super.viewDidLoad()
         mainView.backgroundColor = .white
         let url = URL(string: endPoint.Endpoint + APIKey.Encoding)
-        DataParsing().setParser(from: url!)
+        
 
 
     }
