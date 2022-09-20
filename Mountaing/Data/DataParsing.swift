@@ -10,18 +10,6 @@ import Alamofire
 import SwiftyJSON
 
 
-
-
-enum XMLKey : String {
-    case mntninfopoflc = "mntninfopoflc" //location
-    case mntnNm = "mntnNm" //mountainTitle
-    case mntninfohght = "mntninfohght" //Altitude
-    case mntnInfodtlinfocont = "mntnInfodtlinfocont"//contents
-    case mntnattchimageseq = "mntnattchimageseq" //Image
-}
-
-
-
 extension SearchViewController : XMLParserDelegate {
     
     // XML 파싱을 시작하는 태그에서 이벤트 핸들링
@@ -44,6 +32,7 @@ extension SearchViewController : XMLParserDelegate {
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         
         let data = string.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)//공백없에주기
+        print("data : \(data)")
         if !data.isEmpty {
             xmlDictionary[currentElement] = data
               }
@@ -52,8 +41,10 @@ extension SearchViewController : XMLParserDelegate {
     // XML 파싱이 끝나는 태그에서 이벤트 핸들링
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         
-        elements.append(xmlDictionary)
-        print("xmlDic : \(xmlDictionary)")
+        
+            elements.append(xmlDictionary)
+        print("xmldic : \(xmlDictionary)")
+        print("xmldiccount : \(xmlDictionary.count)")
         print("--------Count:\(elements.count)")
         
        

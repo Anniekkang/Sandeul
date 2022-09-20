@@ -10,14 +10,11 @@ import UIKit
 
 class SearchViewController: UIViewController,UISearchBarDelegate, UISearchControllerDelegate {
 
-    
     var xmlDictionary : [String:String] = [:]
-    var elementType: XMLKey?
-    let url = URL(string: endPoint.Endpoint + APIKey.Encoding)!
     var currentElement = ""
     var elements : [[String:String]] = []
     
-    
+    let url = URL(string:endPoint.Endpoint + APIKey.Encoding)!
     var mainView = SearchView()
     override func loadView() {
         self.view = mainView
