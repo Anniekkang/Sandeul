@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let mainVC = FirstViewController()
         let nav1 = UINavigationController(rootViewController: mainVC)
-        let searchVC = SearchViewController()
+        let searchVC = SearchLibraryViewController()
         let nav2 = UINavigationController(rootViewController: searchVC)
         let filterVC = FilterViewController()
         let nav3 = UINavigationController(rootViewController: filterVC)
