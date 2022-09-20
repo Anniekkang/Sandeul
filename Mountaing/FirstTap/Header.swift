@@ -19,7 +19,7 @@ class Header: UICollectionReusableView {
         label.text = "Categories"
         label.textColor = .black
         label.backgroundColor = .clear
-        label.font = Font.happiness.largeFont
+        label.font = Font.customfirst.largeFont
         addSubview(stackView)
         stackView.addArrangedSubview(label)
         

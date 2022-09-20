@@ -10,17 +10,17 @@ import UIKit
 enum FontSize : CGFloat {
     case small = 12
     case medium = 16
-    case large  = 20
+    case large  = 17
     case extraLarge = 25
 }
 
 enum Font : Int {
-    case happiness
+    case customfirst
 
     var smallFont : UIFont {
         switch self {
-        case .happiness :
-            return UIFont(name: "Zapfino", size: FontSize.small.rawValue)!
+        case .customfirst :
+            return UIFont(name: "ROKAF Sans Bold", size: FontSize.small.rawValue)!
 
         }
         
@@ -28,15 +28,15 @@ enum Font : Int {
     
     var mediumFont : UIFont {
         switch self {
-        case .happiness :
-            return UIFont(name: "Zapfino", size: FontSize.medium.rawValue)!
+        case .customfirst :
+            return UIFont(name: "ROKAF Sans Bold", size: FontSize.medium.rawValue)!
         }
     }
     
     var largeFont : UIFont {
         switch self {
-        case .happiness :
-            return UIFont(name: "Zapfino", size: FontSize.large.rawValue)!
+        case .customfirst :
+            return UIFont(name: "ROKAF Sans Bold", size: FontSize.medium.rawValue)!
         }
     }
 }
@@ -52,7 +52,7 @@ class FontManager {
                return Font(rawValue: font)!
            } else {
                // 저장된 폰트가 없으면 기본 폰트로
-               return .happiness
+               return .customfirst
            }
        }
        /// 폰트 저장하기

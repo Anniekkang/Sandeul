@@ -7,6 +7,8 @@
 
 import UIKit
 import SwiftUI
+import Alamofire
+import SwiftyXMLParser
 
 class FirstViewController: BaseViewController {
 
@@ -20,9 +22,6 @@ class FirstViewController: BaseViewController {
         super.viewDidLoad()
         mainView.backgroundColor = .white
         let url = URL(string: endPoint.Endpoint + APIKey.Encoding)
-        
-
-
     }
     
     override func configuration() {

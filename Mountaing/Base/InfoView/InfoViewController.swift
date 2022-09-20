@@ -19,12 +19,15 @@ class InfoViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        configuration()
         
     }
     
     override func configuration() {
         mainView.tableView.delegate = self
         mainView.tableView.dataSource = self
+        mainView.tableView.register(InfoTableViewCell.self, forCellReuseIdentifier: InfoTableViewCell.reuseIdentifier)
+        mainView.backgroundColor = .white
     }
 
 }
@@ -41,7 +44,10 @@ extension InfoViewController : UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    
+   
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
     
     
 }

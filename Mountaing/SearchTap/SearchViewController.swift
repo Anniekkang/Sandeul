@@ -15,6 +15,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UISearchContro
     var elements : [[String:String]] = []
     
     let url = URL(string:endPoint.Endpoint + APIKey.Encoding)!
+    
     var mainView = SearchView()
     override func loadView() {
         self.view = mainView
@@ -26,6 +27,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UISearchContro
         setupSearchController()
         mainView.tableView.reloadData()
     
+        configuration()
         setParser(from: url)
         
         
@@ -46,7 +48,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UISearchContro
     
     func setupSearchController() {
         let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchBar.placeholder = "검색"
+        searchController.searchBar.placeholder = "산 이름을 검색하시오"
         self.navigationItem.searchController = searchController
         
         var isSearchBarEmpty : Bool {
@@ -61,11 +63,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UISearchContro
         searchController.searchBar.tintColor = UIColor.systemGreen
         searchController.searchBar.delegate = self
         searchController.delegate = self
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationItem.hidesSearchBarWhenScrolling = false
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        self.navigationController?.navigationBar.tintColor = UIColor.clear
-
+       
    
 
     }
@@ -79,18 +77,29 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UISearchContro
 
 extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return elements.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.reuseIdentifier, for: indexPath) as! SearchTableViewCell
         
-        cell.backgroundColor = .systemGray6
+        cell.backgroundColor = .white
+        cell.titleLabel.text = elements[indexPath.row]["mntnnm"]
+        cell.contentLabel.text = elements[indexPath.row]["mntninfodtlinfocont"]
+        
+        print("-------\(elements[indexPath.row])")
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 120
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let vc = InfoViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     

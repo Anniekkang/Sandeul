@@ -21,13 +21,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let nav1 = UINavigationController(rootViewController: mainVC)
         let searchVC = SearchViewController()
         let nav2 = UINavigationController(rootViewController: searchVC)
-        let filterVC = FilterViewController()
-        let nav3 = UINavigationController(rootViewController: filterVC)
+//        let filterVC = FilterViewController()
+//        let nav3 = UINavigationController(rootViewController: filterVC)
         let diaryVC = DiaryViewController()
         let nav4 = UINavigationController(rootViewController: diaryVC)
         
         let tabBarController = UITabBarController()
-        tabBarController.setViewControllers([nav1,nav2,nav3,nav4], animated: true)
+        tabBarController.setViewControllers([nav1,nav2,nav4], animated: true)
         
         if let items = tabBarController.tabBar.items {
             items[0].selectedImage = UIImage(systemName: "house.fill")
@@ -35,16 +35,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             
             
-            items[1].selectedImage = UIImage(systemName: "magnifyingglass.circle")
+            items[1].selectedImage = UIImage(systemName: "text.magnifyingglass")
             items[1].image = UIImage(systemName: "magnifyingglass")
             
             
-            items[2].selectedImage = UIImage(systemName: "line.3.horizontal.decrease.circle.fill")
-            items[2].image = UIImage(systemName: "line.3.horizontal.decrease.circle")
+//            items[2].selectedImage = UIImage(systemName: "line.3.horizontal.decrease.circle.fill")
+//            items[2].image = UIImage(systemName: "line.3.horizontal.decrease.circle")
+//            
             
-            
-            items[3].selectedImage = UIImage(systemName: "book.fill")
-            items[3].image = UIImage(systemName: "book")
+            items[2].selectedImage = UIImage(systemName: "book.fill")
+            items[2].image = UIImage(systemName: "book")
             
         }
        

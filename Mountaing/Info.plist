@@ -9,9 +9,10 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Happiness-Sans-Title.otf</string>
-		<string>Happiness-Sans-Bold.otf</string>
-		<string>Happiness-Sans-Regular.otf</string>
+		<string>ROKAF Slab Serif Medium.otf</string>
+		<string>ROKAF Sans Bold.otf</string>
+		<string>ROKAF Slab Serif Bold.otf</string>
+		<string>ROKAF Sans Medium.otf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

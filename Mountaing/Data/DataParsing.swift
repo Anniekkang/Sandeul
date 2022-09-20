@@ -43,21 +43,11 @@ extension SearchViewController : XMLParserDelegate {
         
         
             elements.append(xmlDictionary)
-        print("xmldic : \(xmlDictionary)")
+        print("elements : \(elements)")
         print("xmldiccount : \(xmlDictionary.count)")
         print("--------Count:\(elements.count)")
         
-       
- // let difficulty = difficultyCal(altitude: mntninfohght)
-//
-//        item.mntninfohght = mntninfohght
- //       item.mntninfopoflc = mntninfopoflc
-//        item.mntnNm = mntnNm
-//        item.mntnattchimageseq = mntnattchimageseq
-//        item.mntnInfodtlinfocont = mntnInfodtlinfocont
-//        // item.difficulty = difficulty
-
-//
+        
     }
    
 }

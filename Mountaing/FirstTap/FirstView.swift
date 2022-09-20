@@ -77,7 +77,7 @@ class FirstView: BaseView {
       
       let headerSize = NSCollectionLayoutSize(
         widthDimension: .fractionalWidth(0.9),
-        heightDimension: .absolute(40)
+        heightDimension: .absolute(50)
     
       )
       let header = NSCollectionLayoutBoundarySupplementaryItem(
@@ -117,7 +117,7 @@ class FirstView: BaseView {
        
         let headerSize = NSCollectionLayoutSize(
           widthDimension: .fractionalWidth(0.9),
-          heightDimension: .absolute(40)
+          heightDimension: .absolute(50)
       
         )
         let header = NSCollectionLayoutBoundarySupplementaryItem(

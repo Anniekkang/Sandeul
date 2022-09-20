@@ -11,6 +11,9 @@ class SearchTableViewCell: BaseTableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        configure()
+        constraints()
     }
     
     required init?(coder: NSCoder) {
@@ -19,7 +22,7 @@ class SearchTableViewCell: BaseTableViewCell {
     
     let stackView : UIStackView = {
         let view = UIStackView()
-        view.spacing = 5
+        view.spacing = 2
         view.axis = .vertical
         return view
     }()
@@ -56,16 +59,22 @@ class SearchTableViewCell: BaseTableViewCell {
     }
     
     func constraints(){
-        stackView.snp.makeConstraints { make in
-            make.top.leading.bottom.equalToSuperview().inset(5)
-            make.width.equalToSuperview().multipliedBy(0.7)
+    
+        image.snp.makeConstraints { make in
+            make.top.equalTo(2)
+            make.leading.equalTo(self).inset(5)
+            make.bottom.equalTo(self).inset(5)
+            make.width.equalTo(image.snp.height)
             
         }
         
-        image.snp.makeConstraints { make in
-            make.top.trailing.bottom.equalToSuperview().inset(5)
-            make.width.equalTo(image.snp.height)
+        stackView.snp.makeConstraints { make in
+            make.top.equalTo(2)
+            make.leading.equalTo(image.snp.trailing).offset(5)
+            make.trailing.equalTo(self).inset(5)
+            make.bottom.equalTo(self).inset(5)
         }
+        
         
         
         
