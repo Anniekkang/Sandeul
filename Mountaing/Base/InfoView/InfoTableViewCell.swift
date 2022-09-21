@@ -10,20 +10,43 @@ import UIKit
 
 class InfoTableViewCell: BaseTableViewCell {
 
-    let label : UILabel = {
+    let typeLabel : UILabel = {
+        let label = UILabel()
+        label.textColor = .gray
+        label.textAlignment = .center
+        
+        return label
+    }()
+    
+    let infoLabel : UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.textAlignment = .left
         return label
     }()
     
+    let stackView : UIStackView = {
+        let view = UIStackView()
+        view.spacing = 10
+        view.axis = .horizontal
+        return view
+    }()
+    
     override func configure() {
-        self.addSubview(label)
+        self.addSubview(stackView)
+        stackView.addArrangedSubview(typeLabel)
+        stackView.addArrangedSubview(infoLabel)
+        
     }
     
     override func setConstraints() {
-        label.snp.makeConstraints { make in
-            make.leading.trailing.top.bottom.equalTo(5)
+        
+        stackView.snp.makeConstraints { make in
+            make.top.leading.equalTo(contentView).offset(10)
+            make.bottom.trailing.equalTo(contentView).offset(-10)
+        
         }
+        
+        
     }
 }

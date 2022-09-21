@@ -15,3 +15,8 @@ struct mountain {
     var location : String
     var difficulty : String
 }
+
+struct selected {
+    var row  : Int
+}
+
