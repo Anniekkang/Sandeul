@@ -22,6 +22,12 @@ class FirstViewController: BaseViewController {
         super.viewDidLoad()
         mainView.backgroundColor = .white
         
+        for family in UIFont.familyNames.sorted() {
+            let names = UIFont.fontNames(forFamilyName: family )
+            print("Family: \(family) Font names: \(names)")
+        }
+        
+        
     }
     
     override func configuration() {

@@ -84,8 +84,8 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.reuseIdentifier, for: indexPath) as! SearchTableViewCell
         
         cell.backgroundColor = .white
-        cell.titleLabel.text = elements[indexPath.row]["mntnnm"]
-        cell.contentLabel.text = elements[indexPath.row]["mntninfodtlinfocont"]
+        cell.titleLabel.text = elements[indexPath.row]["mntnm"]
+        cell.contentLabel.text = elements[indexPath.row]["details"]
         
         print("-------\(elements[indexPath.row])")
         return cell

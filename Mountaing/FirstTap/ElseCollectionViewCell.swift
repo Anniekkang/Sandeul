@@ -11,14 +11,14 @@ class ElseCollectionViewCell: BaseCollectionViewCell {
 
         let titleLabel : UILabel = {
             let label = UILabel()
-            label.font = Font.customfirst.largeFont
+            //label.font = Font.customfirst.mediumFont
             labelUI(label: label, color : UIColor.black)
             return label
         }()
         
         let rankingLabel : UILabel = {
             let label = UILabel()
-            label.font = Font.customfirst.mediumFont
+            //label.font = Font.customfirst.mediumFont
             labelUI(label: label, color : UIColor.black)
             return label
         }()
@@ -32,7 +32,7 @@ class ElseCollectionViewCell: BaseCollectionViewCell {
         
         let altitudeLabel : UILabel = {
             let label = UILabel()
-            label.font = Font.customfirst.smallFont
+            //label.font = Font.customfirst.smallFont
             labelUI(label: label, color: UIColor.systemGray6)
             return label
             

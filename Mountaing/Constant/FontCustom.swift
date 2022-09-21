@@ -20,7 +20,7 @@ enum Font : Int {
     var smallFont : UIFont {
         switch self {
         case .customfirst :
-            return UIFont(name: "ROKAF Sans Bold", size: FontSize.small.rawValue)!
+            return UIFont(name: "ROKAF-Sans-Medium", size: FontSize.small.rawValue)!
 
         }
         
@@ -29,14 +29,14 @@ enum Font : Int {
     var mediumFont : UIFont {
         switch self {
         case .customfirst :
-            return UIFont(name: "ROKAF Sans Bold", size: FontSize.medium.rawValue)!
+            return UIFont(name: "ROKAF-Sans-Medium", size: FontSize.medium.rawValue)!
         }
     }
     
     var largeFont : UIFont {
         switch self {
         case .customfirst :
-            return UIFont(name: "ROKAF Sans Bold", size: FontSize.large.rawValue)!
+            return UIFont(name: "ROKAF-Sans-Medium", size: FontSize.large.rawValue)!
         }
     }
 }

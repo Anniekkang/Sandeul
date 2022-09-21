@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E5AE26028DA9CE000D40B7B /* ROKAF Sans Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E5AE25E28DA9CE000D40B7B /* ROKAF Sans Bold.otf */; };
+		9E5AE26128DA9CE100D40B7B /* ROKAF Sans Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E5AE25F28DA9CE000D40B7B /* ROKAF Sans Medium.otf */; };
 		9E72500328D7B711000DF643 /* mountainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E72500228D7B711000DF643 /* mountainData.swift */; };
 		9E72500528D7B74E000DF643 /* HomeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E72500428D7B74E000DF643 /* HomeSection.swift */; };
 		9E72500728D7C01F000DF643 /* labelUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E72500628D7C01F000DF643 /* labelUI.swift */; };
@@ -49,11 +51,11 @@
 		9EF6ACB928D757B8000551E1 /* DataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF6ACB828D757B8000551E1 /* DataStruct.swift */; };
 		9EF9C8DC28DA220400826DC8 /* SwiftyXMLParser in Frameworks */ = {isa = PBXBuildFile; productRef = 9EF9C8DB28DA220400826DC8 /* SwiftyXMLParser */; };
 		9EF9C8DE28DA229300826DC8 /* XMLParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF9C8DD28DA229300826DC8 /* XMLParsing.swift */; };
-		9EF9C8E028DA4AAD00826DC8 /* ROKAF Sans Bold in Resources */ = {isa = PBXBuildFile; fileRef = 9EF9C8DF28DA4AAD00826DC8 /* ROKAF Sans Bold */; };
-		9EF9C8E528DA4AC500826DC8 /* ROKAF Slab Serif Bold in Resources */ = {isa = PBXBuildFile; fileRef = 9EF9C8E428DA4AC500826DC8 /* ROKAF Slab Serif Bold */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E5AE25E28DA9CE000D40B7B /* ROKAF Sans Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ROKAF Sans Bold.otf"; sourceTree = "<group>"; };
+		9E5AE25F28DA9CE000D40B7B /* ROKAF Sans Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ROKAF Sans Medium.otf"; sourceTree = "<group>"; };
 		9E72500228D7B711000DF643 /* mountainData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mountainData.swift; sourceTree = "<group>"; };
 		9E72500428D7B74E000DF643 /* HomeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSection.swift; sourceTree = "<group>"; };
 		9E72500628D7C01F000DF643 /* labelUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = labelUI.swift; sourceTree = "<group>"; };
@@ -92,8 +94,6 @@
 		9EF6ACAF28D710E2000551E1 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
 		9EF6ACB828D757B8000551E1 /* DataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStruct.swift; sourceTree = "<group>"; };
 		9EF9C8DD28DA229300826DC8 /* XMLParsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLParsing.swift; sourceTree = "<group>"; };
-		9EF9C8DF28DA4AAD00826DC8 /* ROKAF Sans Bold */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "ROKAF Sans Bold"; sourceTree = "<group>"; };
-		9EF9C8E428DA4AC500826DC8 /* ROKAF Slab Serif Bold */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "ROKAF Slab Serif Bold"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +114,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E5AE25D28DA9CE000D40B7B /* ROKAF Sans Bold */ = {
+			isa = PBXGroup;
+			children = (
+				9E5AE25E28DA9CE000D40B7B /* ROKAF Sans Bold.otf */,
+				9E5AE25F28DA9CE000D40B7B /* ROKAF Sans Medium.otf */,
+			);
+			path = "ROKAF Sans Bold";
+			sourceTree = "<group>";
+		};
 		9E66B05628D9594E00023AE4 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,8 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				9EF6AC7C28D31CB5000551E1 /* .gitignore.md */,
-				9EF9C8E428DA4AC500826DC8 /* ROKAF Slab Serif Bold */,
-				9EF9C8DF28DA4AAD00826DC8 /* ROKAF Sans Bold */,
 				9ED7695728D06099002D2574 /* Mountaing */,
 				9ED7695628D06099002D2574 /* Products */,
 			);
@@ -153,6 +160,7 @@
 		9ED7695728D06099002D2574 /* Mountaing */ = {
 			isa = PBXGroup;
 			children = (
+				9E5AE25D28DA9CE000D40B7B /* ROKAF Sans Bold */,
 				9E72500128D7B701000DF643 /* Model */,
 				9EF6AC7D28D31DED000551E1 /* Data */,
 				9ED7698E28D184F7002D2574 /* Constant */,
@@ -339,11 +347,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EF9C8E028DA4AAD00826DC8 /* ROKAF Sans Bold in Resources */,
 				9ED7696528D0609B002D2574 /* LaunchScreen.storyboard in Resources */,
-				9EF9C8E528DA4AC500826DC8 /* ROKAF Slab Serif Bold in Resources */,
 				9ED7696228D0609B002D2574 /* Assets.xcassets in Resources */,
 				9ED7696028D06099002D2574 /* Main.storyboard in Resources */,
+				9E5AE26028DA9CE000D40B7B /* ROKAF Sans Bold.otf in Resources */,
+				9E5AE26128DA9CE100D40B7B /* ROKAF Sans Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
