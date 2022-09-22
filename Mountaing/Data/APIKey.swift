@@ -9,8 +9,9 @@ import UIKit
 
 enum APIKey {
     static let Encoding = "UozP%2BZQ4xoM8y%2BlgzHPeybgkNHyl7M2R4hDsfabLGBzWNduklkOrYuNUH0Qp%2Fb%2F1AJyoiCfwCJcDYeiGLM4OJQ%3D%3D"
-    static let url = URL(string:endPoint.first)!
-} 
+    static let url = URL(string:endPoint.first + APIKey.Encoding)!
+}
+
 
 enum endPoint {
     static let first = "http://api.forest.go.kr/openapi/service/trailInfoService/getforeststoryservice?serviceKey="

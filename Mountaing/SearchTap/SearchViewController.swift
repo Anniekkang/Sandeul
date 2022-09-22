@@ -39,7 +39,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UISearchContro
         setupSearchController()
         mainView.tableView.reloadData()
         mainView.tableView.keyboardDismissMode = .onDrag
-        
+    
         configuration()
         setParser(from: APIKey.url)
        
@@ -60,7 +60,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UISearchContro
 //        }
         
         self.navigationItem.hidesSearchBarWhenScrolling = false
-        searchController.obscuresBackgroundDuringPresentation = true
+        searchController.obscuresBackgroundDuringPresentation = false
         definesPresentationContext = true
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self

@@ -55,25 +55,12 @@ extension SearchViewController : XMLParserDelegate {
             elementType = .mntnInfodtlinfocont
             
         }
-        
-
-        
-        func difficultyCal(altitude : Int) -> String {
-            if altitude > 1000 {
-                return "상급"
-            } else if altitude > 500 {
-                return  "중급"
-            } else {
-                return "초급"
-            }
-        }
-        
     }
     // 태그의 Data가 string으로 들어옴
         func parser(_ parser: XMLParser, foundCharacters string: String) {
             
             guard xmlDictionary != nil,
-                  let elementType = self.elementType else { return }
+            let elementType = self.elementType else { return }
             xmlDictionary.updateValue(string, forKey: elementType.rawValue)
            print(xmlDictionary)
         }
@@ -104,6 +91,7 @@ extension SearchViewController : XMLParserDelegate {
             
             items.append(currentItem)
            
+            print("10)")
             print("=========\(items)")
             print("======\(items.count)")
         }
