@@ -13,9 +13,10 @@ extension SearchViewController : UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
         print(text)
-        self.filteredArray = self.items.filter { $0.mntnnm.contains(text) || $0.mntninfohght.contains(text)}
+        self.filteredArray = self.items.filter { $0.mntnnm.localizedCaseInsensitiveContains(text) || $0.mntninfohght.localizedCaseInsensitiveContains(text)}
           dump(filteredArray)
        
+        mainView.tableView.reloadData()
     }
     
 }
