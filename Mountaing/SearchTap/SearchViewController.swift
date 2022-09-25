@@ -12,11 +12,10 @@ import UIKit
 class SearchViewController: UIViewController,UISearchBarDelegate, UISearchControllerDelegate {
     
    
-    // var xmlDictionary : [String:String] = [:]
-    // var elements : [[String:String]] = []
+   
     var currentElement : String = ""
     var item : Item?
-    var items : [Item]?
+    var items : [Item] = []
     
     var filteredStruct : [Item] = []
     
@@ -45,6 +44,8 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UISearchContro
         configuration()
         setParser(from: APIKey.url)
        
+        print(items)
+        
         
     }
     

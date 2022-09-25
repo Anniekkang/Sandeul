@@ -10,7 +10,7 @@ import UIKit
 
 extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.isFiltering ? filteredStruct.count : items!.count
+        return self.isFiltering ? filteredStruct.count : items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -49,6 +49,9 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
             cell.titleLabel.attributedText = attributeString // ex) "제주" 위트 에일(JEJU Wit ale)
             cell.contentLabel.attributedText = secondattributeString
         }
+        
+        cell.titleLabel.text = items[indexPath.row].mntnnm
+        cell.contentLabel.text = "\(items[indexPath.row].mntninfohght)m"
         return cell
         
     }
