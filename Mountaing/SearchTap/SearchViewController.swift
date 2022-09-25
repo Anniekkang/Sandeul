@@ -11,12 +11,14 @@ import UIKit
 
 class SearchViewController: UIViewController,UISearchBarDelegate, UISearchControllerDelegate {
     
-    var items : [item] = []
-    var xmlDictionary : [String:String] = [:]
-    var elementType : XMLKey?
-    var element : item?
+   
+    // var xmlDictionary : [String:String] = [:]
+    // var elements : [[String:String]] = []
+    var currentElement : String = ""
+    var item : Item?
+    var items : [Item]?
     
-    var filteredArray : [item] = []
+    var filteredStruct : [Item] = []
     
     var isFiltering: Bool {
         
@@ -45,6 +47,19 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UISearchContro
        
         
     }
+    
+    func setParser(from url: URL) {
+            let parser = XMLParser(contentsOf: url)
+            parser!.delegate = self
+            if parser!.parse() {
+    
+                print("parsing succeed")
+    
+            } else {
+                print("parsing error")
+            }
+    
+        }
 
     func setupSearchController() {
         let searchController = UISearchController(searchResultsController: nil)

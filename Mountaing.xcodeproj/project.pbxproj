@@ -10,8 +10,6 @@
 		9E5AE26028DA9CE000D40B7B /* ROKAF Sans Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E5AE25E28DA9CE000D40B7B /* ROKAF Sans Bold.otf */; };
 		9E5AE26128DA9CE100D40B7B /* ROKAF Sans Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E5AE25F28DA9CE000D40B7B /* ROKAF Sans Medium.otf */; };
 		9E5AE26728DAD39400D40B7B /* XMLCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 9E5AE26628DAD39400D40B7B /* XMLCoder */; };
-		9E5AE26928DB54A800D40B7B /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AE26828DB54A800D40B7B /* APIManager.swift */; };
-		9E5AE26B28DBB54300D40B7B /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AE26A28DBB54200D40B7B /* StringExtension.swift */; };
 		9E5AE26F28DC00DD00D40B7B /* TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AE26E28DC00DD00D40B7B /* TableViewExtension.swift */; };
 		9E72500328D7B711000DF643 /* mountainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E72500228D7B711000DF643 /* mountainData.swift */; };
 		9E72500528D7B74E000DF643 /* HomeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E72500428D7B74E000DF643 /* HomeSection.swift */; };
@@ -25,6 +23,8 @@
 		9EC65C1128D86C4100996713 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 9EC65C1028D86C4100996713 /* SwiftyJSON */; };
 		9EC65C2328D87C6400996713 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 9EC65C2228D87C6400996713 /* Realm */; };
 		9EC65C2528D87C6400996713 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9EC65C2428D87C6400996713 /* RealmSwift */; };
+		9ECDCCD628DC67A400D412CC /* XMLParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECDCCD528DC67A400D412CC /* XMLParsing.swift */; };
+		9ECDCCD928DC7D6800D412CC /* SWXMLHash in Frameworks */ = {isa = PBXBuildFile; productRef = 9ECDCCD828DC7D6800D412CC /* SWXMLHash */; };
 		9ED7695928D06099002D2574 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7695828D06099002D2574 /* AppDelegate.swift */; };
 		9ED7695B28D06099002D2574 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7695A28D06099002D2574 /* SceneDelegate.swift */; };
 		9ED7696028D06099002D2574 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ED7695E28D06099002D2574 /* Main.storyboard */; };
@@ -57,8 +57,6 @@
 /* Begin PBXFileReference section */
 		9E5AE25E28DA9CE000D40B7B /* ROKAF Sans Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ROKAF Sans Bold.otf"; sourceTree = "<group>"; };
 		9E5AE25F28DA9CE000D40B7B /* ROKAF Sans Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ROKAF Sans Medium.otf"; sourceTree = "<group>"; };
-		9E5AE26828DB54A800D40B7B /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		9E5AE26A28DBB54200D40B7B /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		9E5AE26E28DC00DD00D40B7B /* TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtension.swift; sourceTree = "<group>"; };
 		9E72500228D7B711000DF643 /* mountainData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mountainData.swift; sourceTree = "<group>"; };
 		9E72500428D7B74E000DF643 /* HomeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSection.swift; sourceTree = "<group>"; };
@@ -66,6 +64,7 @@
 		9E72500A28D7C905000DF643 /* ElseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElseCollectionViewCell.swift; sourceTree = "<group>"; };
 		9EAB1D1228D20A57009406A9 /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
 		9EAB1D1428D20A5E009406A9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		9ECDCCD528DC67A400D412CC /* XMLParsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLParsing.swift; sourceTree = "<group>"; };
 		9ED7695528D06099002D2574 /* Mountaing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mountaing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ED7695828D06099002D2574 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9ED7695A28D06099002D2574 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +107,7 @@
 				9EF9C8DC28DA220400826DC8 /* SwiftyXMLParser in Frameworks */,
 				9EC65C1128D86C4100996713 /* SwiftyJSON in Frameworks */,
 				9EC65C0628D8683B00996713 /* SnapKit in Frameworks */,
+				9ECDCCD928DC7D6800D412CC /* SWXMLHash in Frameworks */,
 				9E5AE26728DAD39400D40B7B /* XMLCoder in Frameworks */,
 				9EC65C2328D87C6400996713 /* Realm in Frameworks */,
 			);
@@ -250,8 +250,7 @@
 				9EF6AC7E28D31DF7000551E1 /* APIKey.swift */,
 				9EF6AC8028D32267000551E1 /* DataParsing.swift */,
 				9EF6ACB828D757B8000551E1 /* DataStruct.swift */,
-				9E5AE26828DB54A800D40B7B /* APIManager.swift */,
-				9E5AE26A28DBB54200D40B7B /* StringExtension.swift */,
+				9ECDCCD528DC67A400D412CC /* XMLParsing.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -291,6 +290,7 @@
 				9EC65C2428D87C6400996713 /* RealmSwift */,
 				9EF9C8DB28DA220400826DC8 /* SwiftyXMLParser */,
 				9E5AE26628DAD39400D40B7B /* XMLCoder */,
+				9ECDCCD828DC7D6800D412CC /* SWXMLHash */,
 			);
 			productName = Mountaing;
 			productReference = 9ED7695528D06099002D2574 /* Mountaing.app */;
@@ -328,6 +328,7 @@
 				9EC65C2128D87C6400996713 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				9EF9C8DA28DA220400826DC8 /* XCRemoteSwiftPackageReference "SwiftyXMLParser" */,
 				9E5AE26528DAD39400D40B7B /* XCRemoteSwiftPackageReference "XMLCoder" */,
+				9ECDCCD728DC7D6800D412CC /* XCRemoteSwiftPackageReference "SWXMLHash" */,
 			);
 			productRefGroup = 9ED7695628D06099002D2574 /* Products */;
 			projectDirPath = "";
@@ -358,11 +359,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E5AE26928DB54A800D40B7B /* APIManager.swift in Sources */,
-				9E5AE26B28DBB54300D40B7B /* StringExtension.swift in Sources */,
 				9E72500728D7C01F000DF643 /* labelUI.swift in Sources */,
 				9EF6ACB028D710E3000551E1 /* InfoTableViewCell.swift in Sources */,
 				9EF6AC7F28D31DF7000551E1 /* APIKey.swift in Sources */,
+				9ECDCCD628DC67A400D412CC /* XMLParsing.swift in Sources */,
 				9EF6ACAE28D710C9000551E1 /* InfoViewController.swift in Sources */,
 				9EAB1D1328D20A57009406A9 /* DiaryViewController.swift in Sources */,
 				9ED7697628D063A9002D2574 /* BaseViewController.swift in Sources */,
@@ -659,6 +659,14 @@
 				kind = branch;
 			};
 		};
+		9ECDCCD728DC7D6800D412CC /* XCRemoteSwiftPackageReference "SWXMLHash" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/drmohundro/SWXMLHash.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		9EF9C8DA28DA220400826DC8 /* XCRemoteSwiftPackageReference "SwiftyXMLParser" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/yahoojapan/SwiftyXMLParser.git";
@@ -704,6 +712,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9EC65C2128D87C6400996713 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		9ECDCCD828DC7D6800D412CC /* SWXMLHash */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9ECDCCD728DC7D6800D412CC /* XCRemoteSwiftPackageReference "SWXMLHash" */;
+			productName = SWXMLHash;
 		};
 		9EF9C8DB28DA220400826DC8 /* SwiftyXMLParser */ = {
 			isa = XCSwiftPackageProductDependency;

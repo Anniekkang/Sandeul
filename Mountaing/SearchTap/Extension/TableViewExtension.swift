@@ -10,47 +10,48 @@ import UIKit
 
 extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.isFiltering ? self.filteredArray.count : self.items.count
+        return self.isFiltering ? filteredStruct.count : items!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.reuseIdentifier, for: indexPath) as! SearchTableViewCell
         
         cell.backgroundColor = .white
-        cell.titleLabel.text = items[indexPath.row].mntnnm
-        cell.contentLabel.text = "\(items[indexPath.row].mntninfohght)m"
+        cell.titleLabel.text = item?.mntnnm
+        cell.contentLabel.text = "\(item?.mntninfohght)m"
         
+        //검색창이 활성화 될 때
         if self.isFiltering {
-            if indexPath.row < filteredArray.count {
-                cell.titleLabel.text = self.filteredArray[indexPath.row].mntnnm
-                cell.contentLabel.text = "\(self.filteredArray[indexPath.row].mntninfohght)m"
+            if indexPath.row < filteredStruct.count {
+                cell.titleLabel.text = filteredStruct[indexPath.row].mntnnm
+                cell.contentLabel.text = "\(filteredStruct[indexPath.row].mntninfohght)m"
                 
-                var textFirstIndex: Int = 0 // 검색중인 키워드가 가장 처음으로 나온 인덱스를 저장할 변수 선언.
-                let keyword = self.filteredArray[indexPath.row].mntnnm
-                let text = items[indexPath.row].mntnnm
-                let attributeString = NSMutableAttributedString(string: text)
+            } //searchbar에 기록한 텍스트들
+            var textFirstIndex: Int = 0 // 검색중인 키워드가 가장 처음으로 나온 인덱스를 저장할 변수 선언.
+            let keyword = ""
+            let labelText = filteredStruct[indexPath.row].mntnnm
+            let labelHeight = filteredStruct[indexPath.row].mntninfohght
+            let attributeString = NSMutableAttributedString(string: labelText!)
+            let secondattributeString = NSMutableAttributedString(string: labelHeight!)
+            
+            print("----------\(keyword)")
+            
+            if let textFirstRange = labelText!.range(of: keyword , options: .caseInsensitive){ // 검색중인 키워드가 있을 때에만 색상 변경 - 검색중인 키워드가 가장 처음으로 일치하는 문자열의 범위를 알아낼 수 있음. (caseInsensitive:대소문자 구분X)
+                textFirstIndex = labelText!.distance(from: labelText!.startIndex, to: textFirstRange.lowerBound) // 거리(인덱스) 구해서 저장.
+                attributeString.addAttribute(.foregroundColor, value: UIColor.systemGreen, range: NSRange(location: textFirstIndex, length: keyword.count))
                 
-                print("----------\(keyword)")
-                if let textFirstRange = text.range(of: keyword , options: .caseInsensitive) { // 검색중인 키워드가 있을 때에만 색상 변경 - 검색중인 키워드가 가장 처음으로 일치하는 문자열의 범위를 알아낼 수 있음. (caseInsensitive:대소문자 구분X)
-                    textFirstIndex = text.distance(from: text.startIndex, to: textFirstRange.lowerBound) // 거리(인덱스) 구해서 저장.
+                if let heightFirstRange = labelHeight?.range(of: keyword, options: .caseInsensitive){
+                    textFirstIndex = labelHeight!.distance(from: labelText!.startIndex, to: textFirstRange.lowerBound) // 거리(인덱스) 구해서 저장.
+                    attributeString.addAttribute(.foregroundColor, value: UIColor.systemGreen, range: NSRange(location: textFirstIndex, length: keyword.count))
                     
-                    attributeString.addAttribute(.foregroundColor, value: UIColor.systemGreen, range: NSRange(location: textFirstIndex, length: keyword.count)) // 텍스트 색상(yellow) 변경.
-                    cell.titleLabel.attributedText = attributeString // ex) "제주" 위트 에일(JEJU Wit ale)
-                    cell.selectionStyle = .none // 테이블뷰 cell 선택시 배경색상 없애기 :
-                }
-                
-                
-            } else {
                 }
             }
-        
-        
-        
-        
-        
+            cell.titleLabel.attributedText = attributeString // ex) "제주" 위트 에일(JEJU Wit ale)
+            cell.contentLabel.attributedText = secondattributeString
+        }
         return cell
+        
     }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
@@ -64,4 +65,6 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     
+    
 }
+
