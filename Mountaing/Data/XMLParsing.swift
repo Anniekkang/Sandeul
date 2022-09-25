@@ -18,9 +18,13 @@ extension SearchViewController : XMLParserDelegate {
         
         currentElement = elementName
         
-        if elementName == "item" {
+        if elementName == "numberOfRows" {
+            numberOfRows = 1338
+            
+            
+        } else if elementName == "item" {
             item = Item()
-        }
+        } 
 
     }
     

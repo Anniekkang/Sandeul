@@ -18,7 +18,7 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
         
         cell.backgroundColor = .white
         cell.titleLabel.text = item?.mntnnm
-        cell.contentLabel.text = "\(item?.mntninfohght)m"
+        cell.contentLabel.text = "\(item!.mntninfohght)m"
         
         //검색창이 활성화 될 때
         if self.isFiltering {

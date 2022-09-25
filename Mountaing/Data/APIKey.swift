@@ -9,7 +9,7 @@ import UIKit
 
 enum APIKey {
     static let Encoding = "UozP%2BZQ4xoM8y%2BlgzHPeybgkNHyl7M2R4hDsfabLGBzWNduklkOrYuNUH0Qp%2Fb%2F1AJyoiCfwCJcDYeiGLM4OJQ%3D%3D"
-    static let url = URL(string:endPoint.first + APIKey.Encoding)!
+    static let url = URL(string: "http://openapi.forest.go.kr/openapi/service/trailInfoService/getforeststoryservice?ServiceKey=UozP%2BZQ4xoM8y%2BlgzHPeybgkNHyl7M2R4hDsfabLGBzWNduklkOrYuNUH0Qp%2Fb%2F1AJyoiCfwCJcDYeiGLM4OJQ%3D%3D&pageNo=1&numOfRows=1338") 
 }
 
 

@@ -6,17 +6,18 @@
 //
 
 import UIKit
+import RealmSwift
 
 
 
 class SearchViewController: UIViewController,UISearchBarDelegate, UISearchControllerDelegate {
     
-   
-   
+    let repository = MountainModel()
+    
     var currentElement : String = ""
     var item : Item?
     var items : [Item] = []
-    
+    var numberOfRows : Int = 10
     var filteredStruct : [Item] = []
     
     var isFiltering: Bool {
@@ -28,6 +29,13 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UISearchContro
         return isActive || isSearchBarHasText
        
     }
+    
+//    var tasks : Results<MountainModel>! {
+//        didSet{
+//            mainView.tableView.reloadData()
+//            print("tasks changed")
+//        }
+//    }
      
     var mainView = SearchView()
     override func loadView() {
@@ -42,13 +50,24 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UISearchContro
         mainView.tableView.keyboardDismissMode = .onDrag
     
         configuration()
-        setParser(from: APIKey.url)
+        setParser(from: APIKey.url!)
        
         print(items)
         
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print(#function)
+        
+        
+    }
+    
+
+        
+        
+
     func setParser(from url: URL) {
             let parser = XMLParser(contentsOf: url)
             parser!.delegate = self
