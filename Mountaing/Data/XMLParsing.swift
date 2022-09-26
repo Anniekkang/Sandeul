@@ -10,19 +10,15 @@ import Alamofire
 import SwiftyJSON
 
 
-extension SearchViewController : XMLParserDelegate {
+extension FirstViewController : XMLParserDelegate {
     
     
     // XML 파서가 시작 테그를 만나면 호출됨
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName Name: String?, attributes attributeDict: [String : String] = [:]) {
         
         currentElement = elementName
-        
-        if elementName == "numberOfRows" {
-            numberOfRows = 1338
-            
-            
-        } else if elementName == "item" {
+    
+         elementName == "item" {
             item = Item()
         } 
 

@@ -12,7 +12,7 @@ import RealmSwift
 
 class SearchViewController: UIViewController,UISearchBarDelegate, UISearchControllerDelegate {
     
-    let repository = MountainModel()
+    let localRealm = try! Realm()
     
     var currentElement : String = ""
     var item : Item?
@@ -27,16 +27,18 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UISearchContro
         let isSearchBarHasText = searchController?.searchBar.text?.isEmpty == false
         
         return isActive || isSearchBarHasText
-       
+        
     }
     
-//    var tasks : Results<MountainModel>! {
-//        didSet{
-//            mainView.tableView.reloadData()
-//            print("tasks changed")
-//        }
-//    }
-     
+    var tasks : Results<MountainModel>! {
+        didSet{
+            mainView.tableView.reloadData()
+            print("tasks changed")
+        }
+    }
+    
+    
+    
     var mainView = SearchView()
     override func loadView() {
         self.view = mainView
@@ -48,11 +50,11 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UISearchContro
         setupSearchController()
         mainView.tableView.reloadData()
         mainView.tableView.keyboardDismissMode = .onDrag
-    
+        
         configuration()
         setParser(from: APIKey.url!)
-       
-        print(items)
+        
+        print("Realm is located at:", localRealm.configuration.fileURL!)
         
         
     }
@@ -60,27 +62,60 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UISearchContro
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print(#function)
-        
+        fetchRealm()
         
     }
     
-
+    func fetchRealm() -> Results<MountainModel> {
         
+       return localRealm.objects(MountainModel.self).sorted(byKeyPath: "title", ascending: true)
         
-
-    func setParser(from url: URL) {
-            let parser = XMLParser(contentsOf: url)
-            parser!.delegate = self
-            if parser!.parse() {
-    
-                print("parsing succeed")
-    
-            } else {
-                print("parsing error")
-            }
-    
+    }
+    func setDifficulty(altitude : Int) -> String?{
+        if altitude > 1000 {
+            return "상급"
+        } else if altitude > 500 {
+            return "중급"
+        } else {
+            return "초급"
         }
-
+    }
+    
+    
+    func saveData(){
+        guard let title = item?.mntnnm,
+              let contents = item?.mntnInfodtlinfocont,
+              let altitude = Int((item?.mntninfohght)!),
+              let difficulty = setDifficulty(altitude: altitude),
+              let location = item?.mntninfopoflc,
+              let imageURL = item?.mntnattchimageseq else { return }
+        
+        let task = MountainModel(title: title, contents: contents, difficulty: difficulty, altitude: altitude, location: location, imageURL: imageURL)
+        
+        
+        do {
+            try localRealm.write{
+                localRealm.add(task)
+            }
+        } catch let error {
+            print(error)
+        }
+        
+    }
+    
+    func setParser(from url: URL) {
+        let parser = XMLParser(contentsOf: url)
+        parser!.delegate = self
+        if parser!.parse() {
+            
+            print("parsing succeed")
+            
+        } else {
+            print("parsing error")
+        }
+        
+    }
+    
     func setupSearchController() {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = "산 이름을 검색하시오"
@@ -88,11 +123,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UISearchContro
         self.navigationItem.searchController = searchController
         self.navigationItem.title = "Search"
         self.navigationController?.navigationBar.prefersLargeTitles = true // Large title로 하고싶을 때
-//
-//        var isSearchBarEmpty : Bool {
-//            return searchController.searchBar.text?.isEmpty ?? true
-//
-//        }
+        
         
         self.navigationItem.hidesSearchBarWhenScrolling = false
         searchController.obscuresBackgroundDuringPresentation = false

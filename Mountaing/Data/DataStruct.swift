@@ -14,7 +14,7 @@ struct Item  {
     var mntnnm : String?//mountainTitle
     var mntninfohght : String?//Altitude
     var mntnInfodtlinfocont : String? //contents
-    var difficulty : String?//difficulty
+    var difficulty : String = ""//difficulty
     var mntnattchimageseq : String? //Image
 }
 

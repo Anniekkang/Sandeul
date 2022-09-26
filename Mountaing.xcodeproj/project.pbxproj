@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		9E5AE26028DA9CE000D40B7B /* ROKAF Sans Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E5AE25E28DA9CE000D40B7B /* ROKAF Sans Bold.otf */; };
 		9E5AE26128DA9CE100D40B7B /* ROKAF Sans Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E5AE25F28DA9CE000D40B7B /* ROKAF Sans Medium.otf */; };
-		9E5AE26728DAD39400D40B7B /* XMLCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 9E5AE26628DAD39400D40B7B /* XMLCoder */; };
 		9E5AE26F28DC00DD00D40B7B /* TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AE26E28DC00DD00D40B7B /* TableViewExtension.swift */; };
 		9E72500328D7B711000DF643 /* mountainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E72500228D7B711000DF643 /* mountainData.swift */; };
 		9E72500528D7B74E000DF643 /* HomeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E72500428D7B74E000DF643 /* HomeSection.swift */; };
@@ -18,14 +17,13 @@
 		9EAB1D1328D20A57009406A9 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAB1D1228D20A57009406A9 /* DiaryViewController.swift */; };
 		9EAB1D1528D20A5E009406A9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAB1D1428D20A5E009406A9 /* SearchViewController.swift */; };
 		9EC2F77928E0906600DBC759 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC2F77828E0906600DBC759 /* Repository.swift */; };
-		9EC65C0628D8683B00996713 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9EC65C0528D8683B00996713 /* SnapKit */; };
+		9EC2F77F28E1122B00DBC759 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9EC2F77E28E1122B00DBC759 /* SnapKit */; };
 		9EC65C0B28D8687900996713 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 9EC65C0A28D8687900996713 /* Kingfisher */; };
 		9EC65C0E28D8695300996713 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 9EC65C0D28D8695300996713 /* Alamofire */; };
 		9EC65C1128D86C4100996713 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 9EC65C1028D86C4100996713 /* SwiftyJSON */; };
 		9EC65C2328D87C6400996713 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 9EC65C2228D87C6400996713 /* Realm */; };
 		9EC65C2528D87C6400996713 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9EC65C2428D87C6400996713 /* RealmSwift */; };
 		9ECDCCD628DC67A400D412CC /* XMLParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECDCCD528DC67A400D412CC /* XMLParsing.swift */; };
-		9ECDCCD928DC7D6800D412CC /* SWXMLHash in Frameworks */ = {isa = PBXBuildFile; productRef = 9ECDCCD828DC7D6800D412CC /* SWXMLHash */; };
 		9ED7695928D06099002D2574 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7695828D06099002D2574 /* AppDelegate.swift */; };
 		9ED7695B28D06099002D2574 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7695A28D06099002D2574 /* SceneDelegate.swift */; };
 		9ED7696028D06099002D2574 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ED7695E28D06099002D2574 /* Main.storyboard */; };
@@ -51,7 +49,6 @@
 		9EF6ACAE28D710C9000551E1 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF6ACAD28D710C9000551E1 /* InfoViewController.swift */; };
 		9EF6ACB028D710E3000551E1 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF6ACAF28D710E2000551E1 /* InfoTableViewCell.swift */; };
 		9EF6ACB928D757B8000551E1 /* DataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF6ACB828D757B8000551E1 /* DataStruct.swift */; };
-		9EF9C8DC28DA220400826DC8 /* SwiftyXMLParser in Frameworks */ = {isa = PBXBuildFile; productRef = 9EF9C8DB28DA220400826DC8 /* SwiftyXMLParser */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,11 +101,8 @@
 				9EC65C2528D87C6400996713 /* RealmSwift in Frameworks */,
 				9EC65C0E28D8695300996713 /* Alamofire in Frameworks */,
 				9EC65C0B28D8687900996713 /* Kingfisher in Frameworks */,
-				9EF9C8DC28DA220400826DC8 /* SwiftyXMLParser in Frameworks */,
+				9EC2F77F28E1122B00DBC759 /* SnapKit in Frameworks */,
 				9EC65C1128D86C4100996713 /* SwiftyJSON in Frameworks */,
-				9EC65C0628D8683B00996713 /* SnapKit in Frameworks */,
-				9ECDCCD928DC7D6800D412CC /* SWXMLHash in Frameworks */,
-				9E5AE26728DAD39400D40B7B /* XMLCoder in Frameworks */,
 				9EC65C2328D87C6400996713 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,15 +276,12 @@
 			);
 			name = Mountaing;
 			packageProductDependencies = (
-				9EC65C0528D8683B00996713 /* SnapKit */,
 				9EC65C0A28D8687900996713 /* Kingfisher */,
 				9EC65C0D28D8695300996713 /* Alamofire */,
 				9EC65C1028D86C4100996713 /* SwiftyJSON */,
 				9EC65C2228D87C6400996713 /* Realm */,
 				9EC65C2428D87C6400996713 /* RealmSwift */,
-				9EF9C8DB28DA220400826DC8 /* SwiftyXMLParser */,
-				9E5AE26628DAD39400D40B7B /* XMLCoder */,
-				9ECDCCD828DC7D6800D412CC /* SWXMLHash */,
+				9EC2F77E28E1122B00DBC759 /* SnapKit */,
 			);
 			productName = Mountaing;
 			productReference = 9ED7695528D06099002D2574 /* Mountaing.app */;
@@ -321,14 +312,11 @@
 			);
 			mainGroup = 9ED7694C28D06099002D2574;
 			packageReferences = (
-				9EC65C0428D8683B00996713 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				9EC65C0928D8687900996713 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				9EC65C0C28D8695300996713 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				9EC65C0F28D86C4100996713 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				9EC65C2128D87C6400996713 /* XCRemoteSwiftPackageReference "realm-swift" */,
-				9EF9C8DA28DA220400826DC8 /* XCRemoteSwiftPackageReference "SwiftyXMLParser" */,
-				9E5AE26528DAD39400D40B7B /* XCRemoteSwiftPackageReference "XMLCoder" */,
-				9ECDCCD728DC7D6800D412CC /* XCRemoteSwiftPackageReference "SWXMLHash" */,
+				9EC2F77D28E1122B00DBC759 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 9ED7695628D06099002D2574 /* Products */;
 			projectDirPath = "";
@@ -611,15 +599,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		9E5AE26528DAD39400D40B7B /* XCRemoteSwiftPackageReference "XMLCoder" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/CoreOffice/XMLCoder.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.9.0;
-			};
-		};
-		9EC65C0428D8683B00996713 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		9EC2F77D28E1122B00DBC759 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -659,33 +639,12 @@
 				kind = branch;
 			};
 		};
-		9ECDCCD728DC7D6800D412CC /* XCRemoteSwiftPackageReference "SWXMLHash" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/drmohundro/SWXMLHash.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
-			};
-		};
-		9EF9C8DA28DA220400826DC8 /* XCRemoteSwiftPackageReference "SwiftyXMLParser" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/yahoojapan/SwiftyXMLParser.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		9E5AE26628DAD39400D40B7B /* XMLCoder */ = {
+		9EC2F77E28E1122B00DBC759 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9E5AE26528DAD39400D40B7B /* XCRemoteSwiftPackageReference "XMLCoder" */;
-			productName = XMLCoder;
-		};
-		9EC65C0528D8683B00996713 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9EC65C0428D8683B00996713 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 9EC2F77D28E1122B00DBC759 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 		9EC65C0A28D8687900996713 /* Kingfisher */ = {
@@ -712,16 +671,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9EC65C2128D87C6400996713 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
-		};
-		9ECDCCD828DC7D6800D412CC /* SWXMLHash */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9ECDCCD728DC7D6800D412CC /* XCRemoteSwiftPackageReference "SWXMLHash" */;
-			productName = SWXMLHash;
-		};
-		9EF9C8DB28DA220400826DC8 /* SwiftyXMLParser */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9EF9C8DA28DA220400826DC8 /* XCRemoteSwiftPackageReference "SwiftyXMLParser" */;
-			productName = SwiftyXMLParser;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
