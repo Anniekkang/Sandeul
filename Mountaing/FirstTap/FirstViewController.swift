@@ -6,12 +6,22 @@
 //
 
 import UIKit
-import SwiftUI
 import Alamofire
+import SwiftyJSON
+import RealmSwift
 
 
 class FirstViewController: BaseViewController {
 
+    let url = APIKey.url
+    let localRealm = try! Realm()
+    var tasks : Results<MountainModel>!
+    
+    var currentElement : String = ""
+    var item : Item?
+    var items : [Item] = []
+
+    
     let font = FontManager.getFont()
     var mainView = FirstView()
     override func loadView() {
@@ -21,9 +31,12 @@ class FirstViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mainView.backgroundColor = .white
+    
         
+        print("Realm is located at:", localRealm.configuration.fileURL!)
         
     }
+    
     
     override func configuration() {
         mainView.collectionView.delegate = self

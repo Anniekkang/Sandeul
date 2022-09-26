@@ -10,15 +10,15 @@ import UIKit
 
 extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.isFiltering ? filteredStruct.count : items.count
+        return self.isFiltering ? filteredStruct.count : XMLParsing.shared.items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.reuseIdentifier, for: indexPath) as! SearchTableViewCell
         
         cell.backgroundColor = .white
-        cell.titleLabel.text = item?.mntnnm
-        cell.contentLabel.text = "\(item!.mntninfohght)m"
+        cell.titleLabel.text = XMLParsing.shared.item?.mntnnm
+        cell.contentLabel.text = "\(XMLParsing.shared.item!.mntninfohght)m"
         
         //검색창이 활성화 될 때
         if self.isFiltering {
@@ -50,8 +50,8 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
             cell.contentLabel.attributedText = secondattributeString
         }
         
-        cell.titleLabel.text = items[indexPath.row].mntnnm
-        cell.contentLabel.text = "\(items[indexPath.row].mntninfohght)m"
+        cell.titleLabel.text = XMLParsing.shared.items[indexPath.row].mntnnm
+        cell.contentLabel.text = "\(XMLParsing.shared.items[indexPath.row].mntninfohght)m"
         return cell
         
     }
