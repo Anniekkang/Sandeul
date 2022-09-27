@@ -24,6 +24,7 @@ struct Item  {
     var mntnInfodtlinfocont : String = "" //contents
     var difficulty : String = ""//difficulty
     var mntnattchimageseq : String = "" //Image
+    var searchBarText : String = ""//searchBar text
 }
 
 //struct를 저장할 model(object)
@@ -34,6 +35,7 @@ class RealmModuleModel : Object {
     @objc dynamic var location : String = ""
     @objc dynamic var imageURL :String = ""
     @objc dynamic var contents : String = ""
+    @objc dynamic var text : String = ""
     
 }
 extension Item : Persistable {
@@ -91,7 +93,7 @@ func saveModuleList(moduleList:[Item]) {
                 moduleList.forEach { module in
                     print("module \(module)")
                     appSettingModel.moduleList.append(module.managedObject())
-
+                    print("-------\(#function)")
                 }
             }
         }

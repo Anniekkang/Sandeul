@@ -59,8 +59,9 @@ extension FirstViewController {
                     let difficulty = items[i].difficulty
                     let imageURL = items[i].mntnattchimageseq
                     let location = items[i].mntninfopoflc
+                    let text = items[i].searchBarText
 
-                    let task = MountainModel(title: title, contents: contents, difficulty: difficulty, altitude: altitude, location: location, imageURL: imageURL)
+                    let task = MountainModel(title: title, contents: contents, difficulty: difficulty, altitude: altitude, location: location, imageURL: imageURL, text: text)
 
                
             

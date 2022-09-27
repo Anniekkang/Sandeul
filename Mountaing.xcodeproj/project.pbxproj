@@ -32,7 +32,7 @@
 		9ED7696528D0609B002D2574 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ED7696328D0609B002D2574 /* LaunchScreen.storyboard */; };
 		9ED7697628D063A9002D2574 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7697528D063A9002D2574 /* BaseViewController.swift */; };
 		9ED7697828D063BA002D2574 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7697728D063BA002D2574 /* BaseView.swift */; };
-		9ED7697A28D063F8002D2574 /* Mountaing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7697928D063F8002D2574 /* Mountaing.swift */; };
+		9ED7697A28D063F8002D2574 /* MountainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7697928D063F8002D2574 /* MountainModel.swift */; };
 		9ED7698D28D184B1002D2574 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7698C28D184B1002D2574 /* BaseTableViewCell.swift */; };
 		9ED7699028D1850B002D2574 /* Reusableprotocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7698F28D1850B002D2574 /* Reusableprotocol.swift */; };
 		9ED7699228D18564002D2574 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7699128D18564002D2574 /* BaseCollectionViewCell.swift */; };
@@ -74,7 +74,7 @@
 		9ED7696628D0609B002D2574 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9ED7697528D063A9002D2574 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9ED7697728D063BA002D2574 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
-		9ED7697928D063F8002D2574 /* Mountaing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mountaing.swift; sourceTree = "<group>"; };
+		9ED7697928D063F8002D2574 /* MountainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainModel.swift; sourceTree = "<group>"; };
 		9ED7698C28D184B1002D2574 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		9ED7698F28D1850B002D2574 /* Reusableprotocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusableprotocol.swift; sourceTree = "<group>"; };
 		9ED7699128D18564002D2574 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -226,7 +226,7 @@
 		9ED7697428D063A0002D2574 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
-				9ED7697928D063F8002D2574 /* Mountaing.swift */,
+				9ED7697928D063F8002D2574 /* MountainModel.swift */,
 				9EC2F77828E0906600DBC759 /* Repository.swift */,
 			);
 			path = Realm;
@@ -357,7 +357,7 @@
 				9EF6ACAE28D710C9000551E1 /* InfoViewController.swift in Sources */,
 				9EAB1D1328D20A57009406A9 /* DiaryViewController.swift in Sources */,
 				9ED7697628D063A9002D2574 /* BaseViewController.swift in Sources */,
-				9ED7697A28D063F8002D2574 /* Mountaing.swift in Sources */,
+				9ED7697A28D063F8002D2574 /* MountainModel.swift in Sources */,
 				9EF6AC9428D4DCA3000551E1 /* DiaryView.swift in Sources */,
 				9E72500B28D7C905000DF643 /* ElseCollectionViewCell.swift in Sources */,
 				9E72500528D7B74E000DF643 /* HomeSection.swift in Sources */,

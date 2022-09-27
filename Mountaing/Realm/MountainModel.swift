@@ -16,15 +16,17 @@ class MountainModel : Object {
     @Persisted var altitude : String
     @Persisted var location : String
     @Persisted var imageURL : String
+    @Persisted var text : String
     @Persisted(primaryKey: true) var objectId : ObjectId
     
-    convenience init(title : String, contents : String, difficulty : String, altitude : String, location : String, imageURL : String){
+    convenience init(title : String, contents : String, difficulty : String, altitude : String, location : String, imageURL : String, text : String){
         self.init()
         self.title = title
         self.contents = contents
         self.difficulty = difficulty
         self.altitude = altitude
         self.location = location
+        self.text = text
     }
 
 }

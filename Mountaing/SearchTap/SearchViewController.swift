@@ -17,14 +17,15 @@ class SearchViewController: UIViewController {
 
     let localRealm = try! Realm()
     
+    
     var tasks : Results<MountainModel>! {
         didSet {
             print("tasked changed!")
         }
     }
     
+    
     var filteredRealm : [MountainModel] = []
-
     var isFiltering: Bool {
 
         let searchController = self.navigationItem.searchController
