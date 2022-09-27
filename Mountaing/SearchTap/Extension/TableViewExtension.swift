@@ -63,14 +63,18 @@ func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) ->
 }
 
 func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let selectedRow = indexPath.row
+    let modelArray : [MountainModel] = localRealm.objects(MountainModel.self).map { $0 }
     
+    try! localRealm.write {
+        modelArray[selectedRow].selected = !modelArray[selectedRow].selected
+    }
+   
     
     let vc = InfoViewController()
     self.navigationController?.pushViewController(vc, animated: true)
     
 }
-
-
 
 }
 

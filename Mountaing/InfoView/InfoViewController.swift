@@ -6,9 +6,23 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import RealmSwift
+
 
 class InfoViewController: BaseViewController {
-
+    
+    
+    let localRealm = try! Realm()
+    
+    
+    var tasks : Results<MountainModel>! {
+        didSet {
+            print("tasked changed!")
+        }
+    }
+    
     
     var mainView = infoView()
     override func loadView() {
@@ -18,7 +32,7 @@ class InfoViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         configuration()
         
     }
@@ -29,7 +43,7 @@ class InfoViewController: BaseViewController {
         mainView.tableView.register(InfoTableViewCell.self, forCellReuseIdentifier: InfoTableViewCell.reuseIdentifier)
         mainView.backgroundColor = .white
     }
-
+    
 }
 
 extension InfoViewController : UITableViewDelegate, UITableViewDataSource {
@@ -42,34 +56,41 @@ extension InfoViewController : UITableViewDelegate, UITableViewDataSource {
         cell.backgroundColor = .systemGray6
         cell.infoLabel.font = Font.customfirst.mediumFont
         cell.typeLabel.font = Font.customfirst.smallFont
-        switch indexPath.row {
-        case 0:
-            cell.typeLabel.text = "이름"
-            cell.infoLabel.text = "d"
-        case 1:
-            cell.typeLabel.text = "위치"
-            cell.infoLabel.text = "d"
-        case 2:
-            cell.typeLabel.text = "고도"
-            cell.infoLabel.text = "d"
-        case 3:
-            cell.typeLabel.text = "난이도"
-            cell.infoLabel.text = "d"
-        case 4:
-            cell.typeLabel.text = "설명"
-            cell.infoLabel.text = "d"
-        default :
-            cell.typeLabel.text = "이름"
-            cell.infoLabel.text = "d"
-            
+        
+        let selectedCell = localRealm.objects(MountainModel.self).filter("selected == true")
+        
+        print("=========================\(selectedCell)")
+        
+      
+            switch indexPath.row {
+            case 0:
+                cell.typeLabel.text = "이름"
+                cell.infoLabel.text = selectedCell.first?.title
+            case 1:
+                cell.typeLabel.text = "위치"
+                cell.infoLabel.text = selectedCell.first?.location
+            case 2:
+                cell.typeLabel.text = "고도"
+                cell.infoLabel.text = selectedCell.first?.altitude
+            case 3:
+                cell.typeLabel.text = "난이도"
+                cell.infoLabel.text = selectedCell.first?.difficulty
+            case 4:
+                cell.typeLabel.text = "설명"
+                cell.infoLabel.text = selectedCell.first?.contents
+            default :
+                return cell 
+                
+            }
+        
+        try! localRealm.write {
+            selectedCell.first?.selected = false
         }
-        
-        
         
         return cell
     }
     
-   
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }

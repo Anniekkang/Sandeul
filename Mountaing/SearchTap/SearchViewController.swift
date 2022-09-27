@@ -16,7 +16,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UISearchContro
 
 
     let localRealm = try! Realm()
-    
+   
     
     var tasks : Results<MountainModel>! {
         didSet {
@@ -35,6 +35,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UISearchContro
         return isActive || isSearchBarHasText
 
     }
+   
 
     var mainView = SearchView()
     override func loadView() {

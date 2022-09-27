@@ -21,7 +21,7 @@ struct Item  {
     var mntninfopoflc : String = ""//location
     var mntnnm : String = ""//mountainTitle
     var mntninfohght : String = ""//Altitude
-    var mntnInfodtlinfocont : String = "" //contents
+    var mntninfodtlinfocont : String = "" //contents
     var difficulty : String = ""//difficulty
     var mntnattchimageseq : String = "" //Image
     var searchBarText : String = ""//searchBar text
@@ -45,7 +45,7 @@ extension Item : Persistable {
         self.difficulty = managedObject.difficulty
         self.mntninfopoflc = managedObject.location
         self.mntninfohght = managedObject.altitude
-        self.mntnInfodtlinfocont = managedObject.contents
+        self.mntninfodtlinfocont = managedObject.contents
         self.mntnattchimageseq = managedObject.imageURL
       
     }
@@ -57,7 +57,7 @@ extension Item : Persistable {
         module.title = self.mntnnm
         module.altitude = self.mntninfohght
         module.difficulty = self.difficulty
-        module.contents = self.mntnInfodtlinfocont
+        module.contents = self.mntninfodtlinfocont
         module.location = self.mntninfopoflc
         module.imageURL = self.mntnattchimageseq
     

@@ -9,6 +9,21 @@ import UIKit
 
 class ElseCollectionViewCell: BaseCollectionViewCell {
 
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        configure()
+        setConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    
+    
+    
         let titleLabel : UILabel = {
             let label = UILabel()
             //label.font = Font.customfirst.mediumFont
@@ -16,13 +31,7 @@ class ElseCollectionViewCell: BaseCollectionViewCell {
             return label
         }()
         
-        let rankingLabel : UILabel = {
-            let label = UILabel()
-            //label.font = Font.customfirst.mediumFont
-            labelUI(label: label, color : UIColor.black)
-            return label
-        }()
-        
+       
         let miniimage : UIImageView = {
             let view = UIImageView()
             view.layer.cornerRadius = 8
@@ -48,7 +57,7 @@ class ElseCollectionViewCell: BaseCollectionViewCell {
 
         override func configure() {
             
-            [rankingLabel,stackView,miniimage].forEach {
+            [stackView,miniimage].forEach {
                 contentView.addSubview($0)
             }
             
@@ -60,21 +69,18 @@ class ElseCollectionViewCell: BaseCollectionViewCell {
         }
     
     override func setConstraints() {
-        rankingLabel.snp.makeConstraints { make in
-            make.top.trailing.bottom.equalTo(10)
-            make.width.equalTo(self.snp.height)
-        }
+        
         
         miniimage.snp.makeConstraints { make in
-            make.top.bottom.equalTo(10)
-            make.leading.equalTo(rankingLabel.snp.trailing).offset(10)
-            make.width.equalTo(self.snp.height).multipliedBy(1.2)
+            make.top.bottom.equalTo(contentView).inset(10)
+            make.leading.equalTo(contentView).inset(10)
+            make.width.equalTo(contentView.snp.height).multipliedBy(1.2)
         }
         
         stackView.snp.makeConstraints { make in
-            make.top.bottom.equalTo(10)
-            make.leading.equalTo(rankingLabel.snp.trailing).offset(10)
-            make.trailing.equalTo(self).offset(-10)
+            make.top.bottom.equalTo(contentView).inset(10)
+            make.leading.equalTo(miniimage.snp.trailing).offset(10)
+            make.trailing.equalTo(contentView).offset(-10)
             
         }
         

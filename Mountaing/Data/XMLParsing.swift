@@ -54,8 +54,8 @@ extension FirstViewController : XMLParserDelegate {
             item?.mntninfohght = string
         } else if currentElement == "mntnattchimageseq"{
            item?.mntnattchimageseq = string
-        } else if currentElement == "mntnInfodtlinfocont"{
-            item?.mntnInfodtlinfocont = string
+        } else if currentElement == "mntninfodtlinfocont"{
+            item?.mntninfodtlinfocont = string
         }
     
     }

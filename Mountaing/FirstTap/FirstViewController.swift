@@ -13,8 +13,10 @@ import RealmSwift
 
 class FirstViewController: BaseViewController {
 
+    
     let url = APIKey.url
     let localRealm = try! Realm()
+   
     var tasks : Results<MountainModel>!
     
     var currentElement : String = ""
@@ -64,14 +66,30 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+        print(#function)
         if indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FirstCollectionViewCell.reuseIdentifier, for: indexPath) as! FirstCollectionViewCell
-            cell.backgroundColor = .systemGray6
             
+            cell.backgroundColor = .systemGray6
             return cell
+            
+        } else  if indexPath.section == 1 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ElseCollectionViewCell.reuseIdentifier, for: indexPath) as! ElseCollectionViewCell
+            let array = filterForBeginner()
+            print(array)
+            cell.titleLabel.text = array[indexPath.row].title
+            cell.altitudeLabel.text = array[indexPath.row].altitude
+           // cell.miniimage =
+            
+            cell.backgroundColor = .yellow
+            return cell
+            
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ElseCollectionViewCell.reuseIdentifier, for: indexPath) as! ElseCollectionViewCell
+            let array = filterForAdvanced()
+            cell.titleLabel.text = array[indexPath.row].title
+            cell.altitudeLabel.text = array[indexPath.row].altitude
+            
             cell.backgroundColor = .yellow
             return cell
         }
@@ -87,11 +105,11 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
         
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header", for: indexPath) as! Header
         if indexPath.section == 0 {
-            header.label.text = "가까운 산"
+            header.label.text = "근처에 있는 산"
         } else if indexPath.section == 1 {
-            header.label.text = "쉬운 산 TOP5"
+            header.label.text = "초급자를 위한 산"
         } else {
-            header.label.text = "어려운 산 TOP5"
+            header.label.text = "상급자를 위한 산"
         }
        
         
