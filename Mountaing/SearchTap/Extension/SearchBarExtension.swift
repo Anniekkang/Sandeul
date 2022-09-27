@@ -15,9 +15,9 @@ extension SearchViewController : UISearchResultsUpdating {
         print(text)
 
 
-        filteredStruct = .filter({ $0.mntnnm?.contains(text) == true || $0.mntninfohght?.contains(text) == true})
-
-        dump(filteredStruct)
+        filteredRealm = localRealm.objects(MountainModel.self).filter({ $0.title.contains(text) == true
+        })
+        dump(filteredRealm)
         mainView.tableView.reloadData()
     }
     

@@ -7,15 +7,23 @@
 
 import UIKit
 import RealmSwift
-
+import Alamofire
+import SwiftyJSON
 
 
 class SearchViewController: UIViewController {
 
 
 
-
-    var filteredStruct : [Item] = []
+    let localRealm = try! Realm()
+    
+    var tasks : Results<MountainModel>! {
+        didSet {
+            print("tasked changed!")
+        }
+    }
+    
+    var filteredRealm : [MountainModel] = []
 
     var isFiltering: Bool {
 
@@ -45,7 +53,7 @@ class SearchViewController: UIViewController {
     }
 
     func configuration() {
-//        mainView.tableView.delegate = self
+        mainView.tableView.delegate = self
         mainView.tableView.dataSource = self
         mainView.tableView.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.reuseIdentifier)
     }

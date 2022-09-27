@@ -10,15 +10,16 @@ import UIKit
 
 extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.isFiltering ? filteredStruct.count : XMLParsing.shared.items.count
+        return self.isFiltering ? filteredRealm.count : localRealm.objects(MountainModel.self).count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.reuseIdentifier, for: indexPath) as! SearchTableViewCell
         
         cell.backgroundColor = .white
-        cell.titleLabel.text = XMLParsing.shared.item?.mntnnm
-        cell.contentLabel.text = "\(XMLParsing.shared.item!.mntninfohght)m"
+        cell.titleLabel.text = localRealm.objects(MountainModel).filter{ $0.title[indexPath.row] }
+        
+        cell.contentLabel.text = "\(localRealm.objects(MountainModel).filter { $0.altitude[indexPath.row] })m"
         
         //검색창이 활성화 될 때
         if self.isFiltering {
