@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController,UISearchBarDelegate, UISearchControllerDelegate  {
 
 
 
@@ -47,8 +47,9 @@ class SearchViewController: UIViewController {
         mainView.tableView.reloadData()
         mainView.tableView.keyboardDismissMode = .onDrag
 
+        
         configuration()
-
+        setupSearchController()
 
 
     }
@@ -58,5 +59,24 @@ class SearchViewController: UIViewController {
         mainView.tableView.dataSource = self
         mainView.tableView.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.reuseIdentifier)
     }
-}
+    
+    func setupSearchController() {
+             let searchController = UISearchController(searchResultsController: nil)
+             searchController.searchBar.placeholder = "산 이름을 검색하시오"
 
+             self.navigationItem.searchController = searchController
+             self.navigationItem.title = "Search"
+             self.navigationController?.navigationBar.prefersLargeTitles = true // Large title로 하고싶을 때
+             
+
+             self.navigationItem.hidesSearchBarWhenScrolling = false
+             searchController.obscuresBackgroundDuringPresentation = false
+             definesPresentationContext = true
+             searchController.searchResultsUpdater = self
+             searchController.searchBar.delegate = self
+             searchController.delegate = self
+
+
+    }
+
+}
