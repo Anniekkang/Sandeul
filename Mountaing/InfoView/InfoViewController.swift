@@ -61,31 +61,32 @@ extension InfoViewController : UITableViewDelegate, UITableViewDataSource {
         
         print("=========================\(selectedCell)")
         
-      
-            switch indexPath.row {
-            case 0:
-                cell.typeLabel.text = "이름"
-                cell.infoLabel.text = selectedCell.first?.title
-            case 1:
-                cell.typeLabel.text = "위치"
-                cell.infoLabel.text = selectedCell.first?.location
-            case 2:
-                cell.typeLabel.text = "고도"
-                cell.infoLabel.text = selectedCell.first?.altitude
-            case 3:
-                cell.typeLabel.text = "난이도"
-                cell.infoLabel.text = selectedCell.first?.difficulty
-            case 4:
-                cell.typeLabel.text = "설명"
-                cell.infoLabel.text = selectedCell.first?.contents
-            default :
-                return cell 
-                
-            }
         
-        try! localRealm.write {
-            selectedCell.first?.selected = false
+        switch indexPath.row {
+        case 0:
+            cell.typeLabel.text = "이름"
+            cell.infoLabel.text = selectedCell.first?.title
+        case 1:
+            cell.typeLabel.text = "위치"
+            cell.infoLabel.text = selectedCell.first?.location
+        case 2:
+            cell.typeLabel.text = "고도"
+            cell.infoLabel.text = selectedCell.first?.altitude
+        case 3:
+            cell.typeLabel.text = "난이도"
+            cell.infoLabel.text = selectedCell.first?.difficulty
+        case 4:
+            cell.typeLabel.text = "설명"
+            cell.infoLabel.text = selectedCell.first?.contents
+            
+            try! localRealm.write {
+                selectedCell.first?.selected = false
+            }
+        default :
+            return cell 
+            
         }
+        
         
         return cell
     }
