@@ -48,7 +48,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
         }
        
-        tabBarController.tabBar.tintColor = .black
+        
         tabBarController.tabBar.scalesLargeContentImage = true
         
         window?.rootViewController = tabBarController

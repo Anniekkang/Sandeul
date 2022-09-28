@@ -9,22 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Search View Controller-->
-        <scene sceneID="qYZ-z2-3M8">
-            <objects>
-                <viewController storyboardIdentifier="SearchViewController" id="zja-77-lAI" customClass="SearchViewController" customModule="Mountaing" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="lx0-Ft-nK6">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Mo0-lJ-Anb"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="nFC-sB-KPv"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xGe-ro-x3B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2107.2463768115945" y="525.66964285714289"/>
-        </scene>
         <!--Diary View Controller-->
         <scene sceneID="guT-du-jDL">
             <objects>
@@ -71,7 +55,6 @@
                         <tabBarAppearance key="scrollEdgeAppearance" backgroundEffect="regular"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Y0f-jX-6qD" kind="relationship" relationship="viewControllers" id="VFd-DW-YGW"/>
                         <segue destination="gT2-Ti-EJW" kind="relationship" relationship="viewControllers" id="P1o-ZG-xzx"/>
                         <segue destination="VNs-mx-40n" kind="relationship" relationship="viewControllers" id="Vd6-rS-sRX"/>
                     </connections>
@@ -103,28 +86,6 @@
             <point key="canvasLocation" x="288.40579710144931" y="-219.64285714285714"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="EY2-p1-jv3">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Y0f-jX-6qD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="Ld5-wZ-ncU">
-                        <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <imageReference key="selectedImage" image="magnifyingglass" catalog="system" symbolScale="large" renderingMode="original"/>
-                    </tabBarItem>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zKg-Lg-1K9">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="zja-77-lAI" kind="relationship" relationship="rootViewController" id="PaP-7K-wJE"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mBL-gA-DJc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1197.1014492753625" y="525.66964285714289"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="t32-G4-Zaz">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gT2-Ti-EJW" sceneMemberID="viewController">
@@ -150,7 +111,6 @@
     <resources>
         <image name="book" catalog="system" width="128" height="99"/>
         <image name="house" catalog="system" width="128" height="106"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
