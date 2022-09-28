@@ -13,17 +13,19 @@ import RealmSwift
 
 class FirstViewController: BaseViewController {
     
-    var beginnerArray : [MountainModel]?
-    var advancedArray : [MountainModel]?
     
+    var titleArrays : [String] = []
     let url = APIKey.url
     let localRealm = try! Realm()
+    var randomNum : [Int] = []
+    var selectedModel : Results<MountainModel>!
+    
     
     
     var tasks : Results<MountainModel>! {
         didSet {
             print("tasked changed!")
-            mainView.collectionView.reloadData()
+        
         }
     }
     
@@ -33,6 +35,8 @@ class FirstViewController: BaseViewController {
     
     
     let font = FontManager.getFont()
+   
+    
     
     var mainView = FirstView()
     override func loadView() {
@@ -46,9 +50,11 @@ class FirstViewController: BaseViewController {
         configuration()
         
         
+        
         print("Realm is located at:", localRealm.configuration.fileURL!)
         
     }
+    
     
     
     override func configuration() {
@@ -72,6 +78,7 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
         if section == 0 {
             return 5
         } else if section == 1{
+          
             return 5
         } else {
             return 5
@@ -80,7 +87,10 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print(#function)
+
+        let listRealm = localRealm.objects(MountainModel.self)
+        let realmArray = listRealm.map { $0 }
+        
         if indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FirstCollectionViewCell.reuseIdentifier, for: indexPath) as! FirstCollectionViewCell
             
@@ -90,78 +100,38 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
         } else  if indexPath.section == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ElseCollectionViewCell.reuseIdentifier, for: indexPath) as! ElseCollectionViewCell
             
-            beginnerArray = filterArry(difficulty: "초급")
-            print("===================================filter:\(filterArry(difficulty: "초급"))")
-          
-            cell.titleLabel.text = beginnerArray![indexPath.section].title
-            cell.altitudeLabel.text = beginnerArray![indexPath.row].altitude
+            let randomNum = Int.random(in: 0..<listRealm.filter("difficulty = '초급'").count)
             
-            // cell.miniimage =
-            
+            cell.titleLabel.text = realmArray[randomNum].title
             cell.backgroundColor = .yellow
             return cell
-            
-        } else {
+                
+            }
+      
+        else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ElseCollectionViewCell.reuseIdentifier, for: indexPath) as! ElseCollectionViewCell
             
-            advancedArray = filterArry(difficulty: "상급")
+            let randomNum = Int.random(in: 0..<listRealm.filter("difficulty = '상급'").count)
             
-            cell.titleLabel.text = advancedArray![indexPath.row].title
-            cell.altitudeLabel.text = advancedArray![indexPath.row].altitude
-            
+            cell.titleLabel.text = realmArray[randomNum].title
             cell.backgroundColor = .yellow
             return cell
+
         }
-        
+       
     }
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+     
         
         
-        if indexPath.section == 1 {
-            switch indexPath.row {
-            case 0 :
-                try! localRealm.write {
-                    beginnerArray![0].selected = true
-                    print("---------------------------\(beginnerArray![0])----------------")
-                }
-            case 1 :
-                try! localRealm.write {
-                    beginnerArray![1].selected = true
-                }
-            case 2 :
-                try! localRealm.write {
-                    beginnerArray![2].selected = true
-                }
-            case 3 :
-                try! localRealm.write {
-                    beginnerArray![3].selected = true
-                }
-            case 4 :
-                try! localRealm.write {
-                    beginnerArray![4].selected = !beginnerArray![4].selected
-                }
-            default:
-                return
-            }
-            
-        } else if indexPath.section == 2 {
-            try! localRealm.write {
-                advancedArray![indexPath.row].selected = !advancedArray![indexPath.row].selected
-            }
-            
-            
-            
-        }
         
-        try! localRealm.write {
-            beginnerArray![indexPath.row].selected = !beginnerArray![indexPath.row].selected
-        }
+        
         
         let vc = InfoViewController()
         self.navigationController?.pushViewController(vc, animated: true)
-        
+  
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -182,4 +152,5 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
     
     
     
+
 }
