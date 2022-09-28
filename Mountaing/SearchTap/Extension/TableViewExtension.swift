@@ -24,7 +24,7 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
             
             if indexPath.row < filteredRealm.count {
                 cell.titleLabel.text = filteredRealm[indexPath.row].title
-                cell.contentLabel.text = "\(filteredRealm[indexPath.row].altitude)m"
+                cell.locationLabel.text = "\(filteredRealm[indexPath.row].altitude)m"
                 
             } //searchbar에 기록한 텍스트들
             var textFirstIndex: Int = 0 // 검색중인 키워드가 가장 처음으로 나온 인덱스를 저장할 변수 선언.
@@ -47,12 +47,12 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
                 }
             }
             cell.titleLabel.attributedText = attributeString // ex) "제주" 위트 에일(JEJU Wit ale)
-            cell.contentLabel.attributedText = secondattributeString
+            cell.locationLabel.attributedText = secondattributeString
              
         } else {
             
             cell.titleLabel.text = modelArray[indexPath.row].title
-            cell.contentLabel.text = "\(modelArray[indexPath.row].altitude)m"
+            cell.locationLabel.text = modelArray[indexPath.row].location
         }
         return cell
     }

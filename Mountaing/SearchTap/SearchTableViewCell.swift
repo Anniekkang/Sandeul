@@ -22,7 +22,7 @@ class SearchTableViewCell: BaseTableViewCell {
     
     let stackView : UIStackView = {
         let view = UIStackView()
-        view.spacing = 2
+        view.spacing = 5
         view.axis = .vertical
         return view
     }()
@@ -31,15 +31,17 @@ class SearchTableViewCell: BaseTableViewCell {
         let label = UILabel()
         label.text = "title"
         label.textColor = .black
-        label.font = .systemFont(ofSize: 20, weight: .bold)
+        label.font = Font.customfirst.largeFont
         return label
     }()
     
-    let contentLabel : UILabel = {
+    let locationLabel : UILabel = {
         let label = UILabel()
-        label.text = "content"
-        label.textColor = .systemGray
+        label.text = "location"
+        label.textColor = colorCustom.shared.lightgreenColor
         label.font = .systemFont(ofSize: 15, weight: .medium)
+        label.numberOfLines = 0
+        
         return label
     }()
     
@@ -49,7 +51,7 @@ class SearchTableViewCell: BaseTableViewCell {
     }()
     
     override func configure() {
-        [titleLabel,contentLabel].forEach {
+        [titleLabel,locationLabel].forEach {
             stackView.addArrangedSubview($0)
         }
         [stackView,image].forEach {
@@ -61,16 +63,21 @@ class SearchTableViewCell: BaseTableViewCell {
     func constraints(){
     
         image.snp.makeConstraints { make in
-            make.top.equalTo(2)
+            make.top.equalTo(self).inset(10)
             make.leading.equalTo(self).inset(5)
             make.bottom.equalTo(self).inset(5)
             make.width.equalTo(image.snp.height)
             
         }
+        titleLabel.snp.makeConstraints { make in
+            make.width.equalTo(stackView)
+            make.height.equalTo(stackView).multipliedBy(0.2)
+        }
+        
         
         stackView.snp.makeConstraints { make in
-            make.top.equalTo(2)
-            make.leading.equalTo(image.snp.trailing).offset(5)
+            make.top.equalTo(self).inset(10)
+            make.leading.equalTo(image.snp.trailing).offset(15)
             make.trailing.equalTo(self).inset(5)
             make.bottom.equalTo(self).inset(5)
         }

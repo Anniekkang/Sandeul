@@ -20,7 +20,7 @@ enum Font : Int {
     var smallFont : UIFont {
         switch self {
         case .customfirst :
-            return UIFont(name: "ROKAF-Sans-Medium", size: FontSize.small.rawValue)!
+            return UIFont(name: "KOTRA_BOLD", size: FontSize.small.rawValue)!
 
         }
         
@@ -29,21 +29,51 @@ enum Font : Int {
     var mediumFont : UIFont {
         switch self {
         case .customfirst :
-            return UIFont(name: "ROKAF-Sans-Medium", size: FontSize.medium.rawValue)!
+            return UIFont(name: "KOTRA_BOLD", size: FontSize.medium.rawValue)!
         }
     }
     
     var largeFont : UIFont {
         switch self {
         case .customfirst :
-            return UIFont(name: "ROKAF-Sans-Medium", size: FontSize.large.rawValue)!
+            return UIFont(name: "KOTRA_BOLD", size: FontSize.large.rawValue)!
         }
     }
     
     var extraLargefont : UIFont {
         switch self {
         case .customfirst :
-            return UIFont(name: "ROKAF-Sans-Medium", size: FontSize.extraLarge.rawValue)!
+            return UIFont(name: "KOTRA_BOLD", size: FontSize.extraLarge.rawValue)!
+        }
+    }
+    
+    var othersmallFont : UIFont {
+        switch self {
+        case .customfirst :
+            return UIFont(name: "KOTRA_BOLD", size: FontSize.small.rawValue)!
+
+        }
+        
+    }
+    
+    var othermediumFont : UIFont {
+        switch self {
+        case .customfirst :
+            return UIFont(name: "KOTRA_SONGEULSSI", size: FontSize.medium.rawValue)!
+        }
+    }
+    
+    var otherlargeFont : UIFont {
+        switch self {
+        case .customfirst :
+            return UIFont(name: "KOTRA_SONGEULSSI", size: FontSize.large.rawValue)!
+        }
+    }
+    
+    var otherextraLargefont : UIFont {
+        switch self {
+        case .customfirst :
+            return UIFont(name: "KOTRA_SONGEULSSI", size: FontSize.extraLarge.rawValue)!
         }
     }
 }

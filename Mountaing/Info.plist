@@ -10,9 +10,11 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>ROKAF Slab Serif Medium.otf</string>
+		<string>KOTRA_BOLD.otf</string>
 		<string>ROKAF Sans Bold.otf</string>
 		<string>ROKAF Slab Serif Bold.otf</string>
 		<string>ROKAF Sans Medium.otf</string>
+		<string>KOTRA_SONGEULSSI.otf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
