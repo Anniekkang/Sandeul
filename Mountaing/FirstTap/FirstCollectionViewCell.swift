@@ -19,6 +19,8 @@ class FirstCollectionViewCell: UICollectionViewCell {
     
     let imageView : UIImageView = {
         let view = UIImageView()
+       
+       
         
         return view
     }()

@@ -10,7 +10,7 @@ import UIKit
 enum FontSize : CGFloat {
     case small = 12
     case medium = 16
-    case large  = 17
+    case large  = 20
     case extraLarge = 25
 }
 
@@ -37,6 +37,13 @@ enum Font : Int {
         switch self {
         case .customfirst :
             return UIFont(name: "ROKAF-Sans-Medium", size: FontSize.large.rawValue)!
+        }
+    }
+    
+    var extraLargefont : UIFont {
+        switch self {
+        case .customfirst :
+            return UIFont(name: "ROKAF-Sans-Medium", size: FontSize.extraLarge.rawValue)!
         }
     }
 }

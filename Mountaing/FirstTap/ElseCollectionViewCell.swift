@@ -22,23 +22,28 @@ class ElseCollectionViewCell: BaseCollectionViewCell {
   
         let titleLabel : UILabel = {
             let label = UILabel()
-            //label.font = Font.customfirst.mediumFont
-            labelUI(label: label, color : UIColor.black)
+            label.font = Font.customfirst.largeFont
+            labelUI(label: label, color : .black)
             return label
         }()
         
        
         let miniimage : UIImageView = {
             let view = UIImageView()
-            view.layer.cornerRadius = 8
+       
+            view.layer.cornerRadius = 12
+            view.layer.borderColor = colorCustom.shared.greenColor.cgColor
+            view.layer.borderWidth = 1
+            view.layer.shadowOpacity = 0.1
+            view.layer.shadowRadius = 6
             return view
             
         }()
         
         let altitudeLabel : UILabel = {
             let label = UILabel()
-            //label.font = Font.customfirst.smallFont
-            labelUI(label: label, color: UIColor.systemGray6)
+            label.font = Font.customfirst.smallFont
+            labelUI(label: label, color: colorCustom.shared.lightgreenColor)
             return label
             
         }()
@@ -46,8 +51,8 @@ class ElseCollectionViewCell: BaseCollectionViewCell {
       
         let stackView : UIStackView = {
             let stack = UIStackView()
-            stack.axis = .vertical
-            stack.spacing = 5
+            stack.axis = .horizontal
+            stack.spacing = 10
             return stack
         }()
 
@@ -75,7 +80,7 @@ class ElseCollectionViewCell: BaseCollectionViewCell {
         
         stackView.snp.makeConstraints { make in
             make.top.bottom.equalTo(contentView).inset(10)
-            make.leading.equalTo(miniimage.snp.trailing).offset(10)
+            make.leading.equalTo(miniimage.snp.trailing).offset(30)
             make.trailing.equalTo(contentView).offset(-10)
             
         }

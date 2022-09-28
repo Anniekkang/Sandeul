@@ -46,12 +46,22 @@ class FirstViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mainView.backgroundColor = .white
+        mainView.backgroundColor = colorCustom.shared.backgroundColor
         configuration()
-        
+        navDesign()
         
         
         print("Realm is located at:", localRealm.configuration.fileURL!)
+        
+    }
+    
+    func navDesign(){
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        imageView.contentMode = .scaleAspectFit
+            let image = UIImage(named: "logo")
+            imageView.image = image
+            navigationItem.titleView = imageView
+        
         
     }
     
@@ -93,8 +103,11 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
         
         if indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FirstCollectionViewCell.reuseIdentifier, for: indexPath) as! FirstCollectionViewCell
+            cell.layer.cornerRadius = 8
+            cell.layer.shadowOpacity = 0.1
+            cell.layer.shadowRadius = 2
             
-            cell.backgroundColor = .systemGray6
+            cell.backgroundColor = .yellow
             return cell
             
         } else  if indexPath.section == 1 {
@@ -103,7 +116,11 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
             let randomNum = Int.random(in: 0..<listRealm.filter("difficulty = '초급'").count)
             
             cell.titleLabel.text = realmArray[randomNum].title
-            cell.backgroundColor = .yellow
+            cell.backgroundColor = colorCustom.shared.creamColor
+            cell.layer.cornerRadius = 16
+            cell.layer.shadowOpacity = 0.1
+            cell.layer.shadowRadius = 4
+            
             return cell
                 
             }
@@ -114,7 +131,10 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
             let randomNum = Int.random(in: 0..<listRealm.filter("difficulty = '상급'").count)
             
             cell.titleLabel.text = realmArray[randomNum].title
-            cell.backgroundColor = .yellow
+            cell.backgroundColor = colorCustom.shared.creamColor
+            cell.layer.cornerRadius = 16
+            cell.layer.shadowOpacity = 0.1
+            cell.layer.shadowRadius = 6
             return cell
 
         }
@@ -124,8 +144,19 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
      
-        
-        
+        if indexPath.section == 0 {
+            
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ElseCollectionViewCell.reuseIdentifier, for: indexPath) as! ElseCollectionViewCell
+           
+            if indexPath.row == 0 {
+                
+            }
+            
+            
+            
+        }
+    
         
         
         
