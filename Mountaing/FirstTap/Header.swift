@@ -17,7 +17,7 @@ class Header: UICollectionReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         label.text = "Categories"
-        label.textColor = .black
+        label.textColor = colorCustom.shared.lightBlackColor
         label.backgroundColor = .clear
         label.font = Font.customfirst.mediumFont
         addSubview(stackView)

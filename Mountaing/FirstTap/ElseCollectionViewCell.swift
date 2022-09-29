@@ -22,8 +22,8 @@ class ElseCollectionViewCell: BaseCollectionViewCell {
   
         let titleLabel : UILabel = {
             let label = UILabel()
-            label.font = Font.customfirst.otherlargeFont
-            labelUI(label: label, color : .black)
+            label.font = Font.customfirst.otherextraLargefont
+            labelUI(label: label, color : colorCustom.shared.lightBlackColor)
             return label
         }()
         
@@ -42,8 +42,8 @@ class ElseCollectionViewCell: BaseCollectionViewCell {
         
         let altitudeLabel : UILabel = {
             let label = UILabel()
-            label.font = Font.customfirst.othersmallFont
-            labelUI(label: label, color: colorCustom.shared.lightgreenColor)
+            label.font = .systemFont(ofSize: 18, weight: .bold)
+            labelUI(label: label, color: colorCustom.shared.greenColor)
             return label
             
         }()
@@ -52,7 +52,8 @@ class ElseCollectionViewCell: BaseCollectionViewCell {
         let stackView : UIStackView = {
             let stack = UIStackView()
             stack.axis = .horizontal
-            stack.spacing = 10
+            stack.spacing = 25
+            stack.distribution = .fillEqually
             return stack
         }()
 
@@ -85,11 +86,16 @@ class ElseCollectionViewCell: BaseCollectionViewCell {
             
         }
         
+        titleLabel.snp.makeConstraints { make in
+            make.height.equalTo(stackView.snp.height)
+            
+        }
+        
      
     }
         
    
-        
+    
         
         
     }

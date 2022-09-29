@@ -37,6 +37,8 @@ class RealmModuleModel : Object {
     @objc dynamic var contents : String = ""
     @objc dynamic var text : String = ""
     
+    static let model = RealmModuleModel()
+    
 }
 extension Item : Persistable {
     
@@ -50,7 +52,7 @@ extension Item : Persistable {
       
     }
 
-
+    
     //struct -> object로 변경
     func managedObject() -> RealmModuleModel {
         let module = RealmModuleModel()
@@ -65,6 +67,8 @@ extension Item : Persistable {
     }
 
 }
+
+
 
 public protocol Persistable {
     associatedtype ManagedObject: RealmSwift.Object

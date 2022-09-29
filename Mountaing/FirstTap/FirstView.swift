@@ -33,6 +33,7 @@ class FirstView: BaseView {
                 
             }
         })
+        view.backgroundColor = colorCustom.shared.whiteBackgroundColor
        
         return view
     }()

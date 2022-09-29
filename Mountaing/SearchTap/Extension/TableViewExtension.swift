@@ -17,7 +17,7 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.reuseIdentifier, for: indexPath) as! SearchTableViewCell
         
         let modelArray : [MountainModel] = localRealm.objects(MountainModel.self).map { $0 }
-        cell.backgroundColor = .white
+        cell.backgroundColor = colorCustom.shared.whiteBackgroundColor
         
         //검색창이 활성화 될 때
         if self.isFiltering {

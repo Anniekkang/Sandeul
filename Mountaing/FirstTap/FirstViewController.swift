@@ -15,9 +15,10 @@ class FirstViewController: BaseViewController {
     
     
     var titleArrays : [String] = []
+    var secondTitleArrays : [String] = []
     let url = APIKey.url
     let localRealm = try! Realm()
-    var randomNum : [Int] = []
+    var randomNum : Int = 0
     var selectedModel : Results<MountainModel>!
     
     
@@ -46,7 +47,7 @@ class FirstViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mainView.backgroundColor = colorCustom.shared.backgroundColor
+        
         configuration()
         navDesign()
         
@@ -103,20 +104,23 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
         
         if indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FirstCollectionViewCell.reuseIdentifier, for: indexPath) as! FirstCollectionViewCell
-            cell.layer.cornerRadius = 8
-            cell.layer.shadowOpacity = 0.1
-            cell.layer.shadowRadius = 2
             
-            cell.backgroundColor = .yellow
+            cell.titleLabel.text = "북한산"
+            cell.contentsLabel.text = "블라블라블라블라블라 블라블라블라블라블라 블라블라블라블라블라 블라블라블라블라블라"
+            cell.imageView.image = UIImage(named: "북한산")
+        
             return cell
             
         } else  if indexPath.section == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ElseCollectionViewCell.reuseIdentifier, for: indexPath) as! ElseCollectionViewCell
-            
+            let filteredArray = listRealm.filter("difficulty = '초급'")
             let randomNum = Int.random(in: 0..<listRealm.filter("difficulty = '초급'").count)
+           
+            cell.titleLabel.text = filteredArray[randomNum].title
+            titleArrays.append(filteredArray[randomNum].title)
+            cell.altitudeLabel.text = "\(filteredArray[randomNum].altitude)m"
             
-            cell.titleLabel.text = realmArray[randomNum].title
-            cell.backgroundColor = colorCustom.shared.creamColor
+            cell.backgroundColor = colorCustom.shared.creamBackgroundColor
             cell.layer.cornerRadius = 16
             cell.layer.shadowOpacity = 0.1
             cell.layer.shadowRadius = 4
@@ -129,12 +133,16 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ElseCollectionViewCell.reuseIdentifier, for: indexPath) as! ElseCollectionViewCell
             
             let randomNum = Int.random(in: 0..<listRealm.filter("difficulty = '상급'").count)
+            let filteredArray = listRealm.filter("difficulty = '상급'")
             
-            cell.titleLabel.text = realmArray[randomNum].title
-            cell.backgroundColor = colorCustom.shared.creamColor
+            
+            cell.titleLabel.text = filteredArray[randomNum].title
+            secondTitleArrays.append(filteredArray[randomNum].title)
+            cell.altitudeLabel.text = "\(filteredArray[randomNum].altitude)m"
+            cell.backgroundColor = colorCustom.shared.creamBackgroundColor
             cell.layer.cornerRadius = 16
             cell.layer.shadowOpacity = 0.1
-            cell.layer.shadowRadius = 6
+            cell.layer.shadowRadius = 4
             return cell
 
         }
@@ -146,25 +154,37 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
      
         if indexPath.section == 0 {
             
-        } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ElseCollectionViewCell.reuseIdentifier, for: indexPath) as! ElseCollectionViewCell
+        
+        
+        
+        
+        } else if indexPath.section == 1 {
            
-            if indexPath.row == 0 {
-                
-            }
+            model
             
+            try! localRealm.write {
+             
+              
+            
+            }
+        }else {
+            
+            selectedModel = localRealm.objects(MountainModel.self).filter("title =  secondTitleArrays[indexPath.row]")
+            
+            
+            try! localRealm.write {
+             
+                
             
             
         }
     
-        
-        
-        
         let vc = InfoViewController()
         self.navigationController?.pushViewController(vc, animated: true)
   
     }
     
+}
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header", for: indexPath) as! Header
@@ -178,10 +198,9 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
         
         
         return header
-    }
-    
-    
-    
+        }
     
 
-}
+    }
+
+

@@ -24,6 +24,8 @@ class SearchTableViewCell: BaseTableViewCell {
         let view = UIStackView()
         view.spacing = 5
         view.axis = .vertical
+        view.alignment = .center
+        view.distribution = .fillProportionally
         return view
     }()
     
@@ -31,15 +33,15 @@ class SearchTableViewCell: BaseTableViewCell {
         let label = UILabel()
         label.text = "title"
         label.textColor = .black
-        label.font = Font.customfirst.largeFont
+        label.font = Font.customfirst.otherlargeFont
         return label
     }()
     
     let locationLabel : UILabel = {
         let label = UILabel()
         label.text = "location"
-        label.textColor = colorCustom.shared.lightgreenColor
-        label.font = .systemFont(ofSize: 15, weight: .medium)
+        label.textColor = colorCustom.shared.greenColor
+        label.font = .systemFont(ofSize: 15, weight: .bold)
         label.numberOfLines = 0
         
         return label
@@ -63,7 +65,7 @@ class SearchTableViewCell: BaseTableViewCell {
     func constraints(){
     
         image.snp.makeConstraints { make in
-            make.top.equalTo(self).inset(10)
+            make.top.equalTo(self).inset(5)
             make.leading.equalTo(self).inset(5)
             make.bottom.equalTo(self).inset(5)
             make.width.equalTo(image.snp.height)
@@ -71,15 +73,19 @@ class SearchTableViewCell: BaseTableViewCell {
         }
         titleLabel.snp.makeConstraints { make in
             make.width.equalTo(stackView)
-            make.height.equalTo(stackView).multipliedBy(0.2)
+            //make.height.equalTo(stackView).multipliedBy(0.2)
+        }
+        
+        locationLabel.snp.makeConstraints { make in
+            make.width.equalTo(stackView)
         }
         
         
         stackView.snp.makeConstraints { make in
-            make.top.equalTo(self).inset(10)
+            make.top.equalTo(self).inset(15)
             make.leading.equalTo(image.snp.trailing).offset(15)
-            make.trailing.equalTo(self).inset(5)
-            make.bottom.equalTo(self).inset(5)
+            make.trailing.equalTo(self).inset(15)
+            make.bottom.equalTo(self).inset(15)
         }
         
         

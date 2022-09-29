@@ -41,7 +41,7 @@ class InfoViewController: BaseViewController {
         mainView.tableView.delegate = self
         mainView.tableView.dataSource = self
         mainView.tableView.register(InfoTableViewCell.self, forCellReuseIdentifier: InfoTableViewCell.reuseIdentifier)
-        mainView.backgroundColor = .white
+        mainView.backgroundColor = colorCustom.shared.whiteBackgroundColor
     }
     
 }
@@ -53,9 +53,8 @@ extension InfoViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: InfoTableViewCell.reuseIdentifier, for: indexPath) as! InfoTableViewCell
-        cell.backgroundColor = .systemGray6
-        cell.infoLabel.font = Font.customfirst.mediumFont
-        cell.typeLabel.font = Font.customfirst.smallFont
+        cell.backgroundColor = colorCustom.shared.creamBackgroundColor
+       
         
         let selectedCell = localRealm.objects(MountainModel.self).filter("selected == true")
         
@@ -71,13 +70,14 @@ extension InfoViewController : UITableViewDelegate, UITableViewDataSource {
             cell.infoLabel.text = selectedCell.first?.location
         case 2:
             cell.typeLabel.text = "고도"
-            cell.infoLabel.text = selectedCell.first?.altitude
+            cell.infoLabel.text = "\(String(describing: selectedCell.first?.altitude))m"
         case 3:
             cell.typeLabel.text = "난이도"
             cell.infoLabel.text = selectedCell.first?.difficulty
         case 4:
             cell.typeLabel.text = "설명"
             cell.infoLabel.text = selectedCell.first?.contents
+            cell.infoLabel.numberOfLines = 0
             
             try! localRealm.write {
                 selectedCell.first?.selected = false

@@ -22,7 +22,7 @@ class SearchView: BaseView {
     
     let tableView : UITableView = {
         let view = UITableView(frame: .zero, style: .grouped)
-        view.backgroundColor = .white
+        view.backgroundColor = colorCustom.shared.creamBackgroundColor
         return view
     }()
     

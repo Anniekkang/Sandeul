@@ -18,7 +18,7 @@ class DiaryViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        mainView.backgroundColor = .white
+        mainView.backgroundColor = colorCustom.shared.whiteBackgroundColor
         
     }
     

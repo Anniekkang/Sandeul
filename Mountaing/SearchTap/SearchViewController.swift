@@ -44,7 +44,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UISearchContro
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainView.backgroundColor = colorCustom.shared.backgroundColor
+       
         mainView.tableView.reloadData()
         mainView.tableView.keyboardDismissMode = .onDrag
 

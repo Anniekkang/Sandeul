@@ -24,14 +24,22 @@ class infoView: BaseView {
 
     let ImageView : UIImageView = {
         let view = UIImageView()
-        view.backgroundColor = .white
-        view.layer.cornerRadius = 8
+        view.backgroundColor = .clear
+        view.layer.cornerRadius = 100
+        view.layer.borderColor = colorCustom.shared.greenColor.cgColor
+        view.image = UIImage(named: "북한산")
+        view.contentMode = .scaleToFill
+        view.clipsToBounds = true
+        view.layer.borderWidth = 1
+//        view.layer.shadowRadius = 8
+//        view.layer.shadowOpacity = 0.8
+        
         return view
     }()
     
     let tableView : UITableView = {
         let view = UITableView(frame: .zero, style: .insetGrouped)
-        view.backgroundColor = .white
+        view.backgroundColor = colorCustom.shared.whiteBackgroundColor
         return view
     }()
     
@@ -44,8 +52,8 @@ class infoView: BaseView {
     
     override func constraints(){
         ImageView.snp.makeConstraints { make in
-            make.top.trailing.leading.equalTo(safeAreaLayoutGuide).inset(10)
-            make.height.equalTo(ImageView.snp.width).multipliedBy(0.7)
+            make.top.trailing.leading.equalTo(safeAreaLayoutGuide).inset(40)
+            make.height.equalTo(ImageView.snp.width)
         }
         
         tableView.snp.makeConstraints { make in
