@@ -18,6 +18,7 @@ let localRealm = try! Realm()
 
 
 struct Item  {
+   
     var mntninfopoflc : String = ""//location
     var mntnnm : String = ""//mountainTitle
     var mntninfohght : String = ""//Altitude
@@ -37,7 +38,7 @@ class RealmModuleModel : Object {
     @objc dynamic var contents : String = ""
     @objc dynamic var text : String = ""
     
-    static let model = RealmModuleModel()
+   
     
 }
 extension Item : Persistable {

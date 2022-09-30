@@ -17,14 +17,18 @@ class InfoViewController: BaseViewController {
     let localRealm = try! Realm()
     
     
-    var tasks : Results<MountainModel>! {
+    
+    var testtasks : Results<MountainModel>! {
         didSet {
-            print("tasked changed!")
+            print("test tasked changed!")
+            print("1-testtasks : \(testtasks)")
         }
     }
     
     
+    
     var mainView = infoView()
+    
     override func loadView() {
         self.view = mainView
     }
@@ -37,6 +41,7 @@ class InfoViewController: BaseViewController {
         
     }
     
+   
     override func configuration() {
         mainView.tableView.delegate = self
         mainView.tableView.dataSource = self
@@ -47,46 +52,42 @@ class InfoViewController: BaseViewController {
 }
 
 extension InfoViewController : UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: InfoTableViewCell.reuseIdentifier, for: indexPath) as! InfoTableViewCell
         cell.backgroundColor = colorCustom.shared.creamBackgroundColor
+
+        
        
+       
+        let array = ["이름","위치","고도","난이도","설명"]
         
-        let selectedCell = localRealm.objects(MountainModel.self).filter("selected == true")
-        
-        print("=========================\(selectedCell)")
-        
-        
-        switch indexPath.row {
+        cell.typeLabel.text = array[indexPath.row]
+       
+        print(testtasks)
+        switch indexPath.row
+        {
         case 0:
-            cell.typeLabel.text = "이름"
-            cell.infoLabel.text = selectedCell.first?.title
+            cell.infoLabel.text = testtasks.first?.title
         case 1:
-            cell.typeLabel.text = "위치"
-            cell.infoLabel.text = selectedCell.first?.location
+            cell.infoLabel.text = testtasks.first?.location
         case 2:
-            cell.typeLabel.text = "고도"
-            cell.infoLabel.text = "\(String(describing: selectedCell.first?.altitude))m"
+            cell.infoLabel.text = testtasks.first?.altitude
         case 3:
-            cell.typeLabel.text = "난이도"
-            cell.infoLabel.text = selectedCell.first?.difficulty
+            cell.infoLabel.text = testtasks.first?.difficulty
         case 4:
-            cell.typeLabel.text = "설명"
-            cell.infoLabel.text = selectedCell.first?.contents
-            cell.infoLabel.numberOfLines = 0
-            
-            try! localRealm.write {
-                selectedCell.first?.selected = false
-            }
+            cell.infoLabel.text = testtasks.first?.contents
         default :
-            return cell 
+            break
             
         }
-        
         
         return cell
     }
@@ -96,5 +97,5 @@ extension InfoViewController : UITableViewDelegate, UITableViewDataSource {
         return 80
     }
     
-    
+   
 }

@@ -23,7 +23,7 @@ class InfoTableViewCell: BaseTableViewCell {
         let label = UILabel()
         label.textColor = .black
         label.textAlignment = .left
-        label.font = Font.customfirst.mediumFont
+        label.font = Font.customfirst.othermediumFont
        
         
         return label

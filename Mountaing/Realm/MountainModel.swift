@@ -10,6 +10,9 @@ import RealmSwift
 
  
 class MountainModel : Object {
+    
+    static var model = MountainModel()
+    
     @Persisted var title : String
     @Persisted var contents : String
     @Persisted var difficulty : String

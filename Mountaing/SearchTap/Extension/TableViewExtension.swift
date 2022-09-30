@@ -26,29 +26,8 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
                 cell.titleLabel.text = filteredRealm[indexPath.row].title
                 cell.locationLabel.text = "\(filteredRealm[indexPath.row].altitude)m"
                 
-            } //searchbar에 기록한 텍스트들
-            var textFirstIndex: Int = 0 // 검색중인 키워드가 가장 처음으로 나온 인덱스를 저장할 변수 선언.
-            let keyword = modelArray[indexPath.row].text
-            let labelText = filteredRealm[indexPath.row].title
-            let labelHeight = filteredRealm[indexPath.row].altitude
-            let attributeString = NSMutableAttributedString(string: labelText)
-            let secondattributeString = NSMutableAttributedString(string: labelHeight)
-            
-            print("----------\(keyword)")
-            
-            if let textFirstRange = labelText.range(of: keyword , options: .caseInsensitive){ // 검색중인 키워드가 있을 때에만 색상 변경 - 검색중인 키워드가 가장 처음으로 일치하는 문자열의 범위를 알아낼 수 있음. (caseInsensitive:대소문자 구분X)
-                textFirstIndex = labelText.distance(from: labelText.startIndex, to: textFirstRange.lowerBound) // 거리(인덱스) 구해서 저장.
-                attributeString.addAttribute(.foregroundColor, value: UIColor.systemGreen, range: NSRange(location: textFirstIndex, length: keyword.count))
-                
-                if let heightFirstRange = labelHeight.range(of: keyword, options: .caseInsensitive){
-                    textFirstIndex = labelHeight.distance(from: labelText.startIndex, to: textFirstRange.lowerBound) // 거리(인덱스) 구해서 저장.
-                    attributeString.addAttribute(.foregroundColor, value: UIColor.systemGreen, range: NSRange(location: textFirstIndex, length: keyword.count))
-                    
-                }
             }
-            cell.titleLabel.attributedText = attributeString // ex) "제주" 위트 에일(JEJU Wit ale)
-            cell.locationLabel.attributedText = secondattributeString
-             
+           
         } else {
             
             cell.titleLabel.text = modelArray[indexPath.row].title
@@ -63,11 +42,26 @@ func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) ->
 }
 
 func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let selectedRow = indexPath.row
-    let modelArray : [MountainModel] = localRealm.objects(MountainModel.self).map { $0 }
-    
+    if indexPath.section == 0 {
+        
+        
+        
+        
+        
+    } else if indexPath.section == 1 {
+        
+        
+        
+        
+        
+    } else {
+        
+        
+        
+        
+    }
     try! localRealm.write {
-        modelArray[selectedRow].selected = !modelArray[selectedRow].selected
+        
     }
    
     

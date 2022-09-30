@@ -49,6 +49,7 @@ class SearchTableViewCell: BaseTableViewCell {
     
     let image : UIImageView = {
         let view = UIImageView()
+        view.image = UIImage(named: "logo2")
         return view
     }()
     
@@ -65,9 +66,9 @@ class SearchTableViewCell: BaseTableViewCell {
     func constraints(){
     
         image.snp.makeConstraints { make in
-            make.top.equalTo(self).inset(5)
-            make.leading.equalTo(self).inset(5)
-            make.bottom.equalTo(self).inset(5)
+            make.top.equalTo(self).inset(25)
+            make.leading.equalTo(self).inset(25)
+            make.bottom.equalTo(self).inset(25)
             make.width.equalTo(image.snp.height)
             
         }
@@ -83,7 +84,7 @@ class SearchTableViewCell: BaseTableViewCell {
         
         stackView.snp.makeConstraints { make in
             make.top.equalTo(self).inset(15)
-            make.leading.equalTo(image.snp.trailing).offset(15)
+            make.leading.equalTo(image.snp.trailing).offset(20)
             make.trailing.equalTo(self).inset(15)
             make.bottom.equalTo(self).inset(15)
         }
