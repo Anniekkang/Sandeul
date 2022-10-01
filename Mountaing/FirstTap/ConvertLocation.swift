@@ -40,8 +40,12 @@ extension FirstViewController: CLLocationManagerDelegate {
                 
                 guard let region = placemark.first?.administrativeArea else { return }
                 print("region=========\(region)")
-                        
+            
+                let regionFiltered = self.localRealm.objects(MountainModel.self).filter("location contains '\(region)'")
+                
+                print("regionFiltered:\(regionFiltered)")
             }
+            
             
             
         }
