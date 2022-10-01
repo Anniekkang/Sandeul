@@ -38,37 +38,25 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
     
 
 func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 120
+    return 100
 }
 
 func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    if indexPath.section == 0 {
+    
+        guard let cell = tableView.cellForRow(at: indexPath) as? SearchTableViewCell else { return }
         
+        tasks = localRealm.objects(MountainModel.self).filter("title == '\(cell.titleLabel.text!)'")
         
-        
-        
-        
-    } else if indexPath.section == 1 {
-        
-        
-        
-        
-        
-    } else {
-        
-        
-        
-        
-    }
-    try! localRealm.write {
-        
-    }
+        let vc = InfoViewController()
+        vc.testtasks = tasks
+        self.navigationController?.pushViewController(vc, animated: true)
    
-    
-    let vc = InfoViewController()
-    self.navigationController?.pushViewController(vc, animated: true)
-    
 }
 
+    func fetchRealm(){
+        tasks = localRealm.objects(MountainModel.self).sorted(byKeyPath: "title", ascending: true)
+        print("==Realm is located at:", localRealm.configuration.fileURL!)
+        
+    }
 }
 

@@ -9,18 +9,19 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import RealmSwift
+import CoreLocation
 
 
 class FirstViewController: BaseViewController {
-    
-    
     
     let url = APIKey.url
     let localRealm = try! Realm()
     var randomNum : Int = 0
     var firstArray : [MountainModel] = []
     var secondArray : [MountainModel] = []
-    
+    var locationManger : CLLocationManager!
+   
+    var geocorder : CLGeocoder!
     
     
     var tasks : Results<MountainModel>! {
@@ -50,16 +51,32 @@ class FirstViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+     
+        
+        locationManger = CLLocationManager()
+        locationManger.delegate = self
+        
+        locationManger.desiredAccuracy = kCLLocationAccuracyBest
+        locationManger.requestWhenInUseAuthorization()
+        locationManger.startUpdatingLocation()
+        
+    
         
         configuration()
         navDesign()
-        
+        convertAddress()
         
         print("Realm is located at:", localRealm.configuration.fileURL!)
         
+        if CLLocationManager.locationServicesEnabled() {
+            print("위치 서비스 On 상태")
+            locationManger.startUpdatingLocation() //위치 정보 받아오기 시작
+            print(locationManger.location?.coordinate)
+        } else {
+            print("위치 서비스 Off 상태")
+        }
+ 
     }
-    
-    
     
     func navDesign(){
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
@@ -79,11 +96,12 @@ class FirstViewController: BaseViewController {
         mainView.collectionView.register(FirstCollectionViewCell.self, forCellWithReuseIdentifier: FirstCollectionViewCell.reuseIdentifier)
         mainView.collectionView.register(ElseCollectionViewCell.self, forCellWithReuseIdentifier: ElseCollectionViewCell.reuseIdentifier)
         mainView.collectionView.register(Header.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header")
+        
     }
     
     
-}
 
+}
 extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -104,6 +122,9 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
+            
+            
+            print("convertAddress")
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FirstCollectionViewCell.reuseIdentifier, for: indexPath) as! FirstCollectionViewCell
             
             cell.titleLabel.text = "북한산"
@@ -116,7 +137,7 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ElseCollectionViewCell.reuseIdentifier, for: indexPath) as! ElseCollectionViewCell
             
             let filtered = localRealm.objects(MountainModel.self).filter("difficulty = '초급'")
-            print("filtered:\(filtered)")
+            
             MountainModel.model = filtered.randomElement()!
             firstArray.append(MountainModel.model)
             
@@ -155,7 +176,7 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("indexPath:\(indexPath), section:\(indexPath.section)")
+        
         
         if indexPath.section == 0 {
             guard let selectedCell = collectionView.cellForItem(at: indexPath) as? FirstCollectionViewCell else { return }
@@ -166,9 +187,9 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
             
             guard let selectedCell = collectionView.cellForItem(at: indexPath) as? ElseCollectionViewCell else { return }
             
-            
             tasks = localRealm.objects(MountainModel.self).filter("title == '\(selectedCell.titleLabel.text!)'")
-            print("tasks : \(tasks)")
+            
+            
             
             
             let vc = InfoViewController()

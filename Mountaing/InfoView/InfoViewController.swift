@@ -84,6 +84,7 @@ extension InfoViewController : UITableViewDelegate, UITableViewDataSource {
             cell.infoLabel.text = testtasks.first?.difficulty
         case 4:
             cell.infoLabel.text = testtasks.first?.contents
+            
         default :
             break
             
@@ -94,7 +95,7 @@ extension InfoViewController : UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 60
     }
     
    

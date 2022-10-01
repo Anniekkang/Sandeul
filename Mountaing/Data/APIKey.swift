@@ -20,4 +20,7 @@ enum endPoint {
     
 }
 
+enum ImageURL {
+    static let frontURL = "http://www.forest.go.kr/newkfsweb/cmm/fms/getImage.do?fileSn=1&amp;"
+}
 

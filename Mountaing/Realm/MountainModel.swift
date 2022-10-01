@@ -20,7 +20,6 @@ class MountainModel : Object {
     @Persisted var location : String
     @Persisted var imageURL : String
     @Persisted var text : String
-    @Persisted var selected : Bool
     @Persisted(primaryKey: true) var objectId : ObjectId
     
     convenience init(title : String, contents : String, difficulty : String, altitude : String, location : String, imageURL : String, text : String){
@@ -31,7 +30,6 @@ class MountainModel : Object {
         self.altitude = altitude
         self.location = location
         self.imageURL = imageURL
-        self.selected = false
         self.text = text
     }
 

@@ -24,6 +24,11 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UISearchContro
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        fetchRealm()
+    }
     
     var filteredRealm : [MountainModel] = []
     var isFiltering: Bool {

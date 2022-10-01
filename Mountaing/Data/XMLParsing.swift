@@ -38,7 +38,7 @@ extension FirstViewController : XMLParserDelegate {
         if elementName == "item" {
         
            item = Item()
-            print("=====1")
+        
         }
     }
     
@@ -67,7 +67,7 @@ extension FirstViewController : XMLParserDelegate {
         if elementName == "item" {
             
             items.append(item!)
-            print(items.count)
+        
         }
         
         

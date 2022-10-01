@@ -22,7 +22,7 @@ class ElseCollectionViewCell: BaseCollectionViewCell {
   
         let titleLabel : UILabel = {
             let label = UILabel()
-            label.font = Font.customfirst.otherextraLargefont
+            label.font = Font.customfirst.otherlargeFont
             labelUI(label: label, color : colorCustom.shared.lightBlackColor)
             return label
         }()
@@ -42,7 +42,7 @@ class ElseCollectionViewCell: BaseCollectionViewCell {
         
         let altitudeLabel : UILabel = {
             let label = UILabel()
-            label.font = .systemFont(ofSize: 18, weight: .bold)
+            label.font = .systemFont(ofSize: 15, weight: .bold)
             labelUI(label: label, color: colorCustom.shared.greenColor)
             return label
             
