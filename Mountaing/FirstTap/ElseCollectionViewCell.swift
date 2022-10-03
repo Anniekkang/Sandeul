@@ -22,7 +22,7 @@ class ElseCollectionViewCell: BaseCollectionViewCell {
   
         let titleLabel : UILabel = {
             let label = UILabel()
-            label.font = Font.customfirst.otherlargeFont
+            label.font = Font.customfirst.otherextraLargefont
             labelUI(label: label, color : colorCustom.shared.lightBlackColor)
             return label
         }()
@@ -31,9 +31,11 @@ class ElseCollectionViewCell: BaseCollectionViewCell {
         let miniimage : UIImageView = {
             let view = UIImageView()
        
-            view.layer.cornerRadius = 12
-            view.layer.borderColor = colorCustom.shared.greenColor.cgColor
+            view.layer.cornerRadius = 50
+            let borderColor = colorCustom.shared.greenColor.cgColor
+            view.layer.borderColor? = UIColor.white.withAlphaComponent(0.5).cgColor
             view.layer.borderWidth = 1
+            view.layer.masksToBounds = true
             view.layer.shadowOpacity = 0.1
             view.layer.shadowRadius = 6
             return view
@@ -42,7 +44,7 @@ class ElseCollectionViewCell: BaseCollectionViewCell {
         
         let altitudeLabel : UILabel = {
             let label = UILabel()
-            label.font = .systemFont(ofSize: 15, weight: .bold)
+            label.font = .systemFont(ofSize: 18, weight: .bold)
             labelUI(label: label, color: colorCustom.shared.greenColor)
             return label
             
@@ -74,9 +76,9 @@ class ElseCollectionViewCell: BaseCollectionViewCell {
         
         
         miniimage.snp.makeConstraints { make in
-            make.top.bottom.equalTo(contentView).inset(10)
-            make.leading.equalTo(contentView).inset(10)
-            make.width.equalTo(contentView.snp.height).multipliedBy(1.2)
+            make.top.bottom.equalTo(contentView).inset(15)
+            make.leading.equalTo(contentView).inset(15)
+            make.width.equalTo(contentView.snp.height)
         }
         
         stackView.snp.makeConstraints { make in

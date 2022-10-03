@@ -7,7 +7,10 @@
 
 import UIKit
 
+
 class FirstCollectionViewCell: UICollectionViewCell {
+    
+  
     
     override init(frame: CGRect) {
         super .init(frame: frame)
@@ -26,11 +29,17 @@ class FirstCollectionViewCell: UICollectionViewCell {
         let view = UIImageView()
         view.clipsToBounds = true
         view.layer.cornerRadius = 8
-        view.layer.shadowOpacity = 0.2
+        view.layer.shadowOpacity = 0.3
         view.layer.shadowRadius = 6
+        
+        
+        return view
+    }()
+    
+    let backGroundView : UIView = {
+        let view = UIView()
+        view.layer.backgroundColor = (UIColor.black.cgColor).copy(alpha: 0.4)
        
-        
-        
         return view
     }()
     
@@ -42,11 +51,12 @@ class FirstCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    let contentsLabel : UILabel = {
+    let heightLabel : UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 15, weight: .bold)
-        label.numberOfLines = 2
-        label.textColor = .white
+        label.font = .systemFont(ofSize: 16, weight: .bold)
+        label.textColor = colorCustom.shared.greenColor
+        label.textAlignment = .center
+        
         return label
     }()
     
@@ -62,9 +72,10 @@ class FirstCollectionViewCell: UICollectionViewCell {
     func configuration(){
        
         contentView.addSubview(imageView)
-        contentView.addSubview(stackView)
+        imageView.addSubview(backGroundView)
+        backGroundView.addSubview(stackView)
         stackView.addArrangedSubview(titleLabel)
-        stackView.addArrangedSubview(contentsLabel)
+        stackView.addArrangedSubview(heightLabel)
         
         
         
@@ -73,6 +84,11 @@ class FirstCollectionViewCell: UICollectionViewCell {
     
     func constraints(){
         imageView.snp.makeConstraints { make in
+            make.edges.equalTo(contentView)
+            
+        }
+        
+        backGroundView.snp.makeConstraints { make in
             make.edges.equalTo(contentView)
         }
         stackView.snp.makeConstraints { make in

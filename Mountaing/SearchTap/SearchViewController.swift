@@ -53,10 +53,9 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UISearchContro
         mainView.tableView.reloadData()
         mainView.tableView.keyboardDismissMode = .onDrag
 
-        
+      
         configuration()
         setupSearchController()
-
 
     }
 

@@ -10,7 +10,7 @@ import UIKit
 class infoView: BaseView {
     
     override init(frame: CGRect) {
-        super.init(frame: frame)
+        super.init(frame: .zero)
         
         configuration()
         constraints()
@@ -25,14 +25,17 @@ class infoView: BaseView {
     let ImageView : UIImageView = {
         let view = UIImageView()
         view.backgroundColor = .clear
-        view.layer.cornerRadius = 100
         view.layer.borderColor = colorCustom.shared.greenColor.cgColor
         view.image = UIImage(named: "북한산")
-        view.contentMode = .scaleToFill
+        view.contentMode = .scaleAspectFill
         view.clipsToBounds = true
+        //view.layer.masksToBounds = false
         view.layer.borderWidth = 1
-//        view.layer.shadowRadius = 8
-//        view.layer.shadowOpacity = 0.8
+        
+        //view.layer.cornerRadius = 40
+        //view.layer.cornerCurve = .circular
+        
+        print("===================width : \(view.frame.height)")
         
         return view
     }()
@@ -40,6 +43,7 @@ class infoView: BaseView {
     let tableView : UITableView = {
         let view = UITableView(frame: .zero, style: .insetGrouped)
         view.backgroundColor = colorCustom.shared.whiteBackgroundColor
+        
         return view
     }()
     
@@ -52,12 +56,16 @@ class infoView: BaseView {
     
     override func constraints(){
         ImageView.snp.makeConstraints { make in
-            make.top.trailing.leading.equalTo(safeAreaLayoutGuide).inset(40)
+            make.top.equalTo(safeAreaLayoutGuide).inset(20)
+            make.leading.trailing.equalTo(safeAreaLayoutGuide).inset(140)
             make.height.equalTo(ImageView.snp.width)
+            
+        
+         
         }
         
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(ImageView.snp.bottom).offset(10)
+            make.top.equalTo(ImageView.snp.bottom).offset(50)
             make.leading.trailing.equalTo(safeAreaLayoutGuide).inset(10)
             make.bottom.equalTo(safeAreaLayoutGuide).inset(10)
         }

@@ -10,6 +10,7 @@ import Alamofire
 import SwiftyJSON
 import RealmSwift
 import CoreLocation
+import Kingfisher
 
 
 class FirstViewController: BaseViewController {
@@ -20,8 +21,8 @@ class FirstViewController: BaseViewController {
     var firstArray : [MountainModel] = []
     var secondArray : [MountainModel] = []
     var locationManger : CLLocationManager!
-   
-    var geocorder : CLGeocoder!
+    var regionFiltered : [MountainModel] = []
+    var geocorder : CLGeocoder = CLGeocoder()
     
     
     var tasks : Results<MountainModel>! {
@@ -51,7 +52,7 @@ class FirstViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-     
+        
         
         locationManger = CLLocationManager()
         locationManger.delegate = self
@@ -60,11 +61,11 @@ class FirstViewController: BaseViewController {
         locationManger.requestWhenInUseAuthorization()
         locationManger.startUpdatingLocation()
         
-    
         
+        // convertAddress()
         configuration()
         navDesign()
-        convertAddress()
+        
         
         print("Realm is located at:", localRealm.configuration.fileURL!)
         
@@ -75,7 +76,8 @@ class FirstViewController: BaseViewController {
         } else {
             print("위치 서비스 Off 상태")
         }
- 
+        
+        
     }
     
     func navDesign(){
@@ -100,7 +102,7 @@ class FirstViewController: BaseViewController {
     }
     
     
-
+    
 }
 extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
@@ -123,24 +125,61 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
             
-            
-            print("convertAddress")
+            print(#function)
+            print(indexPath)
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FirstCollectionViewCell.reuseIdentifier, for: indexPath) as! FirstCollectionViewCell
             
-            cell.titleLabel.text = "북한산"
-            cell.contentsLabel.text = "블라블라블라블라블라 블라블라블라블라블라 블라블라블라블라블라 블라블라블라블라블라"
-            cell.imageView.image = UIImage(named: "북한산")
+            let imageName = ["산1", "산2", "산3","산4","산5"]
+            cell.imageView.image = UIImage(named: imageName[indexPath.row])
+            
+            let currentLocation : CLLocation = self.locationManger.location ?? CLLocation()
+            let locale = Locale(identifier: "Ko-kr")
+            print("before")
+            
+            
+            self.geocorder.reverseGeocodeLocation(currentLocation, preferredLocale: locale) { placemarks, error in
+                
+                if let error = error {
+                    print(error)
+                }
+                
+                guard let placemark = placemarks.self else { return }
+                print(placemark)
+                guard let region = placemark.first?.administrativeArea else { return }
+                print("region=========\(region)")
+                
+                
+                
+                
+                
+                self.regionFiltered = self.tasks.filter("location contains '\(region)'").map { $0 }
+                
+                print("regionFiltered:\(self.regionFiltered)")
+                MountainModel.model = self.regionFiltered.randomElement() ?? MountainModel()
+                
+            }
+            
+            cell.titleLabel.text = MountainModel.model.title
+            cell.heightLabel.text = "\(MountainModel.model.altitude)m"
+            
+            
+            print("randomMountain:\(String(describing: MountainModel.model))")
+            print("indexPath:\(indexPath)")
+            
             
             return cell
+            
             
         } else  if indexPath.section == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ElseCollectionViewCell.reuseIdentifier, for: indexPath) as! ElseCollectionViewCell
             
-            let filtered = localRealm.objects(MountainModel.self).filter("difficulty = '초급'")
+            let filtered = localRealm.objects(MountainModel.self).filter { Int($0.altitude)! < 100 }
+            
             
             MountainModel.model = filtered.randomElement()!
             firstArray.append(MountainModel.model)
             
+            cell.miniimage.image = UIImage(named: "mountain")
             cell.titleLabel.text = MountainModel.model.title
             cell.altitudeLabel.text = "\(MountainModel.model.altitude)m"
             
@@ -148,6 +187,7 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
             cell.layer.cornerRadius = 16
             cell.layer.shadowOpacity = 0.1
             cell.layer.shadowRadius = 4
+            
             
             return cell
             
@@ -161,16 +201,19 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
             MountainModel.model = filtered.randomElement()!
             secondArray.append(MountainModel.model)
             
+            
+            
             cell.titleLabel.text = MountainModel.model.title
             cell.altitudeLabel.text = "\(MountainModel.model.altitude)m"
-            
+            cell.miniimage.image = UIImage(named: "mountain")
             cell.backgroundColor = colorCustom.shared.creamBackgroundColor
             cell.layer.cornerRadius = 16
             cell.layer.shadowOpacity = 0.1
             cell.layer.shadowRadius = 4
-            return cell
             
+            return cell
         }
+        
         
     }
     
@@ -190,17 +233,15 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
             tasks = localRealm.objects(MountainModel.self).filter("title == '\(selectedCell.titleLabel.text!)'")
             
             
-            
-            
-            let vc = InfoViewController()
-            vc.testtasks = tasks
-            self.navigationController?.pushViewController(vc, animated: true)
         }
-        // collectionView.reloadItems(at: [indexPath])
+        let vc = InfoViewController()
+        vc.testtasks = tasks
+        self.navigationController?.pushViewController(vc, animated: true)
         
         
         
     }
+    
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header", for: indexPath) as! Header

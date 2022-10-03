@@ -11,9 +11,10 @@ import SnapKit
 class FirstView: BaseView {
 
     override init(frame: CGRect) {
-        super.init(frame: .zero)
+        super.init(frame: frame)
         configuration()
         constraints()
+      
     }
     
     required init?(coder: NSCoder) {
@@ -34,7 +35,7 @@ class FirstView: BaseView {
             }
         })
         view.backgroundColor = colorCustom.shared.whiteBackgroundColor
-       
+        
         return view
     }()
     

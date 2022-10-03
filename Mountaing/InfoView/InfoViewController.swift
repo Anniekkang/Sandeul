@@ -9,6 +9,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import RealmSwift
+import Kingfisher
 
 
 class InfoViewController: BaseViewController {
@@ -47,6 +48,20 @@ class InfoViewController: BaseViewController {
         mainView.tableView.dataSource = self
         mainView.tableView.register(InfoTableViewCell.self, forCellReuseIdentifier: InfoTableViewCell.reuseIdentifier)
         mainView.backgroundColor = colorCustom.shared.whiteBackgroundColor
+        mainView.ImageView.layer.cornerRadius = mainView.ImageView.layer.frame.size.width / 2
+        print("==============width2 : \(mainView.ImageView.frame.width)")
+        
+        let imageAddress = URL(string: ImageURL.frontURL + testtasks.first!.imageURL)
+        if testtasks.first!.imageURL == "atchFileId=" {
+            mainView.ImageView.image = UIImage(named: "basic4")
+        } else {
+            mainView.ImageView.kf.setImage(with: imageAddress)
+            
+        }
+       
+        print("ImageURL2 : \(ImageURL.frontURL)")
+        print("imageURL : \(testtasks.first!.imageURL)")
+        print("imageaddress : \(imageAddress)")
     }
     
 }
@@ -56,21 +71,18 @@ extension InfoViewController : UITableViewDelegate, UITableViewDataSource {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: InfoTableViewCell.reuseIdentifier, for: indexPath) as! InfoTableViewCell
         cell.backgroundColor = colorCustom.shared.creamBackgroundColor
-
-        
-       
-       
         let array = ["이름","위치","고도","난이도","설명"]
-        
-        cell.typeLabel.text = array[indexPath.row]
        
+        cell.typeLabel.text = array[indexPath.row]
+        
+        
         print(testtasks)
         switch indexPath.row
         {
@@ -78,24 +90,30 @@ extension InfoViewController : UITableViewDelegate, UITableViewDataSource {
             cell.infoLabel.text = testtasks.first?.title
         case 1:
             cell.infoLabel.text = testtasks.first?.location
+//            cell.infoLabel.numberOfLines = 2
+//            cell.infoLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+//          print("infoLabel :\(testtasks.first!.location)")
+           
+           
         case 2:
-            cell.infoLabel.text = testtasks.first?.altitude
+            cell.infoLabel.text = "\(testtasks.first!.altitude)m"
         case 3:
             cell.infoLabel.text = testtasks.first?.difficulty
-        case 4:
-            cell.infoLabel.text = testtasks.first?.contents
+        
+            
             
         default :
             break
             
         }
         
+
         return cell
     }
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 100
     }
     
    
