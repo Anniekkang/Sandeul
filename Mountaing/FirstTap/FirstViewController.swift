@@ -13,7 +13,7 @@ import CoreLocation
 import Kingfisher
 
 
-class FirstViewController: BaseViewController {
+class FirstViewController: BaseViewController  {
     
     let url = APIKey.url
     let localRealm = try! Realm()
@@ -21,8 +21,8 @@ class FirstViewController: BaseViewController {
     var firstArray : [MountainModel] = []
     var secondArray : [MountainModel] = []
     var locationManger : CLLocationManager!
-    var regionFiltered : [MountainModel] = []
-    var geocorder : CLGeocoder = CLGeocoder()
+    var region : String = "한국"
+   
     
     
     var tasks : Results<MountainModel>! {
@@ -79,6 +79,7 @@ class FirstViewController: BaseViewController {
         
         
     }
+   
     
     func navDesign(){
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
@@ -131,46 +132,26 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
             
             let imageName = ["산1", "산2", "산3","산4","산5"]
             cell.imageView.image = UIImage(named: imageName[indexPath.row])
-            
-            let currentLocation : CLLocation = self.locationManger.location ?? CLLocation()
-            let locale = Locale(identifier: "Ko-kr")
             print("before")
             
-            
-            self.geocorder.reverseGeocodeLocation(currentLocation, preferredLocale: locale) { placemarks, error in
-                
-                if let error = error {
-                    print(error)
-                }
-                
-                guard let placemark = placemarks.self else { return }
-                print(placemark)
-                guard let region = placemark.first?.administrativeArea else { return }
-                print("region=========\(region)")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: { [self] in
+                MountainModel.model = self.localRealm.objects(MountainModel.self).filter("location contains '\(region)'").map { $0 }.randomElement()!
+                cell.titleLabel.text = MountainModel.model.title
+                cell.heightLabel.text = "\(MountainModel.model.altitude)m"
                 
                 
+                print("randomMountain:\(String(describing: MountainModel.model))")
+                print("indexPath:\(indexPath)")
                 
+               
                 
+            })
+               
                 
-                self.regionFiltered = self.tasks.filter("location contains '\(region)'").map { $0 }
-                
-                print("regionFiltered:\(self.regionFiltered)")
-                MountainModel.model = self.regionFiltered.randomElement() ?? MountainModel()
-                
-            }
-            
-            cell.titleLabel.text = MountainModel.model.title
-            cell.heightLabel.text = "\(MountainModel.model.altitude)m"
-            
-            
-            print("randomMountain:\(String(describing: MountainModel.model))")
-            print("indexPath:\(indexPath)")
-            
             
             return cell
             
-            
-        } else  if indexPath.section == 1 {
+        } else if indexPath.section == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ElseCollectionViewCell.reuseIdentifier, for: indexPath) as! ElseCollectionViewCell
             
             let filtered = localRealm.objects(MountainModel.self).filter { Int($0.altitude)! < 100 }
@@ -224,7 +205,8 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
         if indexPath.section == 0 {
             guard let selectedCell = collectionView.cellForItem(at: indexPath) as? FirstCollectionViewCell else { return }
             
-            MountainModel.model = localRealm.objects(MountainModel.self).filter("title == '\(selectedCell.titleLabel.text!)'").first!
+            tasks = localRealm.objects(MountainModel.self).filter("title == '\(selectedCell.titleLabel.text!)'")
+            
             
         } else {
             

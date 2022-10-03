@@ -9,11 +9,12 @@ import UIKit
 
 
 class InfoTableViewCell: BaseTableViewCell {
-
+    
+   
     let typeLabel : UILabel = {
         let label = UILabel()
         label.textColor = colorCustom.shared.greenColor
-        label.textAlignment = .center
+        label.textAlignment = .left
         label.font = Font.customfirst.mediumFont
         
         return label
@@ -23,8 +24,8 @@ class InfoTableViewCell: BaseTableViewCell {
         let label = UILabel()
         label.textColor = colorCustom.shared.lightBlackColor
         label.textAlignment = .left
-        label.font = Font.customfirst.otherlargeFont
-       
+        label.font = Font.customfirst.largeFont
+        
         
         return label
     }()
@@ -41,7 +42,7 @@ class InfoTableViewCell: BaseTableViewCell {
         self.addSubview(stackView)
         stackView.addArrangedSubview(typeLabel)
         stackView.addArrangedSubview(infoLabel)
-        
+
     }
     
     override func setConstraints() {
@@ -49,7 +50,7 @@ class InfoTableViewCell: BaseTableViewCell {
         stackView.snp.makeConstraints { make in
             make.top.leading.equalTo(contentView).inset(20)
             make.bottom.trailing.equalTo(contentView).offset(-20)
-        
+            
         }
         
         typeLabel.snp.makeConstraints { make in
@@ -57,10 +58,10 @@ class InfoTableViewCell: BaseTableViewCell {
             make.leading.equalTo(stackView.snp.leading)
             make.top.bottom.equalTo(stackView)
         }
-
+        
         infoLabel.snp.makeConstraints { make in
             make.top.bottom.equalTo(stackView)
-           // make.width.equalTo(stackView.snp.width).multipliedBy(0.6)
+            // make.width.equalTo(stackView.snp.width).multipliedBy(0.6)
             make.trailing.equalTo(stackView.snp.trailing)
         }
         

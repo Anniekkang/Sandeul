@@ -26,49 +26,51 @@ class infoView: BaseView {
         let view = UIImageView()
         view.backgroundColor = .clear
         view.layer.borderColor = colorCustom.shared.greenColor.cgColor
-        view.image = UIImage(named: "북한산")
         view.contentMode = .scaleAspectFill
         view.clipsToBounds = true
-        //view.layer.masksToBounds = false
-        view.layer.borderWidth = 1
-        
-        //view.layer.cornerRadius = 40
-        //view.layer.cornerCurve = .circular
-        
-        print("===================width : \(view.frame.height)")
+        view.layer.masksToBounds = true
+        view.layer.borderWidth = 0.8
+        view.layer.opacity = 0.4
         
         return view
+    }()
+    
+    let normalImageView : UIImageView = {
+        let view = UIImageView()
+        view.backgroundColor = .clear
+        view.layer.borderColor = colorCustom.shared.greenColor.cgColor
+        view.contentMode = .scaleAspectFill
+        view.clipsToBounds = true
+        view.layer.masksToBounds = true
+        view.layer.borderWidth = 0.8
+        
+        return view
+    }()
+      
+    let backGroundLabel : UILabel = {
+       let label = UILabel()
+        label.textColor = .white
+        label.font = Font.customfirst.largeFont
+        label.text = "이미지 준비중"
+        
+        return label
     }()
     
     let tableView : UITableView = {
         let view = UITableView(frame: .zero, style: .insetGrouped)
         view.backgroundColor = colorCustom.shared.whiteBackgroundColor
+        view.layer.borderColor = colorCustom.shared.greenColor.cgColor
+        view.layer.borderWidth = 0.8
+        view.layer.cornerRadius = 10
         
         return view
     }()
     
     override func configuration() {
-        [ImageView,tableView].forEach {
-            self.addSubview($0)
-        }
+        ImageView.addSubview(backGroundLabel)
         
     }
     
-    override func constraints(){
-        ImageView.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide).inset(20)
-            make.leading.trailing.equalTo(safeAreaLayoutGuide).inset(140)
-            make.height.equalTo(ImageView.snp.width)
-            
-        
-         
-        }
-        
-        tableView.snp.makeConstraints { make in
-            make.top.equalTo(ImageView.snp.bottom).offset(50)
-            make.leading.trailing.equalTo(safeAreaLayoutGuide).inset(10)
-            make.bottom.equalTo(safeAreaLayoutGuide).inset(10)
-        }
-    }
+   
 
 }
