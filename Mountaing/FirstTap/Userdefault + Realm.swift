@@ -9,23 +9,24 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import RealmSwift
-
+import PaperOnboarding
 
 extension FirstViewController {
     
-  
+    
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         fetchRealm()
         print(#function)
-            
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         userDefault()
+        
         
     }
     
@@ -50,11 +51,11 @@ extension FirstViewController {
     func userDefault(){
         print(#function)
         if UserDefaults.standard.bool(forKey: "first") == false {
-            //api호출 && realm에 저장
             
+            //api호출 && realm에 저장
             setParser(from: APIKey.url!)
             //saveModuleList(moduleList: items)
-                
+            
             try! localRealm.write {
                 saveModuleList(moduleList: items)
                 for i in 0...1337 {
@@ -66,21 +67,28 @@ extension FirstViewController {
                     let imageURL = items[i].mntnattchimageseq
                     let location = items[i].mntninfopoflc
                     let text = items[i].searchBarText
-
+                    
                     let task = MountainModel(title: title, contents: contents, difficulty: difficulty!, altitude: altitude, location: location, imageURL: imageURL, text: text)
                     
-                localRealm.add(task)
-                
+                    localRealm.add(task)
+                    
                 }
                 
-              
+                
             }
-   
-        print("realm success")
-        
             
+            //온보딩띄우기
+            let vc = OnboardViewController()
+            
+            vc.modalTransitionStyle = .crossDissolve
+            present(vc, animated: true)
+            
+            
+            print("realm success")
+            
+            
+        }
     }
-}
-
+    
 }
 

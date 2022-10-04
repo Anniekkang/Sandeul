@@ -67,7 +67,7 @@ extension FirstViewController : CLLocationManagerDelegate {
     func checkUserAuthorization (_ status : CLAuthorizationStatus){
         
         switch status {
-        case .authorizedWhenInUse :
+        case .authorizedAlways :
             locationManger.stopUpdatingLocation()
             print("When In Use")
         case .denied, .restricted :

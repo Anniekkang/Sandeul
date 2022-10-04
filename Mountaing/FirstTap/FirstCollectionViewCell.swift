@@ -63,7 +63,7 @@ class FirstCollectionViewCell: UICollectionViewCell {
     
     let regionLabel : UILabel = {
         let label = UILabel()
-        label.font = Font.customfirst.mediumFont //.systemFont(ofSize: 16, weight: .bold)
+        label.font = Font.customfirst.smallFont //.systemFont(ofSize: 16, weight: .bold)
         label.textColor = colorCustom.shared.creamBackgroundColor
         label.textAlignment = .center
         label.text = "위치"

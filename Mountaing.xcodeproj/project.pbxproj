@@ -16,6 +16,9 @@
 		9E5AE26028DA9CE000D40B7B /* ROKAF Sans Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E5AE25E28DA9CE000D40B7B /* ROKAF Sans Bold.otf */; };
 		9E5AE26128DA9CE100D40B7B /* ROKAF Sans Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E5AE25F28DA9CE000D40B7B /* ROKAF Sans Medium.otf */; };
 		9E5AE26F28DC00DD00D40B7B /* TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AE26E28DC00DD00D40B7B /* TableViewExtension.swift */; };
+		9E65C6FB28EC222F001B4A8E /* PaperOnboarding in Frameworks */ = {isa = PBXBuildFile; productRef = 9E65C6FA28EC222F001B4A8E /* PaperOnboarding */; };
+		9E65C6FE28EC2F22001B4A8E /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E65C6FD28EC2F22001B4A8E /* OnboardViewController.swift */; };
+		9E65C70028EC2FEB001B4A8E /* OnboardingScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E65C6FF28EC2FEB001B4A8E /* OnboardingScreen.storyboard */; };
 		9E65EB6728E4ABE300D41737 /* ColorCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E65EB6628E4ABE200D41737 /* ColorCustom.swift */; };
 		9E72500328D7B711000DF643 /* mountainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E72500228D7B711000DF643 /* mountainData.swift */; };
 		9E72500528D7B74E000DF643 /* HomeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E72500428D7B74E000DF643 /* HomeSection.swift */; };
@@ -27,7 +30,7 @@
 		9EC2F7A128E1698300DBC759 /* Userdefault + Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC2F7A028E1698300DBC759 /* Userdefault + Realm.swift */; };
 		9EC8CFB628EA814300E4B016 /* CurrentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC8CFB528EA814300E4B016 /* CurrentLocation.swift */; };
 		9ECDCCD628DC67A400D412CC /* XMLParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECDCCD528DC67A400D412CC /* XMLParsing.swift */; };
-		9ED056C628EB4DE8009AAB77 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED056C528EB4DE8009AAB77 /* PopupView.swift */; };
+		9ED056C628EB4DE8009AAB77 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED056C528EB4DE8009AAB77 /* OnboardingView.swift */; };
 		9ED056C928EC0A6D009AAB77 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 9ED056C828EC0A6D009AAB77 /* Toast */; };
 		9ED7695928D06099002D2574 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7695828D06099002D2574 /* AppDelegate.swift */; };
 		9ED7695B28D06099002D2574 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7695A28D06099002D2574 /* SceneDelegate.swift */; };
@@ -65,6 +68,8 @@
 		9E5AE25E28DA9CE000D40B7B /* ROKAF Sans Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ROKAF Sans Bold.otf"; sourceTree = "<group>"; };
 		9E5AE25F28DA9CE000D40B7B /* ROKAF Sans Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ROKAF Sans Medium.otf"; sourceTree = "<group>"; };
 		9E5AE26E28DC00DD00D40B7B /* TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtension.swift; sourceTree = "<group>"; };
+		9E65C6FD28EC2F22001B4A8E /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
+		9E65C6FF28EC2FEB001B4A8E /* OnboardingScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnboardingScreen.storyboard; sourceTree = "<group>"; };
 		9E65EB6628E4ABE200D41737 /* ColorCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCustom.swift; sourceTree = "<group>"; };
 		9E72500228D7B711000DF643 /* mountainData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mountainData.swift; sourceTree = "<group>"; };
 		9E72500428D7B74E000DF643 /* HomeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSection.swift; sourceTree = "<group>"; };
@@ -76,7 +81,7 @@
 		9EC2F7A028E1698300DBC759 /* Userdefault + Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Userdefault + Realm.swift"; sourceTree = "<group>"; };
 		9EC8CFB528EA814300E4B016 /* CurrentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocation.swift; sourceTree = "<group>"; };
 		9ECDCCD528DC67A400D412CC /* XMLParsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLParsing.swift; sourceTree = "<group>"; };
-		9ED056C528EB4DE8009AAB77 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
+		9ED056C528EB4DE8009AAB77 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		9ED7695528D06099002D2574 /* Mountaing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mountaing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ED7695828D06099002D2574 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9ED7695A28D06099002D2574 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +124,7 @@
 			files = (
 				9E583A9628E9BF8F00F23EB3 /* Kingfisher in Frameworks */,
 				9E583A9028E9BF1A00F23EB3 /* RealmSwift in Frameworks */,
+				9E65C6FB28EC222F001B4A8E /* PaperOnboarding in Frameworks */,
 				9E583A8E28E9BF1A00F23EB3 /* Realm in Frameworks */,
 				9E583A8B28E9BEB300F23EB3 /* SwiftyJSON in Frameworks */,
 				9E583A8828E9BE8A00F23EB3 /* Alamofire in Frameworks */,
@@ -140,6 +146,16 @@
 				9E5AE25F28DA9CE000D40B7B /* ROKAF Sans Medium.otf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		9E65C6FC28EC2EF0001B4A8E /* OnboardingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9E65C6FD28EC2F22001B4A8E /* OnboardViewController.swift */,
+				9ED056C528EB4DE8009AAB77 /* OnboardingView.swift */,
+				9E65C6FF28EC2FEB001B4A8E /* OnboardingScreen.storyboard */,
+			);
+			path = OnboardingScreen;
 			sourceTree = "<group>";
 		};
 		9E66B05628D9594E00023AE4 /* Extension */ = {
@@ -203,8 +219,8 @@
 		9ED7696C28D06354002D2574 /* FirstTap */ = {
 			isa = PBXGroup;
 			children = (
+				9E65C6FC28EC2EF0001B4A8E /* OnboardingScreen */,
 				9EF6AC9728D5C98C000551E1 /* FirstView.swift */,
-				9ED056C528EB4DE8009AAB77 /* PopupView.swift */,
 				9EF6AC9928D5C99E000551E1 /* FirstViewController.swift */,
 				9EC8CFB528EA814300E4B016 /* CurrentLocation.swift */,
 				9EC2F7A028E1698300DBC759 /* Userdefault + Realm.swift */,
@@ -312,6 +328,7 @@
 				9E583A9228E9BF7700F23EB3 /* SnapKit */,
 				9E583A9528E9BF8F00F23EB3 /* Kingfisher */,
 				9ED056C828EC0A6D009AAB77 /* Toast */,
+				9E65C6FA28EC222F001B4A8E /* PaperOnboarding */,
 			);
 			productName = Mountaing;
 			productReference = 9ED7695528D06099002D2574 /* Mountaing.app */;
@@ -351,6 +368,7 @@
 				9E583A9128E9BF7700F23EB3 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				9E583A9428E9BF8F00F23EB3 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				9ED056C728EC0A6D009AAB77 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				9E65C6F928EC222E001B4A8E /* XCRemoteSwiftPackageReference "paper-onboarding" */,
 			);
 			productRefGroup = 9ED7695628D06099002D2574 /* Products */;
 			projectDirPath = "";
@@ -369,6 +387,7 @@
 				9ED7696528D0609B002D2574 /* LaunchScreen.storyboard in Resources */,
 				9EF3220D28E4F0460048276E /* HSGooltokki.ttf in Resources */,
 				9EF3220E28E4F0460048276E /* KOTRA_SONGEULSSI.otf in Resources */,
+				9E65C70028EC2FEB001B4A8E /* OnboardingScreen.storyboard in Resources */,
 				9EF3221228E4FA3B0048276E /* Main.storyboard in Resources */,
 				9ED7696228D0609B002D2574 /* Assets.xcassets in Resources */,
 				9E5AE26028DA9CE000D40B7B /* ROKAF Sans Bold.otf in Resources */,
@@ -414,8 +433,9 @@
 				9ED7695B28D06099002D2574 /* SceneDelegate.swift in Sources */,
 				9E5AE26F28DC00DD00D40B7B /* TableViewExtension.swift in Sources */,
 				9E65EB6728E4ABE300D41737 /* ColorCustom.swift in Sources */,
+				9E65C6FE28EC2F22001B4A8E /* OnboardViewController.swift in Sources */,
 				9EC8CFB628EA814300E4B016 /* CurrentLocation.swift in Sources */,
-				9ED056C628EB4DE8009AAB77 /* PopupView.swift in Sources */,
+				9ED056C628EB4DE8009AAB77 /* OnboardingView.swift in Sources */,
 				9EF6ACA828D70060000551E1 /* FontCustom.swift in Sources */,
 				9EF6ACAA28D70E89000551E1 /* SearchBarExtension.swift in Sources */,
 				9EF6AC9228D4DC6D000551E1 /* SearchTableViewCell.swift in Sources */,
@@ -690,6 +710,14 @@
 				minimumVersion = 10.30.0;
 			};
 		};
+		9E65C6F928EC222E001B4A8E /* XCRemoteSwiftPackageReference "paper-onboarding" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Ramotion/paper-onboarding.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 		9EC65C0F28D86C4100996713 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
@@ -738,6 +766,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9E583A9428E9BF8F00F23EB3 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		9E65C6FA28EC222F001B4A8E /* PaperOnboarding */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9E65C6F928EC222E001B4A8E /* XCRemoteSwiftPackageReference "paper-onboarding" */;
+			productName = PaperOnboarding;
 		};
 		9ED056C828EC0A6D009AAB77 /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -11,9 +11,13 @@ import SwiftyJSON
 import RealmSwift
 import CoreLocation
 import Kingfisher
-
+import PaperOnboarding
 
 class FirstViewController: BaseViewController  {
+    
+   
+    
+    
     
     let url = APIKey.url
     let localRealm = try! Realm()
@@ -45,6 +49,8 @@ class FirstViewController: BaseViewController  {
     var array : Results<MountainModel>!
     
     var mainView = FirstView()
+    
+    
     override func loadView() {
         self.view = mainView
     }
@@ -135,7 +141,7 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
             cell.imageView.image = UIImage(named: imageName[indexPath.row])
             print("before")
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: { [self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: { [self] in
                 MountainModel.model = self.localRealm.objects(MountainModel.self).filter("location contains '\(region)'").map { $0 }.randomElement()!
                 cell.titleLabel.text = MountainModel.model.title
                 cell.heightLabel.text = "\(MountainModel.model.altitude)m"

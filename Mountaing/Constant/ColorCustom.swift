@@ -22,4 +22,6 @@ class colorCustom {
     let whiteBackgroundColor = UIColor(red: 255.0/255.0, green: 246.0/255.0, blue: 234.0/255.0, alpha: 1.0)
     
     let lightBlackColor = UIColor(red: 15.0/255.0, green: 61.0/255.0, blue: 62.0/255.0, alpha: 1.0)
+    
+    let pinkColor = UIColor(red: 255.0/255.0, green: 192.0/255.0, blue: 144.0/255.0, alpha: 1.0)
 }
