@@ -45,7 +45,7 @@ class FirstCollectionViewCell: UICollectionViewCell {
     
     let titleLabel : UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 30, weight: .bold)
+        label.font = Font.customfirst.superbigLagefont
         label.textColor = .white
         label.textAlignment = .center
         return label
@@ -53,10 +53,20 @@ class FirstCollectionViewCell: UICollectionViewCell {
     
     let heightLabel : UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 16, weight: .bold)
+        label.font = Font.customfirst.largeFont
         label.textColor = colorCustom.shared.greenColor
         label.textAlignment = .center
+
         
+        return label
+    }()
+    
+    let regionLabel : UILabel = {
+        let label = UILabel()
+        label.font = Font.customfirst.mediumFont //.systemFont(ofSize: 16, weight: .bold)
+        label.textColor = colorCustom.shared.creamBackgroundColor
+        label.textAlignment = .center
+        label.text = "위치"
         return label
     }()
     
@@ -68,7 +78,7 @@ class FirstCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
-    
+   
     func configuration(){
        
         contentView.addSubview(imageView)
@@ -76,6 +86,9 @@ class FirstCollectionViewCell: UICollectionViewCell {
         backGroundView.addSubview(stackView)
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(heightLabel)
+        stackView.addArrangedSubview(regionLabel)
+        
+        
         
         
         
@@ -92,12 +105,31 @@ class FirstCollectionViewCell: UICollectionViewCell {
             make.edges.equalTo(contentView)
         }
         stackView.snp.makeConstraints { make in
-            make.edges.equalTo(contentView).inset(20)
+            make.top.leading.equalTo(contentView).inset(20)
+            make.bottom.trailing.equalTo(contentView).offset(-20)
         }
         
         titleLabel.snp.makeConstraints { make in
+            make.top.leading.trailing.equalTo(stackView)
             make.height.equalTo(stackView).multipliedBy(0.7)
             make.width.equalTo(stackView)
+            
+        }
+        
+        heightLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(stackView.spacing)
+            make.width.equalTo(stackView)
+            make.leading.trailing.equalTo(stackView)
+            make.height.equalTo(stackView).multipliedBy(0.1)
+           
+            
+        }
+        
+        regionLabel.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(stackView)
+            make.width.equalTo(stackView)
+           // make.top.equalTo(heightLabel.snp.bottom).offset(stackView.spacing)
+            make.height.equalTo(stackView).multipliedBy(0.1)
         }
         
     }

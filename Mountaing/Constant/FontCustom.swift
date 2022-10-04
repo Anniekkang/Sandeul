@@ -12,6 +12,7 @@ enum FontSize : CGFloat {
     case medium = 14
     case large  = 16
     case extraLarge = 18
+    case superbigLarge = 26
 }
 
 enum Font : Int {
@@ -44,6 +45,13 @@ enum Font : Int {
         switch self {
         case .customfirst :
             return UIFont(name: "KOTRA_BOLD", size: FontSize.extraLarge.rawValue)!
+        }
+    }
+    
+    var superbigLagefont : UIFont {
+        switch self {
+        case .customfirst :
+            return UIFont(name: "KOTRA_BOLD", size: FontSize.superbigLarge.rawValue)!
         }
     }
     

@@ -25,14 +25,14 @@ class InfoTableViewCell: BaseTableViewCell {
         label.textColor = colorCustom.shared.lightBlackColor
         label.textAlignment = .left
         label.font = Font.customfirst.largeFont
-        
+       
         
         return label
     }()
     
     let stackView : UIStackView = {
         let view = UIStackView()
-        view.spacing = 20
+        view.spacing = 15
         view.axis = .horizontal
         view.distribution = .fill
         return view
@@ -48,21 +48,20 @@ class InfoTableViewCell: BaseTableViewCell {
     override func setConstraints() {
         
         stackView.snp.makeConstraints { make in
-            make.top.leading.equalTo(contentView).inset(20)
-            make.bottom.trailing.equalTo(contentView).offset(-20)
+            make.top.leading.equalTo(self)
+            make.bottom.trailing.equalTo(self)
             
         }
         
         typeLabel.snp.makeConstraints { make in
-            make.width.equalTo(stackView.snp.width).multipliedBy(0.4)
-            make.leading.equalTo(stackView.snp.leading)
+            make.width.equalTo(stackView.snp.width).multipliedBy(0.3)
+            make.leading.equalTo(stackView)
             make.top.bottom.equalTo(stackView)
         }
         
         infoLabel.snp.makeConstraints { make in
             make.top.bottom.equalTo(stackView)
-            // make.width.equalTo(stackView.snp.width).multipliedBy(0.6)
-            make.trailing.equalTo(stackView.snp.trailing)
+            make.trailing.equalTo(stackView)
         }
         
     }

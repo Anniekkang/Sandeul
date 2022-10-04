@@ -21,8 +21,8 @@ class FirstViewController: BaseViewController  {
     var firstArray : [MountainModel] = []
     var secondArray : [MountainModel] = []
     var locationManger : CLLocationManager!
-    var region : String = "한국"
-   
+    var region : String = "서울"
+    
     
     
     var tasks : Results<MountainModel>! {
@@ -42,7 +42,7 @@ class FirstViewController: BaseViewController  {
     
     let font = FontManager.getFont()
     
-    
+    var array : Results<MountainModel>!
     
     var mainView = FirstView()
     override func loadView() {
@@ -53,7 +53,8 @@ class FirstViewController: BaseViewController  {
         super.viewDidLoad()
         
         
-        
+        array = self.localRealm.objects(MountainModel.self).filter("location contains '\(region)'") //.map { $0 }.shuffled()
+        print(array.count)
         locationManger = CLLocationManager()
         locationManger.delegate = self
         
@@ -62,7 +63,7 @@ class FirstViewController: BaseViewController  {
         locationManger.startUpdatingLocation()
         
         
-        // convertAddress()
+        
         configuration()
         navDesign()
         
@@ -79,7 +80,7 @@ class FirstViewController: BaseViewController  {
         
         
     }
-   
+    
     
     func navDesign(){
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
@@ -138,16 +139,21 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
                 MountainModel.model = self.localRealm.objects(MountainModel.self).filter("location contains '\(region)'").map { $0 }.randomElement()!
                 cell.titleLabel.text = MountainModel.model.title
                 cell.heightLabel.text = "\(MountainModel.model.altitude)m"
+                let cityName = MountainModel.model.location.components(separatedBy: " ").first
+                cell.regionLabel.text = cityName
+                
+                cell.titleLabel.text = MountainModel.model.title
+                cell.heightLabel.text = "\(MountainModel.model.altitude)m"
                 
                 
                 print("randomMountain:\(String(describing: MountainModel.model))")
                 print("indexPath:\(indexPath)")
                 
-               
+                
+                
+                
                 
             })
-               
-                
             
             return cell
             

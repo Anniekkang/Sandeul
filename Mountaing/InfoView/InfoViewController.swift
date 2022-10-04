@@ -118,11 +118,12 @@ extension InfoViewController : UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: InfoTableViewCell.reuseIdentifier, for: indexPath) as! InfoTableViewCell
         cell.backgroundColor = colorCustom.shared.whiteBackgroundColor
-        
+        cell.selectionStyle = .none
         
         let array = ["이름","위치","고도","난이도","설명"]
        
         cell.typeLabel.text = array[indexPath.row]
+        
         
         switch indexPath.row
         {
@@ -130,9 +131,10 @@ extension InfoViewController : UITableViewDelegate, UITableViewDataSource {
             cell.infoLabel.text = testtasks.first?.title
         case 1:
             cell.infoLabel.text = testtasks.first?.location
-//            cell.infoLabel.numberOfLines = 2
-//            cell.infoLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
-//          print("infoLabel :\(testtasks.first!.location)")
+            cell.infoLabel.numberOfLines = 0
+            cell.infoLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+            tableView.rowHeight = UITableView.automaticDimension
+          print("infoLabel :\(testtasks.first!.location)")
            
            
         case 2:
@@ -151,10 +153,8 @@ extension InfoViewController : UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
-    
    
 }

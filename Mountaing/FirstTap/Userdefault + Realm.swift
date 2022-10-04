@@ -32,7 +32,7 @@ extension FirstViewController {
     //새로 업데이트된 realm을 가져오는 것
     func fetchRealm(){
         tasks = localRealm.objects(MountainModel.self).sorted(byKeyPath: "altitude", ascending: true)
-        print("==Realm is located at:", localRealm.configuration.fileURL!)
+        
         
     }
     

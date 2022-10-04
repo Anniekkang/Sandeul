@@ -31,8 +31,7 @@ extension FirstViewController : CLLocationManagerDelegate {
             
             guard let placemark = placemarks.self else { return }
             print(placemark)
-            self.region = (placemark.first?.administrativeArea)!
-            
+           
             print("region=========\(region)")
             
             print(#function)
