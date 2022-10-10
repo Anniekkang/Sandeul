@@ -11,28 +11,28 @@ import SwiftyJSON
 import RealmSwift
 import PaperOnboarding
 
-extension FirstViewController {
+extension OnboardingViewController {
     
     
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         fetchRealm()
         print(#function)
+        realmSave()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        userDefault()
-        
-        
+       
     }
     
     //새로 업데이트된 realm을 가져오는 것
     func fetchRealm(){
         tasks = localRealm.objects(MountainModel.self).sorted(byKeyPath: "altitude", ascending: true)
+        print("==Realm is located at:", localRealm.configuration.fileURL!)
         
         
     }
@@ -48,11 +48,11 @@ extension FirstViewController {
     }
     
     
-    func userDefault(){
-        print(#function)
-        if UserDefaults.standard.bool(forKey: "first") == false {
+    func realmSave(){
+            print(#function)
+//        if UserDefaults.standard.bool(forKey: "first") == false {
             
-            //api호출 && realm에 저장
+          //  api호출 && realm에 저장
             setParser(from: APIKey.url!)
             //saveModuleList(moduleList: items)
             
@@ -77,17 +77,6 @@ extension FirstViewController {
                 
             }
             
-            //온보딩띄우기
-            let vc = OnboardViewController()
-            
-            vc.modalTransitionStyle = .crossDissolve
-            present(vc, animated: true)
-            
-            
-            print("realm success")
-            
-            
-        }
     }
     
 }

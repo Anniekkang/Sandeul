@@ -12,7 +12,7 @@ class SearchView: BaseView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configuration()
-        constraints()
+        setConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -30,7 +30,7 @@ class SearchView: BaseView {
         self.addSubview(tableView)
     }
     
-    override func constraints(){
+    override func setConstraints(){
         tableView.snp.makeConstraints { make in
             make.top.equalTo(20)
             make.bottom.trailing.leading.equalTo(safeAreaLayoutGuide)

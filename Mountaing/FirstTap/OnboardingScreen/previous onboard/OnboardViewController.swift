@@ -7,9 +7,27 @@
 
 import UIKit
 import PaperOnboarding
+import RealmSwift
+import Alamofire
+import SwiftyJSON
 
 class OnboardViewController: UIViewController {
 
+    @IBOutlet var startButton : UIButton!
+    
+    let localRealm = try! Realm()
+    
+    var tasks : Results<MountainModel>! {
+        didSet {
+            print("tasked changed!")
+            
+        }
+    }
+    var currentElement : String = ""
+    var item : Item?
+    var items : [Item] = []
+    
+    
     let onboardInfos = [
         OnboardingItemInfo(informationImage: UIImage(named: "logo")!,
                            title: "WELCOME",
@@ -39,6 +57,9 @@ class OnboardViewController: UIViewController {
         super.viewDidLoad()
 
         
+        view.bringSubviewToFront(startButton)
+        startButton.isHidden = true
+        
         let onboarding = PaperOnboarding()
         onboarding.dataSource = self
         onboarding.translatesAutoresizingMaskIntoConstraints = false
@@ -59,6 +80,10 @@ class OnboardViewController: UIViewController {
     }
     
 
+    @IBAction func startButtontapped(_: UIButton) {
+        let vc = FirstViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
 
 }

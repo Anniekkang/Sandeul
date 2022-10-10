@@ -25,7 +25,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="0.96470588235294119" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="8tn-Rh-aT9" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.57971" id="KrE-qV-ctU"/>
+                            <constraint firstItem="8tn-Rh-aT9" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.58" id="KrE-qV-ctU"/>
                             <constraint firstItem="8tn-Rh-aT9" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" multiplier="0.9" id="bBd-En-Lt3"/>
                             <constraint firstItem="8tn-Rh-aT9" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="pPv-0t-I9K"/>
                         </constraints>

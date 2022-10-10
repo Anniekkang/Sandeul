@@ -39,10 +39,7 @@ class FirstViewController: BaseViewController  {
     
     
     
-    var currentElement : String = ""
-    var item : Item?
-    var items : [Item] = []
-    
+  
     
     let font = FontManager.getFont()
     
@@ -141,7 +138,7 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
             cell.imageView.image = UIImage(named: imageName[indexPath.row])
             print("before")
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: { [self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: { [self] in
                 MountainModel.model = self.localRealm.objects(MountainModel.self).filter("location contains '\(region)'").map { $0 }.randomElement()!
                 cell.titleLabel.text = MountainModel.model.title
                 cell.heightLabel.text = "\(MountainModel.model.altitude)m"

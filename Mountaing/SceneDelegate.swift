@@ -17,6 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let Scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: Scene)
         
+        let storyboard = UIStoryboard(name: "OnboardingScreen", bundle: nil)
+        let onboardingVC = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController") as UIViewController
+        
         let mainVC = FirstViewController()
         let nav1 = UINavigationController(rootViewController: mainVC)
         let searchVC = SearchViewController()
@@ -26,10 +29,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let diaryVC = DiaryViewController()
 //        let nav4 = UINavigationController(rootViewController: diaryVC)
         
-        let tabBarController = UITabBarController()
-        tabBarController.setViewControllers([nav1,nav2], animated: true)
+        let mainTabBar = UITabBarController()
+        mainTabBar.setViewControllers([nav1,nav2], animated: true)
         
-        if let items = tabBarController.tabBar.items {
+        if let items = mainTabBar.tabBar.items {
             items[0].selectedImage = UIImage(systemName: "house.fill")
             items[0].image = UIImage(systemName: "house")
             
@@ -49,13 +52,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
        
         
-        tabBarController.tabBar.scalesLargeContentImage = true
+        mainTabBar.tabBar.scalesLargeContentImage = true
         
-        window?.rootViewController = tabBarController
+        if Userdefaults.isFirstTime() {
+            window?.rootViewController = onboardingVC
+        } else {
+            window?.rootViewController = mainTabBar
+        }
+       
         window?.makeKeyAndVisible()
         }
 
-           
+    func changeRootViewController(_ vc: UIViewController, animated: Bool = true) {
+        guard let window = self.window else {
+            return
+        }
+        
+        // change the root view controller to your specific view controller
+        window.rootViewController = vc
+    }
     
     
     func sceneDidDisconnect(_ scene: UIScene) {

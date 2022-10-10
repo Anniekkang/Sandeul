@@ -13,7 +13,7 @@ class FirstView: BaseView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configuration()
-        constraints()
+        setConstraints()
       
     }
     
@@ -49,7 +49,7 @@ class FirstView: BaseView {
         
     
     
-    override func constraints() {
+    override func setConstraints() {
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
