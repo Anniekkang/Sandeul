@@ -10,10 +10,11 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
-
+    let mainTabBar = UITabBarController()
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
        
+    
         guard let Scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: Scene)
         
@@ -29,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let diaryVC = DiaryViewController()
 //        let nav4 = UINavigationController(rootViewController: diaryVC)
         
-        let mainTabBar = UITabBarController()
+        
         mainTabBar.setViewControllers([nav1,nav2], animated: true)
         
         if let items = mainTabBar.tabBar.items {
@@ -61,16 +62,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
        
         window?.makeKeyAndVisible()
-        }
-
-    func changeRootViewController(_ vc: UIViewController, animated: Bool = true) {
-        guard let window = self.window else {
-            return
-        }
         
-        // change the root view controller to your specific view controller
-        window.rootViewController = vc
-    }
+        func changeRootVC(_ vc:UIViewController, animated: Bool) {
+            guard let window = self.window else { return }
+            window.rootViewController = vc // 전환
+            
+           
+          }
+        }
+    
+
+
     
     
     func sceneDidDisconnect(_ scene: UIScene) {

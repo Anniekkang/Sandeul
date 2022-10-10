@@ -38,6 +38,7 @@ class OnboardingViewController: BaseViewController {
         view.backgroundColor = colorCustom.shared.pinkColor
         configuration()
         
+        
     }
     
     
@@ -68,11 +69,11 @@ class OnboardingViewController: BaseViewController {
         
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let sceneDelegate = windowScene?.delegate as? SceneDelegate
-        
-        let vc = FirstViewController()
-        
-        sceneDelegate?.window?.rootViewController = vc
-        sceneDelegate?.window?.makeKeyAndVisible()
-        
-}
+        let vc =  sceneDelegate?.mainTabBar
+        sceneDelegate!.window?.rootViewController = vc
+      
+       
+       
+       
+    }
 }
