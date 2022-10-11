@@ -12,6 +12,10 @@ import Toast
 
 extension FirstViewController : CLLocationManagerDelegate {
     
+    
+    
+    
+    //called when location is updated
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         
@@ -24,7 +28,7 @@ extension FirstViewController : CLLocationManagerDelegate {
         let findLocation: CLLocation = CLLocation(latitude: latitude, longitude: longitude)
         let geoCoder: CLGeocoder = CLGeocoder()
         let local: Locale = Locale(identifier: "Ko-kr") // Korea
-        geoCoder.reverseGeocodeLocation(findLocation, preferredLocale: local) { [self] placemarks, error in
+        geoCoder.reverseGeocodeLocation(findLocation, preferredLocale: local) { placemarks, error in
             
             if let error = error {
                 print(error)
@@ -32,8 +36,8 @@ extension FirstViewController : CLLocationManagerDelegate {
             
             guard let placemark = placemarks.self else { return }
             print(placemark)
-           
-            print("region=========\(region)")
+            self.region = placemark.first?.locality ?? "경상북도"
+            print("region=========\(self.region)")
             
             print(#function)
             
@@ -42,7 +46,9 @@ extension FirstViewController : CLLocationManagerDelegate {
         locationManger.stopUpdatingLocation()
     }
 
-    //
+    
+    
+    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(#function)
     }
@@ -80,7 +86,7 @@ extension FirstViewController : CLLocationManagerDelegate {
         default :
             print("nothing")
         }
-     
+        mainView.collectionView.reloadData()
     }
     
     func showRequestAlert(){

@@ -15,7 +15,7 @@ import PaperOnboarding
 
 class FirstViewController: BaseViewController  {
     
-   
+    
     
     
     
@@ -25,7 +25,7 @@ class FirstViewController: BaseViewController  {
     var firstArray : [MountainModel] = []
     var secondArray : [MountainModel] = []
     var locationManger : CLLocationManager!
-    var region : String = "서울"
+    var region : String = "경상북도"
     
     
     
@@ -39,7 +39,7 @@ class FirstViewController: BaseViewController  {
     
     
     
-  
+    
     
     let font = FontManager.getFont()
     
@@ -56,8 +56,8 @@ class FirstViewController: BaseViewController  {
         super.viewDidLoad()
         
         
-        array = self.localRealm.objects(MountainModel.self).filter("location contains '\(region)'") //.map { $0 }.shuffled()
-        print(array.count)
+        //        array = self.localRealm.objects(MountainModel.self).filter("location contains '\(region)'") //.map { $0 }.shuffled()
+        //   print(array.count)
         locationManger = CLLocationManager()
         locationManger.delegate = self
         
@@ -66,7 +66,7 @@ class FirstViewController: BaseViewController  {
         locationManger.startUpdatingLocation()
         
         
-        
+     
         configuration()
         navDesign()
         
@@ -83,6 +83,7 @@ class FirstViewController: BaseViewController  {
         
         
     }
+    
     
     
     func navDesign(){
@@ -139,24 +140,20 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
             print("before")
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: { [self] in
-                MountainModel.model = self.localRealm.objects(MountainModel.self).filter("location contains '\(region)'").map { $0 }.randomElement()!
-                cell.titleLabel.text = MountainModel.model.title
-                cell.heightLabel.text = "\(MountainModel.model.altitude)m"
-                let cityName = MountainModel.model.location.components(separatedBy: " ").first
-                cell.regionLabel.text = cityName
-                
-                cell.titleLabel.text = MountainModel.model.title
-                cell.heightLabel.text = "\(MountainModel.model.altitude)m"
-                
-                
-                print("randomMountain:\(String(describing: MountainModel.model))")
-                print("indexPath:\(indexPath)")
+                array = localRealm.objects(MountainModel.self).where({ $0.location.contains("\(region)")
+                })
+                print("========array : \(array)")
+                cell.titleLabel.text = array[indexPath.row].title
+                cell.heightLabel.text = "\(array[indexPath.row].altitude)m"
+                cell.regionLabel.text = region
                 
                 
                 
                 
-                
+              
+               
             })
+            
             
             return cell
             
