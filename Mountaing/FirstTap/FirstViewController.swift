@@ -22,8 +22,7 @@ class FirstViewController: BaseViewController  {
     let url = APIKey.url
     let localRealm = try! Realm()
     var randomNum : Int = 0
-    var firstArray : [MountainModel] = []
-    var secondArray : [MountainModel] = []
+    var filtered : [MountainModel] = []
     var locationManger : CLLocationManager!
     var region : String = "경상북도"
     
@@ -43,7 +42,7 @@ class FirstViewController: BaseViewController  {
     
     let font = FontManager.getFont()
     
-    var array : Results<MountainModel>!
+    var array : [MountainModel] = []
     
     var mainView = FirstView()
     
@@ -65,6 +64,8 @@ class FirstViewController: BaseViewController  {
         locationManger.requestWhenInUseAuthorization()
         locationManger.startUpdatingLocation()
         
+        filtered = filtered.shuffled()
+        array = array.shuffled()
         
      
         configuration()
@@ -140,17 +141,12 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
             print("before")
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: { [self] in
-                array = localRealm.objects(MountainModel.self).where({ $0.location.contains("\(region)")
-                })
+                array = localRealm.objects(MountainModel.self).where({ $0.location.contains("\(region)")}).map{ $0 }
                 print("========array : \(array)")
                 cell.titleLabel.text = array[indexPath.row].title
                 cell.heightLabel.text = "\(array[indexPath.row].altitude)m"
                 cell.regionLabel.text = region
                 
-                
-                
-                
-              
                
             })
             
@@ -160,21 +156,19 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
         } else if indexPath.section == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ElseCollectionViewCell.reuseIdentifier, for: indexPath) as! ElseCollectionViewCell
             
-            let filtered = localRealm.objects(MountainModel.self).filter { Int($0.altitude)! < 100 }
-            
-            
-            MountainModel.model = filtered.randomElement()!
-            firstArray.append(MountainModel.model)
+            filtered = localRealm.objects(MountainModel.self).filter { $0.altitude < 100 }
             
             cell.miniimage.image = UIImage(named: "mountain")
-            cell.titleLabel.text = MountainModel.model.title
-            cell.altitudeLabel.text = "\(MountainModel.model.altitude)m"
+            cell.titleLabel.text = filtered[indexPath.row].title
+            cell.altitudeLabel.text = "\(filtered[indexPath.row].altitude)m"
+            
             
             cell.backgroundColor = colorCustom.shared.creamBackgroundColor
             cell.layer.cornerRadius = 16
             cell.layer.shadowOpacity = 0.1
             cell.layer.shadowRadius = 4
             
+          
             
             return cell
             
@@ -183,15 +177,11 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
         else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ElseCollectionViewCell.reuseIdentifier, for: indexPath) as! ElseCollectionViewCell
             
+            filtered = localRealm.objects(MountainModel.self).filter("difficulty = '상급'").map{ $0 }
             
-            let filtered = localRealm.objects(MountainModel.self).filter("difficulty = '상급'")
-            MountainModel.model = filtered.randomElement()!
-            secondArray.append(MountainModel.model)
+            cell.titleLabel.text = filtered[indexPath.row].title
+            cell.altitudeLabel.text = "\(filtered[indexPath.row].altitude)m"
             
-            
-            
-            cell.titleLabel.text = MountainModel.model.title
-            cell.altitudeLabel.text = "\(MountainModel.model.altitude)m"
             cell.miniimage.image = UIImage(named: "mountain")
             cell.backgroundColor = colorCustom.shared.creamBackgroundColor
             cell.layer.cornerRadius = 16

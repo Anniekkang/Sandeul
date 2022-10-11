@@ -51,7 +51,7 @@ extension OnboardingViewController : XMLParserDelegate {
         } else if currentElement == "mntnnm" {
            item?.mntnnm = string
         } else if currentElement == "mntninfohght"{
-            item?.mntninfohght = string
+            item?.mntninfohght = Int(string)!
         } else if currentElement == "mntnattchimageseq"{
            item?.mntnattchimageseq = string
         } else if currentElement == "mntninfodtlinfocont"{

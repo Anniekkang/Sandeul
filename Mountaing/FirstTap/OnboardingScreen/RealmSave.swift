@@ -62,8 +62,7 @@ extension OnboardingViewController {
                     let title = items[i].mntnnm
                     let contents = items[i].mntninfodtlinfocont
                     let altitude = items[i].mntninfohght
-                    let intAltitude = Int(altitude)!
-                    let difficulty = setDifficulty(altitude: intAltitude)
+                    let difficulty = setDifficulty(altitude: altitude)
                     let imageURL = items[i].mntnattchimageseq
                     let location = items[i].mntninfopoflc
                     let text = items[i].searchBarText

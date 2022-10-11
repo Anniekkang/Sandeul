@@ -21,7 +21,7 @@ struct Item  {
    
     var mntninfopoflc : String = ""//location
     var mntnnm : String = ""//mountainTitle
-    var mntninfohght : String = ""//Altitude
+    var mntninfohght : Int = 0//Altitude
     var mntninfodtlinfocont : String = "" //contents
     var difficulty : String = ""//difficulty
     var mntnattchimageseq : String = "" //Image
@@ -31,7 +31,7 @@ struct Item  {
 //struct를 저장할 model(object)
 class RealmModuleModel : Object {
     @objc dynamic var title: String = ""
-    @objc dynamic var altitude: String = ""
+    @objc dynamic var altitude: Int = 0
     @objc dynamic var difficulty : String = ""
     @objc dynamic var location : String = ""
     @objc dynamic var imageURL :String = ""
@@ -47,7 +47,7 @@ extension Item : Persistable {
         self.mntnnm = managedObject.title
         self.difficulty = managedObject.difficulty
         self.mntninfopoflc = managedObject.location
-        self.mntninfohght = managedObject.altitude
+        self.mntninfohght = Int(managedObject.altitude)
         self.mntninfodtlinfocont = managedObject.contents
         self.mntnattchimageseq = managedObject.imageURL
       
