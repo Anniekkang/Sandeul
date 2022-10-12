@@ -28,6 +28,7 @@
 		9EAB1D1528D20A5E009406A9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAB1D1428D20A5E009406A9 /* SearchViewController.swift */; };
 		9EC2F77928E0906600DBC759 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC2F77828E0906600DBC759 /* Repository.swift */; };
 		9EC2F7A128E1698300DBC759 /* RealmSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC2F7A028E1698300DBC759 /* RealmSave.swift */; };
+		9EC41A9928F54EDE00456BCD /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 9EC41A9828F54EDE00456BCD /* FSCalendar */; };
 		9EC8CFB628EA814300E4B016 /* CurrentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC8CFB528EA814300E4B016 /* CurrentLocation.swift */; };
 		9ECDCCD628DC67A400D412CC /* XMLParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECDCCD528DC67A400D412CC /* XMLParsing.swift */; };
 		9ECE2E9C28F46D9B002D83F2 /* Userdefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECE2E9B28F46D9B002D83F2 /* Userdefaults.swift */; };
@@ -130,6 +131,7 @@
 				9E583A9028E9BF1A00F23EB3 /* RealmSwift in Frameworks */,
 				9E65C6FB28EC222F001B4A8E /* PaperOnboarding in Frameworks */,
 				9E583A8E28E9BF1A00F23EB3 /* Realm in Frameworks */,
+				9EC41A9928F54EDE00456BCD /* FSCalendar in Frameworks */,
 				9E583A8B28E9BEB300F23EB3 /* SwiftyJSON in Frameworks */,
 				9E583A8828E9BE8A00F23EB3 /* Alamofire in Frameworks */,
 				9ED056C928EC0A6D009AAB77 /* Toast in Frameworks */,
@@ -346,6 +348,7 @@
 				9E583A9528E9BF8F00F23EB3 /* Kingfisher */,
 				9ED056C828EC0A6D009AAB77 /* Toast */,
 				9E65C6FA28EC222F001B4A8E /* PaperOnboarding */,
+				9EC41A9828F54EDE00456BCD /* FSCalendar */,
 			);
 			productName = Mountaing;
 			productReference = 9ED7695528D06099002D2574 /* Mountaing.app */;
@@ -386,6 +389,7 @@
 				9E583A9428E9BF8F00F23EB3 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				9ED056C728EC0A6D009AAB77 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				9E65C6F928EC222E001B4A8E /* XCRemoteSwiftPackageReference "paper-onboarding" */,
+				9EC41A9728F54EDE00456BCD /* XCRemoteSwiftPackageReference "FSCalendar" */,
 			);
 			productRefGroup = 9ED7695628D06099002D2574 /* Products */;
 			projectDirPath = "";
@@ -495,6 +499,7 @@
 		9ED7696728D0609B002D2574 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -543,6 +548,11 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -555,6 +565,7 @@
 		9ED7696828D0609B002D2574 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -597,6 +608,11 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -616,6 +632,7 @@
 				DEVELOPMENT_TEAM = K27UK338MM;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mountaing/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치는 현재 사용자의 위치를 바탕으로 가까운 산을 찾는데 사용됩니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -626,8 +643,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Anniekang.Mountaing;
+				MARKETING_VERSION = 1.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Anniekang.Mountaining;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -645,6 +662,7 @@
 				DEVELOPMENT_TEAM = K27UK338MM;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mountaing/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치는 현재 사용자의 위치를 바탕으로 가까운 산을 찾는데 사용됩니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -655,8 +673,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Anniekang.Mountaing;
+				MARKETING_VERSION = 1.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Anniekang.Mountaining;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -752,6 +770,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		9EC41A9728F54EDE00456BCD /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		9EC65C0F28D86C4100996713 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
@@ -805,6 +831,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9E65C6F928EC222E001B4A8E /* XCRemoteSwiftPackageReference "paper-onboarding" */;
 			productName = PaperOnboarding;
+		};
+		9EC41A9828F54EDE00456BCD /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9EC41A9728F54EDE00456BCD /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
 		};
 		9ECE2E9528F469FB002D83F2 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;

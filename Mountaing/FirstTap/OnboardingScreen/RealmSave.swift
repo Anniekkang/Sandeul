@@ -18,7 +18,7 @@ extension OnboardingViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        realmSave()
         fetchRealm()
         print(#function)
        
@@ -26,7 +26,7 @@ extension OnboardingViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        realmSave()
+        
     }
     
     //새로 업데이트된 realm을 가져오는 것

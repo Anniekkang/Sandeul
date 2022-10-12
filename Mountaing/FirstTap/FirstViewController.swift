@@ -24,7 +24,7 @@ class FirstViewController: BaseViewController  {
     var randomNum : Int = 0
     var filtered : [MountainModel] = []
     var locationManger : CLLocationManager!
-    var region : String = "경상북도"
+    var region : String = "서울"
     
     
     

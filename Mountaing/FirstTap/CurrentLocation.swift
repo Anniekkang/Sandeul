@@ -59,7 +59,7 @@ extension FirstViewController : CLLocationManagerDelegate {
         if CLLocationManager.locationServicesEnabled() {
             checkUserAuthorization(authorizationStatus)
         } else {
-            "위치서비스 꺼져있음"
+           print("위치서비스 꺼져있음")
         }
     }
     
