@@ -157,7 +157,7 @@ extension FirstViewController : UICollectionViewDelegate, UICollectionViewDataSo
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ElseCollectionViewCell.reuseIdentifier, for: indexPath) as! ElseCollectionViewCell
             
             filtered = localRealm.objects(MountainModel.self).filter { $0.altitude < 100 }
-            
+            print("filtered========\(filtered)")
             cell.miniimage.image = UIImage(named: "mountain")
             cell.titleLabel.text = filtered[indexPath.row].title
             cell.altitudeLabel.text = "\(filtered[indexPath.row].altitude)m"

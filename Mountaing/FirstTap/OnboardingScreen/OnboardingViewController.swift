@@ -9,8 +9,14 @@ import UIKit
 import RealmSwift
 import Alamofire
 import SwiftyJSON
+import NVActivityIndicatorView
 
 class OnboardingViewController: BaseViewController {
+    
+    let indicator = NVActivityIndicatorView(frame: CGRect(x: UIScreen.main.bounds.size.width * 0.5, y: 550, width: 30, height: 30),
+                                            type: .semiCircleSpin,
+                                            color: colorCustom.shared.creamBackgroundColor,
+                                            padding: 0)
     
     
     let localRealm = try! Realm()
@@ -37,8 +43,9 @@ class OnboardingViewController: BaseViewController {
         
         view.backgroundColor = colorCustom.shared.pinkColor
         configuration()
-        
-        
+        view.addSubview(indicator)
+       
+       
     }
     
     
@@ -65,13 +72,14 @@ class OnboardingViewController: BaseViewController {
     @IBAction func startButtonTapped(_ sender: UIButton) {
       
         print(#function)
+      
         
         
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let sceneDelegate = windowScene?.delegate as? SceneDelegate
         let vc =  sceneDelegate?.mainTabBar
         sceneDelegate!.window?.rootViewController = vc
-      
+       
        
        
        

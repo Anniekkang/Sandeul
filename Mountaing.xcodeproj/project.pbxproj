@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E4CDCCE28F674D500995F4F /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 9E4CDCCD28F674D500995F4F /* NVActivityIndicatorView */; };
 		9E583A8828E9BE8A00F23EB3 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 9E583A8728E9BE8A00F23EB3 /* Alamofire */; };
 		9E583A8B28E9BEB300F23EB3 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 9E583A8A28E9BEB300F23EB3 /* SwiftyJSON */; };
 		9E583A8E28E9BF1A00F23EB3 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 9E583A8D28E9BF1A00F23EB3 /* Realm */; };
@@ -133,6 +134,7 @@
 				9E583A8E28E9BF1A00F23EB3 /* Realm in Frameworks */,
 				9EC41A9928F54EDE00456BCD /* FSCalendar in Frameworks */,
 				9E583A8B28E9BEB300F23EB3 /* SwiftyJSON in Frameworks */,
+				9E4CDCCE28F674D500995F4F /* NVActivityIndicatorView in Frameworks */,
 				9E583A8828E9BE8A00F23EB3 /* Alamofire in Frameworks */,
 				9ED056C928EC0A6D009AAB77 /* Toast in Frameworks */,
 				9E583A9328E9BF7700F23EB3 /* SnapKit in Frameworks */,
@@ -349,6 +351,7 @@
 				9ED056C828EC0A6D009AAB77 /* Toast */,
 				9E65C6FA28EC222F001B4A8E /* PaperOnboarding */,
 				9EC41A9828F54EDE00456BCD /* FSCalendar */,
+				9E4CDCCD28F674D500995F4F /* NVActivityIndicatorView */,
 			);
 			productName = Mountaing;
 			productReference = 9ED7695528D06099002D2574 /* Mountaing.app */;
@@ -390,6 +393,7 @@
 				9ED056C728EC0A6D009AAB77 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				9E65C6F928EC222E001B4A8E /* XCRemoteSwiftPackageReference "paper-onboarding" */,
 				9EC41A9728F54EDE00456BCD /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				9E4CDCCC28F674D500995F4F /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
 			);
 			productRefGroup = 9ED7695628D06099002D2574 /* Products */;
 			projectDirPath = "";
@@ -706,6 +710,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9E4CDCCC28F674D500995F4F /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ninjaprox/NVActivityIndicatorView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		9E583A8528E9BB7500F23EB3 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -797,6 +809,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9E4CDCCD28F674D500995F4F /* NVActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9E4CDCCC28F674D500995F4F /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
+			productName = NVActivityIndicatorView;
+		};
 		9E583A8728E9BE8A00F23EB3 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9E583A8528E9BB7500F23EB3 /* XCRemoteSwiftPackageReference "Alamofire" */;

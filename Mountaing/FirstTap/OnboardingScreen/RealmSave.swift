@@ -18,17 +18,27 @@ extension OnboardingViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         realmSave()
         fetchRealm()
+        
         print(#function)
        
         
     }
-    
     override func viewWillAppear(_ animated: Bool) {
+        
+        
+         indicator.startAnimating()
         
     }
     
+   
+    override func viewDidDisappear(_ animated: Bool) {
+        indicator.stopAnimating()
+    }
+    
+   
     //새로 업데이트된 realm을 가져오는 것
     func fetchRealm(){
         tasks = localRealm.objects(MountainModel.self).sorted(byKeyPath: "altitude", ascending: true)
