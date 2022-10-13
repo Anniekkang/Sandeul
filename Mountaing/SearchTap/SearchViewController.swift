@@ -12,11 +12,11 @@ import SwiftyJSON
 
 
 class SearchViewController: UIViewController,UISearchBarDelegate, UISearchControllerDelegate  {
-
-
-
+    
+    
+    
     let localRealm = try! Realm()
-   
+    
     
     var tasks : Results<MountainModel>! {
         didSet {
@@ -32,33 +32,33 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UISearchContro
     
     var filteredRealm : [MountainModel] = []
     var isFiltering: Bool {
-
+        
         let searchController = self.navigationItem.searchController
         let isActive = searchController?.isActive ?? false
         let isSearchBarHasText = searchController?.searchBar.text?.isEmpty == false
-
+        
         return isActive || isSearchBarHasText
-
+        
     }
-   
-
+    
+    
     var mainView = SearchView()
     override func loadView() {
         self.view = mainView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         mainView.tableView.reloadData()
         mainView.tableView.keyboardDismissMode = .onDrag
-
-      
+        
+        
         configuration()
         setupSearchController()
-
+        
     }
-
+    
     func configuration() {
         mainView.tableView.delegate = self
         mainView.tableView.dataSource = self
@@ -66,22 +66,32 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UISearchContro
     }
     
     func setupSearchController() {
-             let searchController = UISearchController(searchResultsController: nil)
-             searchController.searchBar.placeholder = "산 이름을 검색하시오"
-
-             self.navigationItem.searchController = searchController
-             self.navigationItem.title = "Search"
-             self.navigationController?.navigationBar.prefersLargeTitles = true // Large title로 하고싶을 때
-             
-
-             self.navigationItem.hidesSearchBarWhenScrolling = false
-             searchController.obscuresBackgroundDuringPresentation = false
-             definesPresentationContext = true
-             searchController.searchResultsUpdater = self
-             searchController.searchBar.delegate = self
-             searchController.delegate = self
-
-
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.placeholder = "산 이름을 검색하시오"
+        
+        self.navigationItem.searchController = searchController
+        self.navigationItem.title = "Search"
+        self.navigationController?.navigationBar.prefersLargeTitles = true // Large title로 하고싶을 때
+        self.navigationController?.navigationBar.sizeToFit()
+       
+        self.navigationController?.navigationBar.scrollEdgeAppearance = setNavigationBarApperance()
+        self.navigationController?.navigationBar.standardAppearance = setNavigationBarApperance()
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.obscuresBackgroundDuringPresentation = false
+    
+        extendedLayoutIncludesOpaqueBars = true
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.delegate = self
+        
+        
     }
-
+    
+    func setNavigationBarApperance() -> UINavigationBarAppearance {
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = colorCustom.shared.creamBackgroundColor
+       
+        return appearance
+    }
+    
 }

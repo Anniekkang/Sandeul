@@ -32,8 +32,8 @@ class SearchView: BaseView {
     
     override func setConstraints(){
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(20)
-            make.bottom.trailing.leading.equalTo(safeAreaLayoutGuide)
+            make.top.equalToSuperview()
+            make.bottom.trailing.leading.equalToSuperview()
         }
     }
     
