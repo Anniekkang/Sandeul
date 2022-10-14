@@ -36,15 +36,19 @@ extension FirstViewController : CLLocationManagerDelegate {
             
             guard let placemark = placemarks.self else { return }
             print(placemark)
-            self.region = placemark.first?.locality ?? "서울"
+            if placemark.first?.locality == nil {
+                self.region = "서울"
+                self.mainView.makeToast("'같은 지역에 있는 산'은 \n '서울특별시' 기준으로 보여집니다", duration: 1.5,
+                                        point: CGPoint(x: self.mainView.center.x, y: 250),
+                                       title: "위치를 찾을 수 없음",
+                                       image: nil,
+                                        style: self.toastStyle(),
+                                       completion: nil)
+                
+            } else {
+                self.region = (placemark.first?.locality)!
+            }
             
-            
-            self.mainView.makeToast("'같은 지역에 있는 산'은 \n '서울특별시' 기준으로 보여집니다", duration: 1.5,
-                                    point: CGPoint(x: self.mainView.center.x, y: 250),
-                                   title: "위치를 찾을 수 없음",
-                                   image: nil,
-                                    style: self.toastStyle(),
-                                   completion: nil)
             
             
             print("region=========\(self.region)")
