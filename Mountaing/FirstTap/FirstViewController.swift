@@ -11,7 +11,7 @@ import SwiftyJSON
 import RealmSwift
 import CoreLocation
 import Kingfisher
-import PaperOnboarding
+
 
 class FirstViewController: BaseViewController  {
     
@@ -69,7 +69,8 @@ class FirstViewController: BaseViewController  {
         
      
         configuration()
-        navDesign()
+        self.navigationItem.titleView = logoSetup()
+
         
         
         print("Realm is located at:", localRealm.configuration.fileURL!)
@@ -78,6 +79,7 @@ class FirstViewController: BaseViewController  {
             print("위치 서비스 On 상태")
             locationManger.startUpdatingLocation() //위치 정보 받아오기 시작
             print(locationManger.location?.coordinate)
+            print("=======region11:\(region)")
         } else {
             print("위치 서비스 Off 상태")
         }
@@ -85,17 +87,6 @@ class FirstViewController: BaseViewController  {
         
     }
     
-    
-    
-    func navDesign(){
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
-        imageView.contentMode = .scaleAspectFit
-        let image = UIImage(named: "logo")
-        imageView.image = image
-        navigationItem.titleView = imageView
-        
-        
-    }
     
     
     

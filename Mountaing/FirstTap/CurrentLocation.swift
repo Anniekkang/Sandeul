@@ -36,7 +36,17 @@ extension FirstViewController : CLLocationManagerDelegate {
             
             guard let placemark = placemarks.self else { return }
             print(placemark)
-            self.region = placemark.first?.locality ?? "경상북도"
+            self.region = placemark.first?.locality ?? "서울"
+            
+            
+            self.mainView.makeToast("'같은 지역에 있는 산'은 \n '서울특별시' 기준으로 보여집니다", duration: 1.5,
+                                    point: CGPoint(x: self.mainView.center.x, y: 250),
+                                   title: "위치를 찾을 수 없음",
+                                   image: nil,
+                                    style: self.toastStyle(),
+                                   completion: nil)
+            
+            
             print("region=========\(self.region)")
             
             print(#function)
@@ -101,19 +111,13 @@ extension FirstViewController : CLLocationManagerDelegate {
         }
         
         let cancel = UIAlertAction(title: "서비스 이용 안함", style: .default) { _ in
-            var style = ToastStyle()
-            style.backgroundColor = colorCustom.shared.greenColor
-            style.messageColor = colorCustom.shared.creamBackgroundColor
-            style.messageAlignment = .center
-            style.titleAlignment = .center
-            style.fadeDuration = 0.8
-            
+           
             
             self.mainView.makeToast("'같은 지역에 있는 산'은 \n '서울특별시' 기준으로 보여집니다", duration: 1.5,
                                     point: CGPoint(x: self.mainView.center.x, y: 250),
                                    title: "위치서비스 거부",
                                    image: nil,
-                                    style: style,
+                                    style:  self.toastStyle(),
                                    completion: nil)
             
             
@@ -127,5 +131,15 @@ extension FirstViewController : CLLocationManagerDelegate {
         
     }
 
+    func toastStyle() -> ToastStyle {
+        var style = ToastStyle()
+        style.backgroundColor = colorCustom.shared.greenColor
+        style.messageColor = colorCustom.shared.creamBackgroundColor
+        style.messageAlignment = .center
+        style.titleAlignment = .center
+        style.fadeDuration = 0.8
+        return style
+        
+    }
     
 }

@@ -58,6 +58,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           }
         }
 
+        do {
+            let version = try schemaVersionAtURL(localRealm.configuration.fileURL!)
+            print("SchemaVersion:\(version)")
+        } catch {
+            print(error)
+        }
 
         
         return true
@@ -83,9 +89,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     func aboutRealmMigration(){
         
-        let config = Realm.Configuration(schemaVersion: 1) { migration, oldSchemaVersion in
+        let config = Realm.Configuration(schemaVersion: 2) { migration, oldSchemaVersion in
             
-            if oldSchemaVersion < 1 {
+            if oldSchemaVersion < 2 {
                 migration.enumerateObjects(ofType: MountainModel.className()) { oldObject, newObject in
                     guard let new = newObject else { return }
                     guard let old = oldObject else { return }
