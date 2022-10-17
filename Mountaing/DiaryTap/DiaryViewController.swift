@@ -8,13 +8,37 @@
 import UIKit
 import FSCalendar
 import SnapKit
+import RealmSwift
 
 
 class DiaryViewController: BaseViewController, FSCalendarDelegate, FSCalendarDataSource {
     
+    
     fileprivate weak var calendar: FSCalendar!
     fileprivate weak var eventLabel : UILabel!
     
+    
+    let localRealm = try! Realm()
+    var selectDate : String = fromDatetoString(date: Date())
+    
+    var tasks : Results<DiaryModel>! {
+        didSet {
+            print("tasked changed!")
+            
+        }
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+       fetchRealm()
+    }
+    
+    func fetchRealm(){
+        tasks = localRealm.objects(DiaryModel.self).sorted(byKeyPath: "date", ascending: true)
+        print("==Realm is located at:", localRealm.configuration.fileURL!)
+        
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,16 +53,28 @@ class DiaryViewController: BaseViewController, FSCalendarDelegate, FSCalendarDat
         let scopeGesture = UIPanGestureRecognizer(target: calendar, action: #selector(calendar.handleScopeGesture(_:)))
         calendar.addGestureRecognizer(scopeGesture)
         
-        self.navigationItem.titleView = logoSetup()
+        let writeButton = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: #selector(writeButtonTapped))
         
+        self.navigationItem.rightBarButtonItem = writeButton
     }
     
+    @objc func writeButtonTapped() {
+        
+        let task = DiaryModel(title: nil, date: selectDate, location: nil, image: nil, content: nil, rate: nil)
+        try! localRealm.write({
+            localRealm.add(task)
+            print("realm Succed")
+        })
+        present(DetailViewController(), animated: true)
+        
+        
+    }
     
     override func configuration() {
         let calendar = FSCalendar(frame: CGRect(x: 15, y: (self.navigationController?.navigationBar.frame.maxY)!, width: view.frame.size.width - 30, height: view.frame.size.height * 0.5))
         calendar.dataSource = self
         calendar.delegate = self
-        calendar.allowsMultipleSelection = true
+        calendar.allowsMultipleSelection = false
         view.addSubview(calendar)
         self.calendar = calendar
         calendar.scope = .month
@@ -62,7 +98,7 @@ class DiaryViewController: BaseViewController, FSCalendarDelegate, FSCalendarDat
     
     func eventSetup(){
         
-      
+        
         let label = UILabel(frame: CGRect(x: 0, y: calendar.frame.maxY + 10 , width: self.view.frame.width, height: 50))
         label.textAlignment = .center
         label.font = Font.customfirst.largeFont
@@ -71,12 +107,12 @@ class DiaryViewController: BaseViewController, FSCalendarDelegate, FSCalendarDat
         label.textColor = colorCustom.shared.lightBlackColor
         self.view.addSubview(label)
         self.eventLabel = label
-
+        
         let attributedText = NSMutableAttributedString(string: "")
         attributedText.append(NSAttributedString(string: " Mountain Diary "))
-    
+        
         label.attributedText = attributedText
-
+        
         calendar.appearance.eventSelectionColor = colorCustom.shared.lightBlackColor
         calendar.appearance.eventDefaultColor = colorCustom.shared.greenColor
         calendar.appearance.borderRadius = 1
@@ -87,7 +123,7 @@ class DiaryViewController: BaseViewController, FSCalendarDelegate, FSCalendarDat
         calendar.appearance.weekdayTextColor = colorCustom.shared.greenColor
         calendar.appearance.titleWeekendColor = .systemRed
         calendar.appearance.titleDefaultColor = colorCustom.shared.lightBlackColor
-       
+        
         calendar.locale = Locale(identifier: "ko_KR")
         
     }
@@ -112,14 +148,10 @@ extension DiaryViewController : FSCalendarDelegateAppearance {
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         
-        
-//        let pushView = DetailViewController()
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy-mm-dd"
-//        pushView.mainView.dateLabel.text = dateFormatter.string(from: date)
-//
-//        self.navigationController?.pushViewController(pushView, animated: true)
-        
+        selectDate = fromDatetoString(date: calendar.selectedDate!)
+        print(selectDate)
+
+   
     }
     
     func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
@@ -140,8 +172,8 @@ extension DiaryViewController : FSCalendarDelegateAppearance {
     }
     
     
-        
-   
+    
+    
     
     
 }

@@ -13,7 +13,7 @@ class infoView: BaseView {
         super.init(frame: .zero)
         
         configuration()
-        setConstraints()
+        
     }
     
     required init?(coder: NSCoder) {

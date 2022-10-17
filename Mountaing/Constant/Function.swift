@@ -17,3 +17,20 @@ public func logoSetup() -> UIView {
     return imageView
  
 }
+
+public func changeDate(pickerView : UIDatePicker, label : UILabel) {
+   let dateformatter = DateFormatter()
+    dateformatter.locale = Locale(identifier: "ko_KR")
+    dateformatter.dateStyle = .long
+    dateformatter.timeStyle = .none
+    let date = dateformatter.string(from: pickerView.date)
+    label.text = date
+}
+
+public func fromDatetoString(date : Date) -> String {
+    let dateFormatter = DateFormatter()
+    let selectdate = dateFormatter.string(from: date)
+    return selectdate
+    
+}
+

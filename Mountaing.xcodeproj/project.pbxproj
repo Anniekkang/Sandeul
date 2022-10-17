@@ -23,6 +23,9 @@
 		9E6C32CE28F8763900062FB5 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C32CD28F8763900062FB5 /* DetailView.swift */; };
 		9E6C32D028F92F4A00062FB5 /* DiaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C32CF28F92F4A00062FB5 /* DiaryCell.swift */; };
 		9E6C32D228F935C400062FB5 /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C32D128F935C400062FB5 /* Function.swift */; };
+		9E6C32D428FCAF5800062FB5 /* BaseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C32D328FCAF5600062FB5 /* BaseTextField.swift */; };
+		9E6C32D628FCB2CE00062FB5 /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C32D528FCB2CD00062FB5 /* BaseLabel.swift */; };
+		9E6C32D828FCC0CB00062FB5 /* DiaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C32D728FCC0C700062FB5 /* DiaryModel.swift */; };
 		9E72500328D7B711000DF643 /* mountainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E72500228D7B711000DF643 /* mountainData.swift */; };
 		9E72500528D7B74E000DF643 /* HomeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E72500428D7B74E000DF643 /* HomeSection.swift */; };
 		9E72500728D7C01F000DF643 /* labelUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E72500628D7C01F000DF643 /* labelUI.swift */; };
@@ -82,6 +85,9 @@
 		9E6C32CD28F8763900062FB5 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		9E6C32CF28F92F4A00062FB5 /* DiaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCell.swift; sourceTree = "<group>"; };
 		9E6C32D128F935C400062FB5 /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
+		9E6C32D328FCAF5600062FB5 /* BaseTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextField.swift; sourceTree = "<group>"; };
+		9E6C32D528FCB2CD00062FB5 /* BaseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
+		9E6C32D728FCC0C700062FB5 /* DiaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryModel.swift; sourceTree = "<group>"; };
 		9E72500228D7B711000DF643 /* mountainData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mountainData.swift; sourceTree = "<group>"; };
 		9E72500428D7B74E000DF643 /* HomeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSection.swift; sourceTree = "<group>"; };
 		9E72500628D7C01F000DF643 /* labelUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = labelUI.swift; sourceTree = "<group>"; };
@@ -280,6 +286,8 @@
 				9ED7697728D063BA002D2574 /* BaseView.swift */,
 				9ED7698C28D184B1002D2574 /* BaseTableViewCell.swift */,
 				9ED7699128D18564002D2574 /* BaseCollectionViewCell.swift */,
+				9E6C32D328FCAF5600062FB5 /* BaseTextField.swift */,
+				9E6C32D528FCB2CD00062FB5 /* BaseLabel.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -288,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				9ED7697928D063F8002D2574 /* MountainModel.swift */,
+				9E6C32D728FCC0C700062FB5 /* DiaryModel.swift */,
 				9EC2F77828E0906600DBC759 /* Repository.swift */,
 			);
 			path = Realm;
@@ -452,6 +461,7 @@
 				9ED7695928D06099002D2574 /* AppDelegate.swift in Sources */,
 				9EF6ACB928D757B8000551E1 /* DataStruct.swift in Sources */,
 				9ED7699228D18564002D2574 /* BaseCollectionViewCell.swift in Sources */,
+				9E6C32D628FCB2CE00062FB5 /* BaseLabel.swift in Sources */,
 				9EF6ACAC28D710A9000551E1 /* infoView.swift in Sources */,
 				9EC2F7A128E1698300DBC759 /* RealmSave.swift in Sources */,
 				9ED7698D28D184B1002D2574 /* BaseTableViewCell.swift in Sources */,
@@ -465,6 +475,7 @@
 				9ED7697828D063BA002D2574 /* BaseView.swift in Sources */,
 				9ECE2EA028F478F5002D83F2 /* OnboardingViewController.swift in Sources */,
 				9ED7695B28D06099002D2574 /* SceneDelegate.swift in Sources */,
+				9E6C32D428FCAF5800062FB5 /* BaseTextField.swift in Sources */,
 				9E5AE26F28DC00DD00D40B7B /* TableViewExtension.swift in Sources */,
 				9E6C32CC28F8761500062FB5 /* DetailViewController.swift in Sources */,
 				9E65EB6728E4ABE300D41737 /* ColorCustom.swift in Sources */,
@@ -474,6 +485,7 @@
 				9EF6ACAA28D70E89000551E1 /* SearchBarExtension.swift in Sources */,
 				9ECE2E9C28F46D9B002D83F2 /* Userdefaults.swift in Sources */,
 				9EF6AC9228D4DC6D000551E1 /* SearchTableViewCell.swift in Sources */,
+				9E6C32D828FCC0CB00062FB5 /* DiaryModel.swift in Sources */,
 				9ED7699028D1850B002D2574 /* Reusableprotocol.swift in Sources */,
 				9EF6AC9A28D5C99E000551E1 /* FirstViewController.swift in Sources */,
 			);
