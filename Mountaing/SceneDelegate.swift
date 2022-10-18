@@ -27,11 +27,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let nav2 = UINavigationController(rootViewController: searchVC)
 //        let filterVC = FilterViewController()
 //        let nav3 = UINavigationController(rootViewController: filterVC)
-        let diaryVC = DiaryViewController()
-        let nav4 = UINavigationController(rootViewController: diaryVC)
+     //   let diaryVC = DiaryViewController()
+  //      let nav4 = UINavigationController(rootViewController: diaryVC)
         
         
-        mainTabBar.setViewControllers([nav1,nav2,nav4], animated: true)
+        mainTabBar.setViewControllers([nav1,nav2], animated: true)
         
         if let items = mainTabBar.tabBar.items {
             items[0].selectedImage = UIImage(systemName: "house.fill")
@@ -47,8 +47,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            items[2].image = UIImage(systemName: "line.3.horizontal.decrease.circle")
 //            
             
-            items[2].selectedImage = UIImage(systemName: "book.fill")
-            items[2].image = UIImage(systemName: "book")
+ //           items[2].selectedImage = UIImage(systemName: "book.fill")
+   //         items[2].image = UIImage(systemName: "book")
 
         }
        
